@@ -1,0 +1,27 @@
+.navbar.d-flex.align-items-center.justify-content-between
+  .navbar__logo.d-flex.align-items-center
+    span.name forum
+    img.navbar__logo-image(src="../img/menu-logo.png" alt="forum logo")
+    span.subname group
+  ul.navbar__menu.nav.d-none.d-sm-flex#menu
+    mixin nav-mixin(name, href, data)
+      li(class="nav__item" data-menuanchor=data)
+        a.nav__link(href=href)= name
+    +nav-mixin('о компании', "#about", 'about-page')
+    +nav-mixin('галерея', "#gallery", 'gallery-page')
+    +nav-mixin('проекты', "#projects", 'projects-page')
+    +nav-mixin('контакты', "#contacts", 'contacts-page')
+  .navbar__phone
+    span.country +7
+    span.code (812) 
+    | 596-86-00
+  .hamburger#hamburger-9.d-block.d-sm-none
+    span.line
+    span.line
+    span.line
+ul.navbar__dropdown-menu.d-block.d-sm-none
+  +nav-mixin('о компании', "#about", 'about-page')
+  +nav-mixin('галерея', "#gallery", 'gallery-page')
+  +nav-mixin('проекты', "#projects", 'projects-page')
+  +nav-mixin('контакты', "#contacts", 'contacts-page')
+

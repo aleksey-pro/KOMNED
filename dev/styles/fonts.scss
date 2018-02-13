@@ -1,0 +1,51 @@
+////////////////////////////////////////////////////////////////////////////////////////////
+////                                    FONTS                                      /////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+@font-face {
+    font-family: 'carlito-regular-webfont';
+    src: url('../fonts/carlito-regular-webfont.woff2') format('woff2'),
+         url('../fonts/carlito-regular-webfont.woff') format('woff');
+         src: url('../fonts/carlito-regular-webfont.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'liberation_sansregular';
+    src: url('../fonts/liberationsans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/liberationsans-regular-webfont.woff') format('woff');
+    src: url('../fonts/liberationsans-regular-webfont.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'liberation_serifbold';
+    src: url('../fonts/liberationserif-bold-webfont.woff2') format('woff2'),
+         url('../fonts/liberationserif-bold-webfont.woff') format('woff');
+    src: url('../fonts/liberationserif-bold-webfont.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'liberation_serifitalic';
+    src: url('../fonts/liberationserif-italic-webfont.woff2') format('woff2'),
+         url('../fonts/liberationserif-italic-webfont.woff') format('woff');
+    src: url('../fonts/liberationserif-italic-webfont.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'liberation_serifregular';
+    src: url('../fonts/liberationserif-regular-webfont.woff2') format('woff2'),
+         url('../fonts/liberationserif-regular-webfont.woff') format('woff');
+    src: url('../fonts/liberationserif-regular-webfont.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
