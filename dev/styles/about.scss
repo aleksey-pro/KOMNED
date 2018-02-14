@@ -1,0 +1,78 @@
+#about {
+	background: #001ceb url('../img/piter.png') bottom center no-repeat;
+	background-size: contain;
+    height: 100%;
+    padding-top: 1rem;
+    padding-top: 100px;
+
+	@include media-breakpoint-up(xxl) {
+		padding-top: 140px;
+	}
+}
+
+.about__container {
+	margin-bottom: 70px;
+    @include media-breakpoint-up(sm) {
+		margin-bottom: 170px;
+	}
+    @include media-breakpoint-up(lg) {
+		margin-bottom: 270px;
+	}	
+
+}
+
+.title {
+	margin-bottom: 30px;
+	text-align: center;
+    @include media-breakpoint-up(lg) {
+		margin-bottom: 100px;
+	}
+
+	&__main-name {
+		font-size: 7.8rem;
+		margin-bottom: 0;
+		font-family: Georgia, serif;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	&__main-subname {
+		font-size: 2rem;
+		font-family: Georgia, serif;
+		font-style: italic;
+	}
+	&__main-est {
+		font-size: 1.5rem;
+		font-family: Georgia, serif;
+		span {
+			font-weight: bold;
+		}		
+	}
+	&__main-sub {
+		font-family: Arial, sans-serif;
+		font-style: italic;
+		font-size: 0.8rem;
+	}
+}
+
+.description {
+	text-align: center;	
+	font-size: 1.82rem;
+
+	.description__par:first-child {
+		margin-bottom: 30px;
+	    @include media-breakpoint-up(xxl) {
+			margin-bottom: 100px;
+		}
+	}
+
+	.description__text--orange {
+		color: $text-oran-color;
+	}
+	.description__text--red {
+		color: $text-red-color;
+	}
+}
+
+.about-image {
+	width: 100%;
+}

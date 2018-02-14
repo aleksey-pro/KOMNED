@@ -133,6 +133,6 @@ gulp.task ('watch', function(){
 	gulp.watch('dev/js/*.js', ['js']);
 });
 
-gulp.task ('default', ['html', 'vendorsJS', 'js', 'style', 'js.lint', 'browserSync', 'watch', 'fix-js']);
+gulp.task ('default', ['html', 'vendorsJS', 'js', 'style', 'browserSync', 'watch', 'fix-js']);
 gulp.task ('build', ['html', 'vendorsJS', 'js', 'images', 'sprite', 'fonts', 'style']);
 gulp.task('del', function() {return del.sync('prod'); });

@@ -1,0 +1,52 @@
+// varaibles
+
+$text-main-color: #ffffff;
+$text-red-color: #d34500;
+$text-yel-color: #ffea00;
+$text-oran-color: #db8353;
+
+$bg-color: #001ceb;
+$dark-blue: #000a53;
+
+// mixins
+
+@mixin cleanUlList() {
+    list-style-type: none;
+    -webkit-margin-before: 0;
+    -moz-margin-before: 0;
+    -webkit-margin-after: 0;
+    -moz-margin-after: 0;
+    -webkit-margin-start: 0;
+    -moz-margin-start: 0;
+    -webkit-margin-end: 0;
+    -moz-margin-end: 0;
+    -webkit-padding-start: 0;
+    -moz-padding-start: 0;
+
+    & li {
+	    margin         : 0;
+	    padding        : 0;
+	    border         : 0;
+	    font-size      : 100%;
+	    font           : inherit;
+	    vertical-align : baseline;
+    }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
