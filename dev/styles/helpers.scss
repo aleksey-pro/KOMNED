@@ -10,6 +10,27 @@ $dark-blue: #000a53;
 
 // mixins
 
+@mixin box-shadow {
+  box-shadow:  0px 0px 20px 10px rgba(50, 50, 50, 0.7);
+}
+
+@mixin inset-box-shadow {
+  box-shadow: inset 0px 0px 25px 20px rgba(50, 50, 50, 0.7);
+}
+
+.text-orange {
+  color: $text-oran-color;
+}
+
+.text-red {
+  color: $text-red-color;
+}
+
+.text-yell {
+  color: $text-yel-color; 
+}
+
+
 @mixin cleanUlList() {
     list-style-type: none;
     -webkit-margin-before: 0;

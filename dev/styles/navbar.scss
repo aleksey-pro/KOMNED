@@ -2,8 +2,16 @@
 	height: 68px;
 	padding: 0 20px;
 	position: fixed;
+	z-index: 100;
 	top: 0;
 	width: 100%;
+	display: flex;
+	transition: opacity 0.5s ease-in;
+
+	&--hidden {
+		opacity: 0;
+	}
+	
 
 	background-color: $dark-blue;
 
@@ -42,12 +50,6 @@
 .navbar__phone {
 	font-size: 2.6rem;
 	font-family: 'carlito-regular-webfont', Arial;
-	.country {
-		color: $text-oran-color;
-	}
-	.code {
-		color: $text-yel-color;
-	}
 }
 
 .nav {

@@ -2,8 +2,8 @@
 	background: #001ceb url('../img/piter.png') bottom center no-repeat;
 	background-size: contain;
     height: 100%;
-    padding-top: 1rem;
-    padding-top: 100px;
+    padding-top: 100px;	
+    overflow: hidden;
 
 	@include media-breakpoint-up(xxl) {
 		padding-top: 140px;
@@ -64,15 +64,36 @@
 			margin-bottom: 100px;
 		}
 	}
+}
 
-	.description__text--orange {
-		color: $text-oran-color;
-	}
-	.description__text--red {
-		color: $text-red-color;
+.about__map {
+	display: block;
+	position: relative;
+	@include box-shadow;
+	&-image {
+		width: 100%;		
 	}
 }
 
-.about-image {
-	width: 100%;
+.map-btn {
+	position: absolute;
+	bottom: 3.1rem;
+	right: 2.3rem;
+	width: 86px;
+	height: 100px;
+	&__title {
+		text-align: center;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+		color: $text-yel-color;		
+	}
+	&__image {
+		width: 100%;
+	}
+    @include media-breakpoint-up(lg) {
+		width: 176px;
+		height: 200px;
+		bottom: 8.1rem;
+		right: 9.3rem;
+	}
 }

@@ -1,0 +1,91 @@
+section#contacts {
+	padding-top: 100px;
+	overflow: hidden;
+
+	@include media-breakpoint-up(xxl) {
+		padding: 140px 0 20px;
+	}	
+}
+
+.contacts-data {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.56rem;
+	font-family: 'liberation_sansregular', Arial;
+
+	& > * {
+		margin-bottom: 30px;
+		text-align: center;
+	}
+
+	&__logo {
+	    width: 72px;
+	    height: 74px;
+	    margin-left: auto;	    
+	    margin-right: auto;	    
+	}
+	p {
+		line-height: 1.1rem;
+	}
+}
+
+.contacts-form {
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		padding: 35px 25px 25px;
+		background: transparent url('../img/letter-bg.png') center top no-repeat;
+		background-size: contain;
+		
+		margin-right: 1rem;
+
+		@include media-breakpoint-up(md) {
+			padding: 65px 65px 35px;
+		}
+
+		@include inset-box-shadow;
+	}
+
+	&__logo {
+		margin: 0 auto 10px;
+	}
+	&__input {	
+		margin-bottom: 20px;	
+		padding: 15px 20px;
+		@include placeholder {			
+			color: #001eff;
+			font-size: 1.56rem;
+			font-family: 'carlito-regular-webfont', Arial;
+			font-style: italic;			
+		}
+	}
+}
+
+.contacts-form__btn {
+	width: 220px;
+	background-color: #dc8e57;
+	color: #000000;
+	font-size: 1.56rem;
+	font-family: 'carlito-regular-webfont', Arial;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	height: 33px;
+	margin: 0 auto;
+	border: none;
+	@include media-breakpoint-up(md) {
+		height: 53px;
+	}
+
+}
+
+.map {
+	@include box-shadow;
+}
+
+.contacts-map {
+	margin-top: 70px;
+}
+
+
+

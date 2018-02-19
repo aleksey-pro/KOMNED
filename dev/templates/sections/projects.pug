@@ -1,0 +1,28 @@
+section#projects
+  .container-fluid.projects-gallery
+    .row
+      mixin projectItem(cls, href, source, alt, title, desc, contact)
+        figure(class=`${cls}__item`)&attributes(attributes).col-12.col-sm-6.col-lg-4
+          picture          
+            img(src=source class=`${cls}__img` alt=alt)
+          figcaption(class=`${cls}__caption`)
+            a(href=href class=`${cls}__link`)
+            div(class=`${cls}__title`)=title
+            div(class=`${cls}__desc`)=desc
+            div(class=`${cls}__contact`)=contact
+
+      +projectItem('projects-gallery', '#', '../img/proj-kvartz.jpg', 'бц кварц', 'БИЗНЕС-ЦЕНТР «КВАРЦ»', 'Расположенный в Красногвардейском районе Санкт-Петербурга, предлагает в аренду офисные помещения, склады. Удобная транспортная доступность, 
+      парковка, контроль доступа, видеонаблюдение, современный высококачественный ремонт, конференц-зал, кафе.', 'Сайт: кварц.рф Телефоны: +7 (812) 591-88-88, +7 (812) 927-92-26')
+      +projectItem('projects-gallery', '#', '../img/proj-atoll.jpg', 'бц атолл')
+      +projectItem('projects-gallery', '#', '../img/proj-forum.jpg', 'бц форум')
+      +projectItem('projects-gallery', '#', '../img/proj-komned.jpg', 'комнед')
+      +projectItem('projects-gallery', '#', '../img/proj-landskrona.jpg', 'ландскрона')
+      +projectItem('projects-gallery', '#', '../img/proj-horizont.jpg', 'горизонт')
+
+  .container-fluid.partners
+    h2.partners__title наши партнеры
+    .row
+      +projectItem('partners', 'http://ptd.spb.ru', '../img/partners-ptd.jpg', 'птд')
+      +projectItem('partners', 'http://svirhleb.ru', '../img/partners-svir.jpg', 'свирь хлеб')
+      +projectItem('partners', 'http://veresk-vafli.ru', '../img/partners-veresk.jpg', 'вереск').offset-sm-3.offset-lg-0
+      

@@ -101,12 +101,24 @@ gulp.task('style', function() {
 
 
 gulp.task('vendorsJS', function(){
-  return gulp.src(['./node_modules/bootstrap/dist/js/bootstrap.min.js', './node_modules/jquery/dist/jquery.min.js']) 
-    .pipe(gulp.dest('prod/js')); 
+  return gulp.src([
+    './node_modules/bootstrap/dist/js/bootstrap.min.js',
+    './node_modules/jquery/dist/jquery.min.js',
+    './node_modules/three/build/three.min.js'
+  ]) 
+  .pipe(gulp.dest('prod/js')); 
 });
 
 gulp.task('js', function() {
-  return gulp.src('dev/js/*.js')
+  // return gulp.src('dev/js/*.js')
+  return gulp.src([
+    'dev/js/ColladaLoader.js',
+    'dev/js/Detector.js',
+    'dev/js/OrbitControls.js',
+    'dev/js/stats.min.js',
+    'dev/js/logo.js',
+    'dev/js/scripts.js'
+  ])
     .pipe(sourcemaps.init())
     // .pipe(filter('**/*.js'))
     .pipe(concat('custom.js'))
@@ -125,7 +137,7 @@ gulp.task('lint-css', function () {
     }));
 });
 
-autoFixTask('fix-js', ['dev/js/*.js']);
+autoFixTask('fix-js', ['dev/js/script.js']);
 
 gulp.task ('watch', function(){
 	gulp.watch('dev/templates/**/*.pug', ['html']);

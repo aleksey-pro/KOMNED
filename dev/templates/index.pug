@@ -6,6 +6,7 @@ html(lang="en")
     title Группа компаний форум
     meta(name="description" content="")
     link(rel="shortcut icon" type="image/x-icon" href="/favicon.ico")
+    script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU")
     link(rel="stylesheet" href="css/main.css")
     //if lte IE 9
      p.browsehappy
@@ -15,7 +16,7 @@ html(lang="en")
       a(href="http://browsehappy.com/") обновите его
   body
     include components/navbar   
-    include sections/main
+    include sections/front
     include sections/about
     include sections/gallery
     include sections/projects
@@ -23,5 +24,7 @@ html(lang="en")
     include components/footer
 
   script(src="js/jquery.min.js")
-  script(src="js/bootstrap.min.js")
+  //- script(src="js/bootstrap.min.js")
+  script(src="js/three.min.js")
   script(src="js/custom.js")
+

@@ -8,7 +8,8 @@
   "private": false,
   "dependencies": {
     "bootstrap": "^4.0.0",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "three": "^0.90.0"
   },
   "scripts": {
     "lintcss": "stylelint ./dev/styles/**/*.scss; exit 0"
