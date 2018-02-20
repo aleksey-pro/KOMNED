@@ -87,6 +87,9 @@
 			top: -20px;
 			right: 0;
 		}
+		&--active {
+			color: $text-yel-color;
+		}
 	}
 
 	&__link {

@@ -1,8 +1,9 @@
 .navbar.navbar--hidden.align-items-center.justify-content-between
-  .navbar__logo.d-flex.align-items-center
-    span.name forum
-    img.navbar__logo-image(src="../img/menu-logo.png" alt="forum logo")
-    span.subname group
+  a(href="#front" title='Наверх').navbar-toplik
+    .navbar__logo.d-flex.align-items-center
+      span.name forum
+      img.navbar__logo-image(src="../img/menu-logo.png" alt="forum logo")
+      span.subname group
   ul.navbar__menu.nav.d-none.d-sm-flex#menu
     mixin nav-mixin(name, href, data)
       li(class="nav__item" data-menuanchor=data)

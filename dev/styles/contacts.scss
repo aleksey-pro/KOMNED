@@ -52,11 +52,15 @@ section#contacts {
 	&__input {	
 		margin-bottom: 20px;	
 		padding: 15px 20px;
+		color: #001eff;
+		font-size: 1.56rem;
+		font-family: 'carlito-regular-webfont', Arial;
+
 		@include placeholder {			
-			color: #001eff;
-			font-size: 1.56rem;
-			font-family: 'carlito-regular-webfont', Arial;
-			font-style: italic;			
+			color: inherit;
+			font-size: inherit;
+			font-family: inherit;
+			font-style: italic;	
 		}
 	}
 }
@@ -73,6 +77,13 @@ section#contacts {
 	height: 33px;
 	margin: 0 auto;
 	border: none;
+	transition: all 0.3s ease-in;
+
+	&:hover {
+		cursor: pointer;
+		background-color: darken(#dc8e57, 20%);
+	}
+
 	@include media-breakpoint-up(md) {
 		height: 53px;
 	}
