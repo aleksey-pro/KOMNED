@@ -1,9 +1,10 @@
 section#contacts {
-	padding-top: 100px;
+	padding-top: calc(#{$navbar-height} + 80px);
 	overflow: hidden;
 
 	@include media-breakpoint-up(xxl) {
-		padding: 140px 0 20px;
+		padding-top: calc(#{$navbar-height-w} + 20px);;
+		padding-bottom: 20px;
 	}	
 }
 

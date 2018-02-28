@@ -18,70 +18,73 @@
 }
 
 .menu-trigger {
-	position: absolute;
-	top: 66px;
-	left: 70px;
-    width: 58px;
-    height: 48px;
-    z-index: 100;
-    display: inline-block;
-
-	&__line {
-		width: 58px;
-    	height: 10px;
-    	background-color: $text-yel-color;
-    	display: block;
-    	margin: 3px auto;
-    	transition: all 0.3s ease-in-out;	
-	}
-
-	&:hover {
-		cursor: pointer;
-	}
-}
-
-
-#hamburger-10 {
   position: relative;
   transition: all 0.3s ease-in-out;
+	// top: 66px;
+  top: 4.7rem;
+	left: 70px;
+  z-index: 200;
+  display: block;
+
+	&__line {
+		  width: 58px;
+    	height: 10px;
+    	background-color: $text-main-color;
+    	display: block;
+    	margin: 8px 0;
+    	transition: all 0.3s ease-in-out;
+	}
+
+  &:hover {
+    cursor: pointer;    
+  }
+
+  &:hover > * {
+    background-color: $text-yel-color;
+  }
+
 }
 
-#hamburger-10.is-active {
-  transform: rotate(45deg);
+#hamburger-10.is-hidden {
+  display: none;
 }
 
-#hamburger-10:before {
-  content: "";
-  position: absolute;
-  box-sizing: border-box;
-  width: 40px;
-  height: 40px;
-  border: 2px solid transparent;
-  top: calc(50% - 20px);
-  left: calc(50% - 20px);
-  border-radius: 100%;
-  transition: all 0.3s ease-in-out;
-}
+// #hamburger-10.is-active {
+//   transform: rotate(45deg);
+// }
 
-#hamburger-10.is-active:before {
-  border: 2px solid $text-yel-color;
-}
+// #hamburger-10:before {
+//   content: "";
+//   position: absolute;
+//   box-sizing: border-box;
+//   width: 60px;
+//   height: 60px;
+//   border: 2px solid transparent;
+//   top: calc(50% - 24px);
+//   left: calc(50% - 29px);
+//   border-radius: 100%;
+//   transition: all 0.3s ease-in-out;
+// }
 
-#hamburger-10.is-active .line {
-  width: 20px;
-}
+// #hamburger-10.is-active:before {
+//   border: 1px solid $text-yel-color;
+// }
 
-
-#hamburger-10.is-active .line:nth-child(2) {
-  opacity: 0;
-}
-
-
-#hamburger-10.is-active .line:nth-child(1) {
-  transform: translateY(5px);
-}
+// #hamburger-10.is-active .menu-trigger__line {
+//   width: 20px;
+// }
 
 
-#hamburger-10.is-active .line:nth-child(3) {
-  transform: translateY(-5px) rotate(90deg);
-}
+// #hamburger-10.is-active .menu-trigger__line:nth-child(2) {
+//   opacity: 0;
+// }
+
+
+// #hamburger-10.is-active .menu-trigger__line:nth-child(1) {
+//   transform: translateY(20px);  
+// }
+
+
+// #hamburger-10.is-active .menu-trigger__line:nth-child(3) {
+//   transform: translateY(-7px) rotate(90deg);
+// }

@@ -1,15 +1,16 @@
 #gallery {
-	padding-top: 100px;
+	padding-top: calc(#{$navbar-height} + 80px);
 	margin-bottom: 100px;
 	overflow: hidden;
 
 	@include media-breakpoint-up(xxl) {
-		padding-top: 140px;
+		padding-top: calc(#{$navbar-height-w} + 80px);
 	}	
 }
 
 .gallery-desc {
 	text-align: center;
+	font-size: 1.56rem;
 	&__title {
 		margin-bottom: 30px;
 	}

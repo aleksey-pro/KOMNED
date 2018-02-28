@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title Группа компаний форум
+    meta(name="description" content="")
+    link(rel="shortcut icon" type="image/x-icon" href="/favicon.ico")
+    script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU")
+    link(rel="stylesheet" href="css/main.css")
+    //if lte IE 9
+     p.browsehappy
+      | Вы используете
+      strong устаревший
+      | браузер. Пожалуйста
+      a(href="http://browsehappy.com/") обновите его
+  body  
+    section.projectpage-section
+      include components/navbar
+      block vars
+
+      .container-fluid
+        .row.projectpage-heading
+          figure(class= 'projectpage-heading__item')  
+            picture
+              img(src=`${src}` class ='projectpage-heading__img')
+              figcaption(class='projectpage-heading__caption d-flex justify-content-around')
+                div(class= 'projectpage-heading__title text-yell')= title
+                div(class= 'projectpage-heading__desc')!=  desc
+                div(class= 'projectpage-heading__contact')!= contacts
+
+      .grid
+        .grid__sizer
+        each photo in photos
+          .grid__item
+            img(src=photo alt='форум').grid__image
+            
+      include components/map
+    include components/footer
+
+  script(src="js/jquery.min.js")
+  script(src="js/imagesloaded.pkgd.min.js") 
+  script(src="js/masonry.pkgd.min.js")
+  script(src="js/projects.js")

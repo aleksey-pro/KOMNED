@@ -21,7 +21,31 @@ section#about
       | — команда единомышленников, многие из которых работают в компании более 20 лет!  
 picture.about__map
   source(srcset="../img/lake.jpg" media="max-width: 768px")
-  img.about__map-image(src="../img/lake.jpg" alt="forum")
+  img.about__map-image(src="img/lake.jpg" alt="forum" usemap="#map")  
+  map(name='map')
+    mixin area(href, coords, alt)
+      area(target="_blank" shape="rect" coords=coords alt=alt href=href)
+    +area("http://xn--d1aboife.xn--p1ai/objects/pos-melnikovo/", "880,77,995,106", "База отдыха")
+    +area("http://xn--d1aboife.xn--p1ai/objects/ekaterinovka-2/", "331,24,401,35", "Екатериновка")
+    +area("", "841,266,956,290", "Энгельса 109")
+    +area("http://бц-атолл.рф", "1006,313,1111,341", "б/ц Атолл")
+    +area("http://xn--d1aboife.xn--p1ai/objects/engelsa-pr-53-3/", "839,384,952,410", "Энгельса 53")
+    +area("", "850,442,958,468", "Энгельса 21")
+    +area("http://ландскрона.рф", "573,330,687,352", "Ландскрона")
+    +area("http://кварц.рф", "1078,480,1170,509", "б/ц Кварц")    +
+    +area("http://xn--d1aboife.xn--p1ai/objects/shamsheva-ul-17-2/", "778,620,878,646", "Шамшева 17")
+    +area("http://xn--d1aboife.xn--p1ai/objects/smolnyj-pr-6-2/", "985,685,1099,711", "Смольный 6")
+    +area("http://xn--d1aboife.xn--p1ai/objects/bolsheohtinskij-pr-1-3/", "1015,649,1174,677", "Большеохтинский 1")
+    +area("http://xn--d1aboife.xn--p1ai/objects/millionnaya-ul-25/", "835,692,956,717", "Миллионная 25")
+    +area("", "960,767,1077,797", "Тележная 17")
+    +area("http://xn--d1aboife.xn--p1ai/objects/spasskij-per-5/", "823,751,923,777", "Спасский пер 3")
+    +area("http://xn--d1aboife.xn--p1ai/objects/ispolkomskaya-ul-8-2/", "952,735,1079,759", "Исполкомская 8")
+    +area("http://xn--47-glcqe5aecpy.xn--p1ai/", "1359,491,1475,518", "Горизонт")
+    +area("http://xn--d1aboife.xn--p1ai/objects/nikolskij-per-7-2/", "795,794,904,818", "Никольский 7")
+    +area("http://бцфорум.рф", "767,895,868,1021", "б/ц Форум")
+    +area("http://xn--d1aboife.xn--p1ai/objects/moskovskoe-shosse-79-2/", "428,151,479,163", "Московское ш, 79")
+
   .map-btn
     .map-btn__title на яндекс картах
-    img(src="../img/map-btn.png" alt="forum map").map-btn__image
+      a(href='#map' alt = 'на карту')
+        img(src="img/map-btn.png" alt="forum map").map-btn__image

@@ -2549,16 +2549,18 @@ a:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transition: opacity 0.5s ease-in;
-  -o-transition: opacity 0.5s ease-in;
-  transition: opacity 0.5s ease-in;
-  background-color: #000a53;
-  height: 108px;
+  -webkit-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  -webkit-box-shadow: 0px 0px 20px 10px #323232;
+          box-shadow: 0px 0px 20px 10px #323232;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: calc(68px * 1.59);
   padding: 0 70px;
 }
 
 .navbar--hidden {
-  opacity: 0;
+  display: none;
 }
 
 .navbar__logo .name {
@@ -2623,14 +2625,13 @@ a:active {
 .nav__item:before {
   content: '';
   display: block;
-  background-image: url(../img/sprite.png);
-  background-position: -1383px -307px;
+  background-image: url(../img/menu-divider.png);
   width: 2px;
-  height: 80px;
+  height: 50px;
   position: absolute;
   height: 80px;
   left: 0;
-  top: -20px;
+  top: -17px;
 }
 
 @media (min-width: 576px) {
@@ -2648,13 +2649,12 @@ a:active {
 .nav__item:last-child:after {
   content: '';
   display: block;
-  background-image: url(../img/sprite.png);
-  background-position: -1383px -307px;
+  background-image: url(../img/menu-divider.png);
   width: 2px;
-  height: 80px;
+  height: 50px;
   position: absolute;
   height: 80px;
-  top: -20px;
+  top: -17px;
   right: 0;
 }
 
@@ -2670,7 +2670,7 @@ a:active {
   }
 }
 
-.nav__item--active {
+.nav__item--active a {
   color: #ffea00;
 }
 
@@ -2814,21 +2814,22 @@ a:active {
 }
 
 .menu-trigger {
-  position: absolute;
-  top: 66px;
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  top: 4.7rem;
   left: 70px;
-  width: 58px;
-  height: 48px;
-  z-index: 100;
-  display: inline-block;
+  z-index: 200;
+  display: block;
 }
 
 .menu-trigger__line {
   width: 58px;
   height: 10px;
-  background-color: #ffea00;
+  background-color: #ffffff;
   display: block;
-  margin: 3px auto;
+  margin: 8px 0;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -2838,66 +2839,21 @@ a:active {
   cursor: pointer;
 }
 
-#hamburger-10 {
-  position: relative;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+.menu-trigger:hover > * {
+  background-color: #ffea00;
 }
 
-#hamburger-10.is-active {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-#hamburger-10:before {
-  content: "";
-  position: absolute;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 40px;
-  height: 40px;
-  border: 2px solid transparent;
-  top: calc(50% - 20px);
-  left: calc(50% - 20px);
-  border-radius: 100%;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-#hamburger-10.is-active:before {
-  border: 2px solid #ffea00;
-}
-
-#hamburger-10.is-active .line {
-  width: 20px;
-}
-
-#hamburger-10.is-active .line:nth-child(2) {
-  opacity: 0;
-}
-
-#hamburger-10.is-active .line:nth-child(1) {
-  -webkit-transform: translateY(5px);
-      -ms-transform: translateY(5px);
-          transform: translateY(5px);
-}
-
-#hamburger-10.is-active .line:nth-child(3) {
-  -webkit-transform: translateY(-5px) rotate(90deg);
-      -ms-transform: translateY(-5px) rotate(90deg);
-          transform: translateY(-5px) rotate(90deg);
+#hamburger-10.is-hidden {
+  display: none;
 }
 
 #about {
   background: #001ceb url("../img/piter.png") bottom center no-repeat;
   background-size: contain;
   height: 100%;
-  padding-top: 100px;
+  padding-top: calc(68px + 40px);
   overflow: hidden;
-  padding-top: 140px;
+  padding-top: calc(calc(68px * 1.59) + 40px);
 }
 
 .about__container {
@@ -2969,8 +2925,8 @@ a:active {
 .about__map {
   display: block;
   position: relative;
-  -webkit-box-shadow: 0px 0px 20px 10px rgba(50, 50, 50, 0.7);
-          box-shadow: 0px 0px 20px 10px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: 0px 0px 20px 10px #323232;
+          box-shadow: 0px 0px 20px 10px #323232;
 }
 
 .about__map-image {
@@ -3005,15 +2961,20 @@ a:active {
   }
 }
 
+area:hover {
+  cursor: pointer;
+}
+
 #gallery {
-  padding-top: 100px;
+  padding-top: calc(68px + 80px);
   margin-bottom: 100px;
   overflow: hidden;
-  padding-top: 140px;
+  padding-top: calc(calc(68px * 1.59) + 80px);
 }
 
 .gallery-desc {
   text-align: center;
+  font-size: 1.56rem;
 }
 
 .gallery-desc__title {
@@ -3195,16 +3156,21 @@ a:active {
 }
 
 .partners__img--active {
-  -webkit-box-shadow: 0px 0px 20px 10px rgba(50, 50, 50, 0.7);
-          box-shadow: 0px 0px 20px 10px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: 0px 0px 20px 10px #323232;
+          box-shadow: 0px 0px 20px 10px #323232;
   position: relative;
   z-index: 2;
 }
 
+.partners__img--darkened {
+  opacity: 0.4;
+}
+
 section#contacts {
-  padding-top: 100px;
+  padding-top: calc(68px + 80px);
   overflow: hidden;
-  padding: 140px 0 20px;
+  padding-top: calc(calc(68px * 1.59) + 20px);
+  padding-bottom: 20px;
 }
 
 .contacts-data {
@@ -3247,8 +3213,8 @@ section#contacts {
   background: transparent url("../img/letter-bg.png") center top no-repeat;
   background-size: contain;
   margin-right: 1rem;
-  -webkit-box-shadow: inset 0px 0px 25px 20px rgba(50, 50, 50, 0.7);
-          box-shadow: inset 0px 0px 25px 20px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: inset 0px 0px 25px 15px #323232;
+          box-shadow: inset 0px 0px 25px 15px #323232;
 }
 
 @media (min-width: 768px) {
@@ -3328,12 +3294,75 @@ section#contacts {
 }
 
 .map {
-  -webkit-box-shadow: 0px 0px 20px 10px rgba(50, 50, 50, 0.7);
-          box-shadow: 0px 0px 20px 10px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: 0px 0px 20px 10px #323232;
+          box-shadow: 0px 0px 20px 10px #323232;
 }
 
 .contacts-map {
   margin-top: 70px;
+}
+
+.projectpage-section {
+  background-color: #ffffff;
+}
+
+.projectpage-section .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.projectpage-heading {
+  position: relative;
+}
+
+.projectpage-heading__caption {
+  position: absolute;
+  padding: 0 70px;
+  top: calc(68px + 5%);
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 2.08rem;
+  font-family: 'carlito-regular-webfont', Arial;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: calc(calc(68px * 1.59) + 5%);
+}
+
+.projectpage-heading__title {
+  text-align: center;
+  font-size: 3.64rem !important;
+  font-weight: bold;
+}
+
+/* ---- grid ---- */
+.grid {
+  margin: 0 70px;
+  height: auto !important;
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid__item {
+  float: left;
+}
+
+.grid__item img {
+  display: block;
+  max-width: 100%;
+}
+
+.grid__sizer, .grid__item {
+  margin-bottom: 7px;
+  width: 33.333%;
 }
 
 .footer {

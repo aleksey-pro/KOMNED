@@ -1,0 +1,64 @@
+.projectpage-section {
+	background-color: #ffffff;
+	.navbar {
+		display: flex;		
+	}
+}
+
+.projectpage-heading {
+	position: relative;
+
+
+	&__caption {
+		position: absolute;
+		padding: 0 70px;
+	    top: calc(#{$navbar-height} + 5%);
+	    bottom: 5%;
+	    left: 0;
+	    right: 0;
+		background-color: rgba(#000, 0.6);
+		font-size: 2.08rem;
+		font-family: 'carlito-regular-webfont', Arial;
+
+		flex-direction: column;
+
+		@include media-breakpoint-up(xxl) {
+			top: calc(#{$navbar-height-w} + 5%);
+		}
+	}
+
+
+	&__title {
+		text-align: center;
+		font-size: 3.64rem !important;
+		font-weight: bold;		
+	}
+
+
+}
+
+
+/* ---- grid ---- */
+
+.grid {
+	margin: 0 70px;
+	height: auto !important;
+    &:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	}
+	&__item {
+		float: left;
+		& img {
+	  		display: block;
+  			max-width: 100%;		
+		}
+	}
+	&__sizer, &__item {
+		margin-bottom: 7px;
+		width: 33.333%;		
+	}
+}
+
+

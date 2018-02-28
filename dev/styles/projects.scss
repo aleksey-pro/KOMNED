@@ -89,4 +89,8 @@
 		position: relative;
 		z-index: 2;
 	}
+
+	&--darkened {
+		opacity: 0.4;
+	}
 }

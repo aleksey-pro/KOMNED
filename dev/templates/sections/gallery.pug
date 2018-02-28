@@ -10,14 +10,14 @@ section#gallery
    p.gallery-desc__item — «Перун» (Пискаревский пр., 63 лит. В)
    p.gallery-desc__item.gallery-desc__item--last — «Тележная, 17-19» (ул. Тележная, 17-19)
  .gallery-list
-   mixin picture(source, name)  
+   mixin picture(source, name, link)  
     figure.gallery-list__item
      picture.justify-content-center.gallery-image
       source(media="max-width: 768px" srcset=source )
       img(src=source alt="forum").gallery-image__pic
      figcaption.gallery-list__name.d-flex.align-items-center.justify-content-center
-      a(href="#").gallery-list__link!= name
-   +picture('../img/gal-kvartz.jpg', 'Бизнес-Центр <br> «КВАРЦ»')
-   +picture('../img/gal-atoll.jpg', 'Бизнес-Центр <br> «АТОЛЛ»')
-   +picture('../img/gal-landskrona.jpg', 'Ресторан <br> «ЛАНДСКРОНА»')
-   +picture('../img/gal-forum.jpg', 'Бизнес-Центр <br> «ФОРУМ»')
+      a(href=link).gallery-list__link!= name
+   +picture('img/gal-kvartz.jpg', 'Бизнес-Центр <br> «КВАРЦ»', './kvartz.html')
+   +picture('img/gal-atoll.jpg', 'Бизнес-Центр <br> «АТОЛЛ»', './atoll.html')
+   +picture('img/gal-landskrona.jpg', 'Ресторан <br> «ЛАНДСКРОНА»', './landskrona.html')
+   +picture('img/gal-forum.jpg', 'Бизнес-Центр <br> «ФОРУМ»', './forum.html')

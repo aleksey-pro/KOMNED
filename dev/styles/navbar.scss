@@ -1,22 +1,24 @@
 .navbar {
-	height: 68px;
+	height: $navbar-height;
 	padding: 0 20px;
 	position: fixed;
 	z-index: 100;
 	top: 0;
 	width: 100%;
 	display: flex;
-	transition: opacity 0.5s ease-in;
+	transition: all 0.5s ease-in;
+
+	@include box-shadow();
 
 	&--hidden {
-		opacity: 0;
+		display: none;
 	}
 	
 
-	background-color: $dark-blue;
+	background-color: rgba(#000000, 0.7);
 
 	@include media-breakpoint-up(xxl) {
-		height: 108px;
+		height: $navbar-height-w;
 		padding: 0 70px;
 	}
 }
@@ -59,10 +61,9 @@
 	@mixin divider {
 	    content: '';
 	    display: block;
-        background-image: url(../img/sprite.png);
-		background-position: -1383px -307px;
+        background-image: url(../img/menu-divider.png);
 	    width: 2px;
-	    height: 80px;
+	    height: 50px;
 	    position: absolute;
 	    @include media-breakpoint-up(sm) {
 			height: 50px;
@@ -80,14 +81,14 @@
 		&:before {
 			@include divider;
 			left: 0;
-	    	top: -20px;
+	    	top: -17px;
 		}
 		&:last-child:after {
 			@include divider;
-			top: -20px;
+			top: -17px;
 			right: 0;
 		}
-		&--active {
+		&--active a{
 			color: $text-yel-color;
 		}
 	}

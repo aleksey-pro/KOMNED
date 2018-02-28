@@ -2,7 +2,7 @@ section#contacts
   .container-fluid.contacts
     .row
       .col-12.col-md-3.col-lg-4.contacts-data
-        img(src='../img/contacts-icon.png' alt='форум контакты').contacts-data__logo
+        img(src='img/contacts-icon.png' alt='форум контакты').contacts-data__logo
         .contacts-data__address
           p.text-red Офис
           p 
@@ -28,11 +28,11 @@ section#contacts
           p +7 (911) 927-92-22
       .col-12.col-md-9.col-lg-8.contacts-form
         form.contacts-form__wrapper
-          img(src='../img/contacts-logo.png' alt='форум контакты').contacts-form__logo
+          img(src='img/contacts-logo.png' alt='форум контакты').contacts-form__logo
           input(type='text' placeholder='Имя').contacts-form__input
           input(type='phone' placeholder='Телефон').contacts-form__input
-          textarea(rows='20' placeholder='Сообщение').contacts-form__input
+          textarea(rows='10' placeholder='Сообщение').contacts-form__input
           button(type='submit').contacts-form__btn отправить
-  #map.map.contacts-map(style='height: 812px;')
+  include ../components/map
 
 
