@@ -29,12 +29,13 @@ html(lang="en")
                 div(class= 'projectpage-heading__desc')!=  desc
                 div(class= 'projectpage-heading__contact')!= contacts
 
-      .grid
-        .grid__sizer
-        each photo in photos
-          .grid__item
-            img(src=photo alt='форум').grid__image
-            
+      .grid-wrrapper
+        .grid
+          .grid__sizer
+          each photo in photos
+            .grid__item
+              img(src="img/loader.svg" data-src=photo alt='форум').grid__image
+
       include components/map
     include components/footer
 

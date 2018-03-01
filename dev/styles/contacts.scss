@@ -3,7 +3,7 @@ section#contacts {
 	overflow: hidden;
 
 	@include media-breakpoint-up(xxl) {
-		padding-top: calc(#{$navbar-height-w} + 20px);;
+		padding-top: calc(#{$navbar-height-w} + 100px);
 		padding-bottom: 20px;
 	}	
 }

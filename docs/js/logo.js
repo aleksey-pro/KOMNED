@@ -86,9 +86,8 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
       function render() {
         let delta = clock.getDelta();
         if ( logo !== undefined ) {
-          // logo.rotation.z += delta * 0.4;
-          // logo.rotation.y += delta * 0.1;
-          logo.rotation.y = delta * 0.1;
+          logo.rotation.z += delta * 0.4;
+          logo.rotation.y += delta * 0.1;
         }
         renderer.render( scene, camera );
       }

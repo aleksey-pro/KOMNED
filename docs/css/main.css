@@ -3169,7 +3169,7 @@ area:hover {
 section#contacts {
   padding-top: calc(68px + 80px);
   overflow: hidden;
-  padding-top: calc(calc(68px * 1.59) + 20px);
+  padding-top: calc(calc(68px * 1.59) + 100px);
   padding-bottom: 20px;
 }
 
@@ -3345,23 +3345,18 @@ section#contacts {
   height: auto !important;
 }
 
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .grid__item {
   float: left;
+  padding: 7px;
 }
 
-.grid__item img {
+.grid__image {
   display: block;
   max-width: 100%;
+  margin: 20% 40%;
 }
 
 .grid__sizer, .grid__item {
-  margin-bottom: 7px;
   width: 33.333%;
 }
 
