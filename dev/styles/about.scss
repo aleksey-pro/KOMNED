@@ -29,28 +29,29 @@
 	}
 
 	&__main-name {
-		font-size: 7.8rem;
+		font-size: 7.9rem;
 		margin-bottom: 0;
 		font-family: Georgia, serif;
 		font-weight: bold;
 		text-transform: uppercase;
 	}
 	&__main-subname {
-		font-size: 2rem;
+		font-size: 3.8rem;
 		font-family: Georgia, serif;
 		font-style: italic;
 	}
 	&__main-est {
-		font-size: 1.5rem;
+		font-size: 3.06rem;
 		font-family: Georgia, serif;
 		span {
 			font-weight: bold;
+			font-family: 'Times New Roman';
 		}		
 	}
 	&__main-sub {
-		font-family: Arial, sans-serif;
+		font-family: Georgia, sans-serif;
 		font-style: italic;
-		font-size: 0.8rem;
+		font-size: 1.87rem;
 	}
 }
 
@@ -71,9 +72,7 @@
 	position: relative;
 	@include box-shadow;
 	&-image {
-		width: 100%;
-	    // width: 700px;
-    	// height: 700px;		
+		width: 100%;	
 	}
 }
 
@@ -81,16 +80,28 @@
 	position: absolute;
 	bottom: 3.1rem;
 	right: 2.3rem;
-	width: 86px;
+	width: 5.4rem;
 	height: 100px;
 	&__title {
 		text-align: center;
-		padding-bottom: 10px;
-		text-transform: uppercase;
+		text-transform: uppercase;		
+		font-size: 1.2rem;	
+		transition: all 0.5s ease-in;		
+	}
+	&__title a {
+		display: block;
+		margin-top: 10px;
+	}
+	&__title:hover {
 		color: $text-yel-color;		
+	}
+	&__title:hover img {
+		@include box-shadow;
 	}
 	&__image {
 		width: 100%;
+		border-radius: 2em;
+		transition: all 0.3s ease-in;
 	}
     @include media-breakpoint-up(lg) {
 		width: 176px;

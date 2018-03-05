@@ -56,7 +56,7 @@
 
 	&__desc {
 		font-size: 1.3rem;
-		padding: 0 1rem;
+		padding: 0 10%;
 	}
 
 	&__contact {
@@ -76,6 +76,7 @@
 
 .partners__item {
 	padding: 0;	
+	background-color: #000000;
 }
 
 .partners__img {
@@ -91,6 +92,6 @@
 	}
 
 	&--darkened {
-		opacity: 0.4;
+		opacity: 0.4;		
 	}
 }

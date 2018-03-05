@@ -110,6 +110,7 @@ gulp.task('scripts', function(){
     'dev/js/projects.js'
   ]) 
   .pipe(gulp.dest('docs/js')); 
+  .pipe(browserSync.reload({stream: true}))
 });
 
 gulp.task('vendorsJS', function(){

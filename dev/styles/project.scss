@@ -1,7 +1,8 @@
 .projectpage-section {
 	background-color: #ffffff;
 	.navbar {
-		display: flex;		
+		display: block;	
+		position: absolute;	
 	}
 }
 
@@ -11,8 +12,8 @@
 
 	&__caption {
 		position: absolute;
-		padding: 0 70px;
-	    top: calc(#{$navbar-height} + 5%);
+		padding: 0 30px;
+	    top: calc(#{$navbar-height} + 4%);
 	    bottom: 5%;
 	    left: 0;
 	    right: 0;
@@ -22,8 +23,12 @@
 
 		flex-direction: column;
 
+		@include media-breakpoint-up(sm) {
+			padding: 0 70px;
+		}
+
 		@include media-breakpoint-up(xxl) {
-			top: calc(#{$navbar-height-w} + 5%);
+			top: calc(#{$navbar-height-w} + 4%);
 		}
 	}
 
@@ -34,7 +39,14 @@
 		font-weight: bold;		
 	}
 
+	&__contact a:hover {
+		color: $text-yel-color;
+	}
 
+	&__img {
+		max-width: 100%;
+	    min-height: 300px;
+	}
 }
 
 
@@ -43,9 +55,6 @@
 .grid {
 	margin: 0 70px;
 	height: auto !important;
-	// .gutter-width {
-	// 	width: 1%;
-	// }
 	&__item {
 		float: left;
 		padding: 7px;
@@ -56,6 +65,23 @@
 		margin: 20% 40%;		
 	}
 	&__sizer, &__item {		
-		width: 33.333%;		
+		width: 100%;
+		@include media-breakpoint-up(sm) {
+			width: 50%;
+		}
+		@include media-breakpoint-up(xl) {
+			width: 33.333%;
+		}		
 	}
+}
+
+/* ---------------- */
+
+.projectmap-title {
+	margin: 35px 0;
+	font-size: 2.5rem;
+	font-family: 'carlito-regular-webfont', Arial;
+	text-transform: uppercase;
+	text-align: center;
+	color: #000000;
 }

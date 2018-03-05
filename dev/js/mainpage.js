@@ -1,87 +1,15 @@
-// parallax
-
-// function Parallax() {
-  
-
-//   const frontSection = document.querySelector('#front'),
-//   	  aboutSection = document.querySelector('#about'),
-//   	  aboutPicture = document.querySelector('.about__map');
-      
-//       // this.marg = marg; 
-  
-//   return {
-//     move: function (block, windowScroll, strafeAmount) {
-//       let strafe = Math.ceil(windowScroll / -strafeAmount) + '%';
-//       let margin = (parseInt(strafe) / 2) + '%';
-//       let transformString = 'translate3d(0, '+ strafe +' , 0)';
-
-//       this.strafe = strafe;
-//       // this.margin = margin;
-      
-//       const style = block.style;      
-//       style.transform = transformString;
-//       style.webkitTransform = transformString;  
-
-//       // aboutPicture.style.marginTop = margin;
-//       // this.marg = margin;      
-//     },
-
-//     showMenu: function(block) {
-//       (parseInt(this.strafe) < -30) ?  block.classList.remove('navbar--hidden') : block.classList.add('navbar--hidden');
-//     },
-
-//     showTrigger: function(trigger, block) {
-//       if (parseInt(this.strafe) < -10){
-//         trigger.classList.add('is-hidden');
-//         block.classList.remove('navbar--hidden');
-//       } else{
-//         trigger.classList.remove('is-hidden');
-//         block.classList.add('navbar--hidden');  
-//       }
-//     },
-    
-//     init: function (wScroll) {
-//     	this.move(frontSection, wScroll, -30);
-//     	this.move(aboutSection, wScroll, 15);          
-//     }  
-//   }
-
-// }
-
-
-// const frontSection = document.querySelector('#front'),
-//       aboutSection = document.querySelector('#about');
-
-// window.onscroll = function() {
-//   if(elementInViewport(frontSection)){
-//     console.log('front section in VP')
-//   }else if (elementInViewport(aboutSection)){
-//     console.log('about section in VP')
-//   }
-// }
-
-
-
-// pop-up menu
-
-function showMenu(block, menu) {
-  let bottomCord = block.getBoundingClientRect().bottom;
-  parseInt(bottomCord) < 200 ? menu.classList.remove('navbar--hidden') : menu.classList.add('navbar--hidden');
-}
-
-
-// navigation
+// on load
 
 $(document).ready(function() {
+ 
+const navlink = $('.nav__link');
 
-
-$('.nav__link').on('click', function(e) {
+navlink.on('click', function(e) {
   e.preventDefault();
-  showSection($(this).attr('href'), true); //
+  showSection($(this).attr('href'), true);
 });
-
   
-showSection(window.location.hash, true); //
+showSection(window.location.hash, true);
 
 toTop();
 toMap();
@@ -90,19 +18,45 @@ $('img[usemap]').imageMap();
 
 });//ready
 
-const frontSection = document.querySelector('#front'),
-  navbar = document.querySelector('.navbar');
-  
-$(window).scroll(function() {
-  showMenu(frontSection, navbar);
+// on scroll
+
+const frontSection = document.querySelector('#front');
+const frontTrigger = document.querySelector('#hamburger-10');
+const navbar = document.querySelector('.navbar'); 
+
+$(window).scroll(function() {  
+  showMenu(frontSection, navbar, 200);
+  showTrigger(frontSection, frontTrigger);
   checkSection();
 });
+
+
+
+// pop-up menu
+
+let triggered = false;
+
+function showMenu(block, elem, point) {
+  let bottomCord = block.getBoundingClientRect().bottom; 
+  let topCord = block.getBoundingClientRect().top; 
+  let navbarHeight = elem.getBoundingClientRect().height;
+
+  if(triggered) {
+    -parseInt(topCord) < navbarHeight ? elem.classList.remove('navbar--hidden') : elem.classList.add('navbar--hidden');
+  }
+  parseInt(bottomCord) < point ? elem.classList.remove('navbar--hidden') : elem.classList.add('navbar--hidden');   
+}
+
+function showTrigger(block, elem) {
+  let topCord = block.getBoundingClientRect().top;
+  parseInt(topCord) == 0  ? elem.classList.add('d-sm-inline-block') : elem.classList.remove('d-sm-inline-block');
+}
 
 
 function toMap(){
   $('.map-btn').on('click', function(e) {
     e.preventDefault();
-    var dest = $('#map').offset().top-200;
+    var dest = $('#map').offset().top-100;
     console.log(dest);
     $('body, html').animate({scrollTop: dest}, 2000);
   });
@@ -129,8 +83,6 @@ let sectionsObjs = {};
   })
 })();
 
-
-// on scroll
 
 function showSection(section, isAnimate, off) {
   let direction = section.replace(/.\/#/, '');
@@ -167,47 +119,22 @@ function checkSection() {
     })
   }
 
-
-// scroll events
-
-// const THROTTLE_TIMEOUT = 20;
-// let lastCall = Date.now();
-
-// window.onscroll = function() {
-  // console.log(triggered);
-  // const parallax = new Parallax();       
-  // let wScroll = window.pageYOffset;  
-  // if (Date.now() - lastCall >= THROTTLE_TIMEOUT) {
-    // console.log('action');
-    // parallax.init(wScroll);
-  // };
-  // lastCall = Date.now();  
-  // const navbar = document.querySelector('.navbar');
-  // const menuTrigger = document.querySelector('.menu-trigger');
-  // if(triggered){
-  //   delete parallax.showMenu;
-  //   parallax.showTrigger(menuTrigger, navbar);
-  // } else {
-  //   parallax.showMenu(navbar); 
-  // }
-
-  // goToSection();
-  // console.log(parallax.marg);
-  // checkSection();
-// };
+// toggle mobile menu trigger
 
 
+const menuTrigger = $('#hamburger-9');
+const mobileMenu = $('.navbar__dropdown-menu');
 
+menuTrigger.on('click', function(){
+  mobileMenu.slideToggle();
+});
 
 
 // toggle front trigger
 
-const frontTrigger = document.querySelector('#hamburger-10');
-let triggered = false;
 
 frontTrigger.addEventListener('click', function(e){
-  // e.target.classList.toggle('is-hidden');
-  this.classList.add('is-hidden');
+  this.classList.remove('d-sm-inline-block');
   navbar.classList.remove('navbar--hidden');
   triggered = true;
 });
@@ -274,4 +201,90 @@ function initMap(){
     myMap.geoObjects.add(myPlacemark);
 }
 
+// scroll events
 
+// const THROTTLE_TIMEOUT = 20;
+// let lastCall = Date.now();
+
+// window.onscroll = function() {
+  // console.log(triggered);
+  // const parallax = new Parallax();       
+  // let wScroll = window.pageYOffset;  
+  // if (Date.now() - lastCall >= THROTTLE_TIMEOUT) {
+    // console.log('action');
+    // parallax.init(wScroll);
+  // };
+  // lastCall = Date.now();  
+  // const navbar = document.querySelector('.navbar');
+  // const menuTrigger = document.querySelector('.menu-trigger');
+  // if(triggered){
+  //   delete parallax.showMenu;
+  //   parallax.showTrigger(menuTrigger, navbar);
+  // } else {
+  //   parallax.showMenu(navbar); 
+  // }
+
+  // goToSection();
+  // console.log(parallax.marg);
+  // checkSection();
+// };
+
+// function Parallax() {
+  
+
+//   const frontSection = document.querySelector('#front'),
+//      aboutSection = document.querySelector('#about'),
+//      aboutPicture = document.querySelector('.about__map');
+      
+//       // this.marg = marg; 
+  
+//   return {
+//     move: function (block, windowScroll, strafeAmount) {
+//       let strafe = Math.ceil(windowScroll / -strafeAmount) + '%';
+//       let margin = (parseInt(strafe) / 2) + '%';
+//       let transformString = 'translate3d(0, '+ strafe +' , 0)';
+
+//       this.strafe = strafe;
+//       // this.margin = margin;
+      
+//       const style = block.style;      
+//       style.transform = transformString;
+//       style.webkitTransform = transformString;  
+
+//       // aboutPicture.style.marginTop = margin;
+//       // this.marg = margin;      
+//     },
+
+//     showMenu: function(block) {
+//       (parseInt(this.strafe) < -30) ?  block.classList.remove('navbar--hidden') : block.classList.add('navbar--hidden');
+//     },
+
+//     showTrigger: function(trigger, block) {
+//       if (parseInt(this.strafe) < -10){
+//         trigger.classList.add('is-hidden');
+//         block.classList.remove('navbar--hidden');
+//       } else{
+//         trigger.classList.remove('is-hidden');
+//         block.classList.add('navbar--hidden');  
+//       }
+//     },
+    
+//     init: function (wScroll) {
+//      this.move(frontSection, wScroll, -30);
+//      this.move(aboutSection, wScroll, 15);          
+//     }  
+//   }
+
+// }
+
+
+// const frontSection = document.querySelector('#front'),
+//       aboutSection = document.querySelector('#about');
+
+// window.onscroll = function() {
+//   if(elementInViewport(frontSection)){
+//     console.log('front section in VP')
+//   }else if (elementInViewport(aboutSection)){
+//     console.log('about section in VP')
+//   }
+// }

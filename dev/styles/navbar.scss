@@ -1,19 +1,25 @@
 .navbar {
-	height: $navbar-height;
-	padding: 0 20px;
+	height: $navbar-height;	
+	display: block;
 	position: fixed;
 	z-index: 100;
 	top: 0;
 	width: 100%;
-	display: flex;
-	transition: all 0.5s ease-in;
+	padding: 0 20px;
+
+	&__wrapper {		
+		margin-top: 5%;
+
+		@include media-breakpoint-up(sm) {
+			margin-top: 1%;
+		}
+	}
 
 	@include box-shadow();
 
 	&--hidden {
 		display: none;
-	}
-	
+	}	
 
 	background-color: rgba(#000000, 0.7);
 
@@ -63,13 +69,13 @@
 	    display: block;
         background-image: url(../img/menu-divider.png);
 	    width: 2px;
-	    height: 50px;
+	    height: 0;
 	    position: absolute;
 	    @include media-breakpoint-up(sm) {
-			height: 50px;
+			height: 30px;
 		}
 	    @include media-breakpoint-up(lg) {
-			height: 60px;
+			height: 50px;
 		}
 	    @include media-breakpoint-up(xxl) {
 			height: 80px;
@@ -78,37 +84,59 @@
 
 	&__item {
 		position: relative;
+		
 		&:before {
 			@include divider;
 			left: 0;
-	    	top: -17px;
+	    	top: -20px;
 		}
 		&:last-child:after {
 			@include divider;
-			top: -17px;
+			top: -20px;
 			right: 0;
 		}
 		&--active a{
 			color: $text-yel-color;
 		}
 	}
+}
 
-	&__link {
-		font-family: 'carlito-regular-webfont', Arial;
-		text-transform: uppercase;
-		padding: 10px 10px;		
+
+.nav__link {	
+	color: $text-main-color;
+	font-family: 'carlito-regular-webfont', Arial;
+	text-transform: uppercase;
+	padding: 10px 10px;		
+	font-size: 2rem;
+
+	@include media-breakpoint-up(lg) {
+		padding: 20px 25px;
 		font-size: 2.6rem;
-		@include media-breakpoint-up(lg) {
-			padding: 20px 25px;
-		}		
+	}	
+	&:hover {
+		text-decoration: none;
+		color: $text-yel-color;
+	}
+	&:active {
+		text-decoration: none;
+		color: $text-yel-color;
 	}
 }
 
 .navbar__dropdown-menu {
+	display: none;
+
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(#000, 0.7);
+
 	@include cleanUlList();
 	.nav__item {
 		border-bottom: 1px solid #fff;
-		padding: 10px;
+		padding: 30px;
 	}	
 	.nav__link {
 		font-size: 2rem;

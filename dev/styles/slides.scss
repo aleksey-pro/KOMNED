@@ -1,0 +1,66 @@
+.slide-modal {
+
+	&__overlay {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    background-color: rgba(0,0,0,.8);
+	    z-index: 100000;
+	    overflow: hidden;
+	    height: 100%;
+	    width: 100%;
+	}
+
+	&__table {
+		display: table;
+		height: 100%;
+		width: 100%;	
+	}
+
+	&__cell {
+	    display: table-cell;
+	    padding: 0 1em;
+	    vertical-align: middle;
+	    text-align: center;
+	}
+
+	&__image {
+	    display: inline-block;
+	    width: 80%;
+	}
+
+	&__left-arrow, &__right-arrow {
+		display: inline-block;
+		font-size: 3rem;
+		padding: 1rem;
+		cursor: pointer;		
+	}
+
+	&__left-arrow:hover, &__right-arrow:hover {
+		color: $text-oran-color;
+	}
+
+	&__close {
+	    position: absolute;
+	    top: 10%;
+	    right: 1em;
+	    background: #fff;
+	    font-size: 1.5rem;
+	    border: none;
+
+	    &:hover {
+	    	cursor: pointer;
+	    }
+	}
+
+}
+
+.big-image {
+	max-width: 70%;
+}
+
+
+
+

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Группа компаний форум</title>
     <meta name="description" content="">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
     <link rel="stylesheet" href="css/main.css">
     <!--if lte IE 9
@@ -17,25 +17,27 @@
     -->
   </head>
   <body>
-    <div class="navbar navbar--hidden align-items-center justify-content-between"><a class="navbar-toplik" href="./#front" title="На главную">
-        <div class="navbar__logo d-flex align-items-center"><span class="name">forum</span><img class="navbar__logo-image" src="img/menu-logo.png" alt="forum logo"><span class="subname">group</span></div></a>
-      <ul class="navbar__menu nav d-none d-sm-flex" id="menu">
-                <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
-                <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
-                <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
-                <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
+    <div class="navbar navbar--hidden">
+      <div class="navbar__wrapper d-flex align-items-center justify-content-between"><a class="navbar-toplik" href="./#front" title="На главную">
+          <div class="navbar__logo d-flex align-items-center"><span class="name">forum</span><img class="navbar__logo-image" src="img/menu-logo.png" alt="forum logo"><span class="subname">group</span></div></a>
+        <ul class="navbar__menu nav d-none d-sm-flex" id="menu">
+                    <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
+                    <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
+                    <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
+                    <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
+        </ul>
+        <div class="navbar__phone"><span class="text-orange">+7</span><span class="text-yell">(812) </span>596-86-00</div>
+        <div class="hamburger d-sm-none" id="hamburger-9"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+      </div>
+      <ul class="navbar__dropdown-menu">
+                  <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
+                  <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
+                  <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
+                  <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
       </ul>
-      <div class="navbar__phone"><span class="text-orange">+7</span><span class="text-yell">(812) </span>596-86-00</div>
-      <div class="hamburger d-block d-sm-none" id="hamburger-9"><span class="line"></span><span class="line"></span><span class="line"></span></div>
     </div>
-    <ul class="navbar__dropdown-menu d-block d-sm-none">
-              <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
-              <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
-              <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
-              <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
-    </ul>
     <section id="front"> 
-      <div class="menu-trigger" id="hamburger-10"><span class="menu-trigger__line"></span><span class="menu-trigger__line"></span><span class="menu-trigger__line"></span></div>
+      <div class="menu-trigger is-hidden d-sm-inline-block" id="hamburger-10"><span class="menu-trigger__line"></span><span class="menu-trigger__line"></span><span class="menu-trigger__line"></span></div>
       <canvas id="space"></canvas>
     </section>
     <section id="about">
@@ -49,7 +51,7 @@
         </div>
         <div class="description">
           <p class="description__par">Компания <span>«FORUM»</span>— многопрофильный холдинг, более 30 лет ведущий свою деятельность на Северо- Западе РФ!</p>
-          <p class="description__par"><span class="text-orange">Основная область интересов </span>– коммерческая недвижимость, телекоммуникации, сельское хозяйство.</p>
+          <p class="description__par"><span class="text-yell">Основная область интересов </span>– коммерческая недвижимость, телекоммуникации, сельское хозяйство.</p>
           <p class="description__par"><span class="text-red">Основной актив </span>— команда единомышленников, многие из которых работают в компании более 20 лет!  </p>
         </div>
       </div>
@@ -57,12 +59,12 @@
     <picture class="about__map">
       <source srcset="../img/lake.jpg" media="max-width: 768px"><img class="about__map-image" src="img/lake.jpg" alt="forum" usemap="#map"><map name="map">
                 <area target="_blank" shape="rect" coords="880,77,995,106" alt="База отдыха" href="http://xn--d1aboife.xn--p1ai/objects/pos-melnikovo/">
-                <area target="_blank" shape="rect" coords="331,24,401,35" alt="Екатериновка" href="http://xn--d1aboife.xn--p1ai/objects/ekaterinovka-2/">
-                <area target="_blank" shape="rect" coords="841,266,956,290" alt="Энгельса 109" href="">
+                <area target="_blank" shape="rect" coords="898,97,1014,122" alt="Екатериновка" href="http://xn--d1aboife.xn--p1ai/objects/ekaterinovka-2/">
+                <area target="_blank" shape="rect" coords="859,283,975,307" alt="Энгельса 109" href="">
                 <area target="_blank" shape="rect" coords="1006,313,1111,341" alt="б/ц Атолл" href="http://бц-атолл.рф">
                 <area target="_blank" shape="rect" coords="839,384,952,410" alt="Энгельса 53" href="http://xn--d1aboife.xn--p1ai/objects/engelsa-pr-53-3/">
                 <area target="_blank" shape="rect" coords="850,442,958,468" alt="Энгельса 21" href="">
-                <area target="_blank" shape="rect" coords="573,330,687,352" alt="Ландскрона" href="http://ландскрона.рф">
+                <area target="_blank" shape="rect" coords="590,344,704,369" alt="Ландскрона" href="http://ландскрона.рф">
                 <area target="_blank" shape="rect" coords="1078,480,1170,509" alt="б/ц Кварц" href="http://кварц.рф">
                 <area target="_blank" shape="rect" coords="778,620,878,646" alt="Шамшева 17" href="http://xn--d1aboife.xn--p1ai/objects/shamsheva-ul-17-2/">
                 <area target="_blank" shape="rect" coords="985,685,1099,711" alt="Смольный 6" href="http://xn--d1aboife.xn--p1ai/objects/smolnyj-pr-6-2/">
@@ -187,24 +189,24 @@
           <div class="col-12 col-md-3 col-lg-4 contacts-data"><img class="contacts-data__logo" src="img/contacts-icon.png" alt="форум контакты">
             <div class="contacts-data__address">
               <p class="text-red">Офис</p>
-              <p> <span class="text-orange">Адрес:</span>194354, Россия</p>
+              <p> <span class="text-yell">Адрес: </span>194354, Россия</p>
               <p>Санкт-Петербург, Проспект Энгельса, 109</p>
               <p>Телефон: +7 (812) 591-86-00</p>
-              <p class="text-orange">Время работы:</p>
+              <p class="text-yell">Время работы:</p>
               <p>9:00–18:00</p>
-              <p class="text-orange">Электронная почта:</p>
+              <p class="text-yell">Электронная почта:</p>
               <p>info@forumestate.ru</p>
             </div>
             <div class="contacts-data__phones">
               <p class="text-red">Отдел управления недвижимостью</p>
-              <p class="text-orange">Телефон:</p>
+              <p class="text-yell">Телефон:</p>
               <p>+7 (812) 591-88-33</p>
               <p>+7 (812) 591-88-88</p>
               <p>+7 (911) 849-49-71</p>
             </div>
             <div class="contacts-data__phones"> 
               <p class="text-red">Отдел управления проектами</p>
-              <p class="text-orange">Телефон:</p>
+              <p class="text-yell">Телефон:</p>
               <p>+7 (812) 591-87-00</p>
               <p>+7 (812) 591-88-16</p>
               <p>+7 (911) 927-92-22</p>
@@ -220,14 +222,14 @@
           </div>
         </div>
       </div>
-      <div class="map contacts-map" id="map" style="height: 812px;"></div>
+      <div class="map" id="map"></div>
     </section>
     <footer class="footer">
       <div class="container-fluid">
         <div class="row">
-          <div class="footer__copy col-12 col-sm-6 text-orange">&copy; <span class="text-red">forum  </span>1988-2018</div>
+          <div class="footer__copy col-12 col-sm-6 text-yell">&copy; <span class="text-orange">forum  </span>1988-2018</div>
           <div class="footer__contacts col-12 col-sm-6">
-            <p class="text-orange footer__contacts-phone">9:00-18:00</p>
+            <p class="text-yell footer__contacts-phone">9:00-18:00</p>
             <p>194354, Россия,Санкт-Петербург, Проспект Энгельса, 109</p>
             <p>+7 (812) 591-86-00</p>
             <p>info@forumestate.ru</p>

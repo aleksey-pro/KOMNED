@@ -2,8 +2,9 @@
 
 $text-main-color: #ffffff;
 $text-red-color: #d34500;
-$text-yel-color: #ffea00;
+$text-yel-color: #fad900;
 $text-oran-color: #db8353;
+
 
 $bg-color: #001eff;
 $dark-blue: #000a53;
@@ -14,13 +15,11 @@ $navbar-height-w: calc(#{$navbar-height} * 1.59);
 // mixins
 
 @mixin box-shadow {
-  // box-shadow:  0px 0px 20px 10px rgba(50, 50, 50, 0.7);
-  box-shadow:  0px 0px 20px 10px rgba(50, 50, 50, 1);
+  box-shadow: 0px 0px 20px 7px #000000;
 }
 
 @mixin inset-box-shadow {
-  // box-shadow: inset 0px 0px 25px 20px rgba(50, 50, 50, 0.7);
-  box-shadow: inset 0px 0px 25px 15px rgb(50, 50, 50);
+  box-shadow: inset 0px 0px 20px 7px #000000;
 }
 
 .text-orange {
@@ -33,6 +32,10 @@ $navbar-height-w: calc(#{$navbar-height} * 1.59);
 
 .text-yell {
   color: $text-yel-color; 
+}
+
+.is-hidden {
+  display: none;
 }
 
 
@@ -53,8 +56,6 @@ $navbar-height-w: calc(#{$navbar-height} * 1.59);
 	    margin         : 0;
 	    padding        : 0;
 	    border         : 0;
-	    font-size      : 100%;
-	    font           : inherit;
 	    vertical-align : baseline;
     }
 }

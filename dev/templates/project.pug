@@ -34,9 +34,12 @@ html(lang="en")
           .grid__sizer
           each photo in photos
             .grid__item
-              img(src="img/loader.svg" data-src=photo alt='форум').grid__image
-
+              a(href="javascript: void(0)" class='grid__link')
+                img(src="img/loader.svg" data-src=photo alt='форум').grid__image
+              
+      .projectmap-title на карте
       include components/map
+      include components/slides
     include components/footer
 
   script(src="js/jquery.min.js")

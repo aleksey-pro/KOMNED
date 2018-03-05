@@ -1,10 +1,16 @@
+@import 'slides';
+
 #gallery {
-	padding-top: calc(#{$navbar-height} + 80px);
+	padding-top: calc(#{$navbar-height} + 100px);
 	margin-bottom: 100px;
 	overflow: hidden;
 
+	&__container {
+	    padding-bottom: 2rem;
+	}
+
 	@include media-breakpoint-up(xxl) {
-		padding-top: calc(#{$navbar-height-w} + 80px);
+		padding-top: calc(#{$navbar-height-w} + 140px);
 	}	
 }
 
@@ -39,6 +45,11 @@
 	position: relative;
 	margin-right: 0;
 	flex-grow: 1;
+	overflow: hidden;
+
+	&:hover img {
+		transform: scale(1.1);
+	}
 	
 	&:last-child {
 		margin-right: 0;
@@ -75,4 +86,6 @@
 
 .gallery-image__pic {
 	width: 100%;
+	transition: all 1s ease-in;	
 }
+

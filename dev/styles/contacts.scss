@@ -68,7 +68,7 @@ section#contacts {
 
 .contacts-form__btn {
 	width: 220px;
-	background-color: #dc8e57;
+	background-color: $text-oran-color;
 	color: #000000;
 	font-size: 1.56rem;
 	font-family: 'carlito-regular-webfont', Arial;
@@ -89,14 +89,6 @@ section#contacts {
 		height: 53px;
 	}
 
-}
-
-.map {
-	@include box-shadow;
-}
-
-.contacts-map {
-	margin-top: 70px;
 }
 
 

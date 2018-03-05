@@ -18,23 +18,25 @@
   </head>
   <body> 
     <section class="projectpage-section">
-      <div class="navbar navbar--hidden align-items-center justify-content-between"><a class="navbar-toplik" href="./#front" title="На главную">
-          <div class="navbar__logo d-flex align-items-center"><span class="name">forum</span><img class="navbar__logo-image" src="img/menu-logo.png" alt="forum logo"><span class="subname">group</span></div></a>
-        <ul class="navbar__menu nav d-none d-sm-flex" id="menu">
-                    <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
-                    <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
-                    <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
-                    <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
+      <div class="navbar navbar--hidden">
+        <div class="navbar__wrapper d-flex align-items-center justify-content-between"><a class="navbar-toplik" href="./#front" title="На главную">
+            <div class="navbar__logo d-flex align-items-center"><span class="name">forum</span><img class="navbar__logo-image" src="img/menu-logo.png" alt="forum logo"><span class="subname">group</span></div></a>
+          <ul class="navbar__menu nav d-none d-sm-flex" id="menu">
+                        <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
+                        <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
+                        <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
+                        <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
+          </ul>
+          <div class="navbar__phone"><span class="text-orange">+7</span><span class="text-yell">(812) </span>596-86-00</div>
+          <div class="hamburger d-sm-none" id="hamburger-9"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+        </div>
+        <ul class="navbar__dropdown-menu">
+                      <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
+                      <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
+                      <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
+                      <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
         </ul>
-        <div class="navbar__phone"><span class="text-orange">+7</span><span class="text-yell">(812) </span>596-86-00</div>
-        <div class="hamburger d-block d-sm-none" id="hamburger-9"><span class="line"></span><span class="line"></span><span class="line"></span></div>
       </div>
-      <ul class="navbar__dropdown-menu d-block d-sm-none">
-                  <li class="nav__item" data-menuanchor="about-page"><a class="nav__link" href="./#about">о компании</a></li>
-                  <li class="nav__item" data-menuanchor="gallery-page"><a class="nav__link" href="./#gallery">галерея</a></li>
-                  <li class="nav__item" data-menuanchor="projects-page"><a class="nav__link" href="./#projects">проекты</a></li>
-                  <li class="nav__item" data-menuanchor="contacts-page"><a class="nav__link" href="./#contacts">контакты</a></li>
-      </ul>
       <div class="container-fluid">
         <div class="row projectpage-heading">
           <figure class="projectpage-heading__item"> 
@@ -42,7 +44,7 @@
               <figcaption class="projectpage-heading__caption d-flex justify-content-around">
                 <div class="projectpage-heading__title text-yell">БИЗНЕС-ЦЕНТР «ATOЛЛ»</div>
                 <div class="projectpage-heading__desc">Расположен в густонаселенном Калининском районе Санкт-Петербурга рядом со станцией метро «Гражданский проспект». Развитая инфраструктура, транспортная доступность, парковка, выгодные условия аренды.</div>
-                <div class="projectpage-heading__contact"><p>Cайт:  <a class="text-yell" href="http://xn----8sbb6baq1a3a.xn--p1ai/" target="blank">бц-атолл.рф</a></p><p>Адрес: Санкт-Петербург, ул. Учительская, 23</p><p>Телефоны: +7 (812) 591-88-88, +7 (812) 927-92-26</p></div>
+                <div class="projectpage-heading__contact"><p>Cайт:  <a href="http://xn----8sbb6baq1a3a.xn--p1ai/" target="blank">бц-атолл.рф</a></p><p>Адрес: Санкт-Петербург, ул. Учительская, 23</p><p>Телефоны: +7 (812) 591-88-88, +7 (812) 927-92-26</p></div>
               </figcaption>
             </picture>
           </figure>
@@ -51,50 +53,62 @@
       <div class="grid-wrrapper">
         <div class="grid">
           <div class="grid__sizer"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/13.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/17.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1572.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1574.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1575.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1576.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1578.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1580.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1582.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1583.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1585.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1586.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1587.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1589.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1590.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1592.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1593.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1596.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1597.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1599.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1600.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1601.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1602.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1603.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1606.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1607.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1609.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1611.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1613.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1614.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1615.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1616.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1617.jpg" alt="форум"></div>
-          <div class="grid__item"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1618.jpg" alt="форум"></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/13.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/17.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1572.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1574.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1575.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1576.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1578.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1580.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1582.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1583.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1585.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1586.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1587.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1589.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1590.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1592.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1593.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1596.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1597.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1599.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1600.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1601.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1602.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1603.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1606.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1607.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1609.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1611.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1613.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1614.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1615.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1616.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1617.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/atoll/IMG_1618.jpg" alt="форум"></a></div>
         </div>
       </div>
-      <div class="map contacts-map" id="map" style="height: 812px;"></div>
+      <div class="projectmap-title">на карте</div>
+      <div class="map" id="map"></div>
+      <div class="slide-modal slide-modal__overlay is-hidden">
+        <div class="slide-modal__table">
+          <div class="slide-modal__cell">
+            <div class="slide-modal__left-arrow"><</div>
+            <div class="slide-modal__image"></div>
+            <div class="slide-modal__right-arrow">>
+              <button class="slide-modal__close"><span>x</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <footer class="footer">
       <div class="container-fluid">
         <div class="row">
-          <div class="footer__copy col-12 col-sm-6 text-orange">&copy; <span class="text-red">forum  </span>1988-2018</div>
+          <div class="footer__copy col-12 col-sm-6 text-yell">&copy; <span class="text-orange">forum  </span>1988-2018</div>
           <div class="footer__contacts col-12 col-sm-6">
-            <p class="text-orange footer__contacts-phone">9:00-18:00</p>
+            <p class="text-yell footer__contacts-phone">9:00-18:00</p>
             <p>194354, Россия,Санкт-Петербург, Проспект Энгельса, 109</p>
             <p>+7 (812) 591-86-00</p>
             <p>info@forumestate.ru</p>

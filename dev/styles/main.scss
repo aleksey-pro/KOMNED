@@ -31,18 +31,25 @@ body, p, h1, a {
   color: $text-main-color;  
 }
 
-a {	
+a:hover, a:active {
 	color: $text-main-color;
-	&:hover {
-		text-decoration: none;
-		color: $text-yel-color;
-	}
-	&:active {
-		text-decoration: none;
-		color: $text-yel-color;
-	}
+	text-decoration: none;
 }
 
+.map {
+	@include box-shadow;
+	margin-top: 4.4rem;
+	height: 312px;
+
+	@include media-breakpoint-up(md) {
+		height: 512px;
+	}	
+
+	@include media-breakpoint-up(xxl) {
+		height: 812px;
+	}
+
+}
 
 // navbar
 @import 'navbar';
