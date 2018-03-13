@@ -78,11 +78,11 @@ section#contacts {
 	height: 33px;
 	margin: 0 auto;
 	border: none;
-	transition: all 0.3s ease-in;
+	transition: all 0.1s ease-in;
 
 	&:hover {
 		cursor: pointer;
-		background-color: darken(#dc8e57, 20%);
+		background-color: $text-yel-color;
 	}
 
 	@include media-breakpoint-up(md) {

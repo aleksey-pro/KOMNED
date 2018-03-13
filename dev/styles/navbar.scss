@@ -1,6 +1,6 @@
 .navbar {
 	height: $navbar-height;	
-	display: block;
+	display: none;
 	position: fixed;
 	z-index: 100;
 	top: 0;
@@ -11,7 +11,7 @@
 		margin-top: 5%;
 
 		@include media-breakpoint-up(sm) {
-			margin-top: 1%;
+			margin-top: 2%;
 		}
 	}
 
@@ -23,9 +23,12 @@
 
 	background-color: rgba(#000000, 0.7);
 
+	@include media-breakpoint-up(lg) {
+		padding: 0 70px;
+	}	
+
 	@include media-breakpoint-up(xxl) {
 		height: $navbar-height-w;
-		padding: 0 70px;
 	}
 }
 
@@ -57,7 +60,13 @@
 
 .navbar__phone {
 	font-size: 2.6rem;
-	font-family: 'carlito-regular-webfont', Arial;
+	font-family: 'Times New Roman', serif;
+	font-weight: bold;
+
+	span {
+		font-family: inherit;
+		font-weight: bold;
+	}
 }
 
 .nav {
@@ -68,9 +77,12 @@
 	    content: '';
 	    display: block;
         background-image: url(../img/menu-divider.png);
+        background-position: center;
 	    width: 2px;
 	    height: 0;
 	    position: absolute;
+	    top: 0;
+
 	    @include media-breakpoint-up(sm) {
 			height: 30px;
 		}
@@ -84,15 +96,14 @@
 
 	&__item {
 		position: relative;
+		margin-top: 15px;
 		
 		&:before {
 			@include divider;
-			left: 0;
-	    	top: -20px;
+			left: 0;	    	
 		}
 		&:last-child:after {
 			@include divider;
-			top: -20px;
 			right: 0;
 		}
 		&--active a{
@@ -104,15 +115,19 @@
 
 .nav__link {	
 	color: $text-main-color;
-	font-family: 'carlito-regular-webfont', Arial;
-	text-transform: uppercase;
-	padding: 10px 10px;		
+	font-family: 'Georgia', serif;	
+	padding: 0 10px;		
 	font-size: 2rem;
+	text-transform: capitalize;
 
 	@include media-breakpoint-up(lg) {
-		padding: 20px 25px;
-		font-size: 2.6rem;
+		padding: 0 25px;
+		font-size: 2.4rem;
 	}	
+
+	// &:first-letter {
+	// 	text-transform: uppercase;
+	// }
 	&:hover {
 		text-decoration: none;
 		color: $text-yel-color;

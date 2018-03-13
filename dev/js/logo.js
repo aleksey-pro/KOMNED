@@ -1,14 +1,29 @@
 // window.console.clear();
 
+var  stopSpin = new Event('stopSpin');
+
+window.addEventListener('stopSpin', function() { 
+    this.addEventListener('load', function(){
+    	console.log('dispatched event');
+    	stopAnimate = true;
+    });
+}, false);
+
+if (navigator.userAgent.search(/Firefox/) > 0) {
+	window.dispatchEvent(stopSpin);
+}
+
+
+
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			let container, stats, clock;
 			let camera, scene, renderer, logo;
+
 			init();
 			animate();
 			function init() {
 				container = document.getElementById( 'front' );
 				container.style.height = window.innerHeight + 'px';
-				// camera = new THREE.PerspectiveCamera( 67.5, window.innerWidth / window.innerHeight, 0.1, 1000 );
 				camera = new THREE.PerspectiveCamera( 67.5, window.innerWidth / window.innerHeight, 0.1, 1000 );
 				camera.position.set( -200, 100, 280 );
      
@@ -22,7 +37,6 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
         
 				// loader
 				let loader = new THREE.ColladaLoader( loadingManager );
-				// loader.load( 'https://raw.githubusercontent.com/davegahn/test/master/scripts/F34.dae', function( collada ) {
 				loader.load( 'https://raw.githubusercontent.com/davegahn/test2/master/F0.dae', function( collada ) {
 					logo = collada.scene;
 				} );
@@ -68,8 +82,8 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
         orbit.enableZoom = false;
 				
         // stats
-				// stats = new Stats();
-				// container.appendChild( stats.dom );
+				stats = new Stats();
+				container.appendChild( stats.dom );
         
 		// resize
 			window.addEventListener( 'resize', onWindowResize, false );
@@ -81,19 +95,44 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 		}
       // animate
-      function animate() {
-        requestAnimationFrame( animate );
-        render();
-        // stats.update();
-      }
-      function render() {
+
+    var stopAnimate= false;  
+
+	function animate(stopAnimate) {		
+		spin();
+		requestAnimationFrame( animate );
+		stats.update();
+	}
+
+
+      function spin() {
         let delta = clock.getDelta();
         if ( logo !== undefined ) {
           // logo.rotation.z += delta * 0.4;
           logo.rotation.y += delta * 0.1;
+          if(stopAnimate) {          	
+          	return;
+		  }		 
         }
-        renderer.render( scene, camera );
+        renderer.render( scene, camera ); 
       }
+
+      // logo controls
+
+	let playBtn = document.querySelector('.control-play');
+	let stopBtn = document.querySelector('.control-pause');
+
+	playBtn.addEventListener('click',function() {
+		stopAnimate = false;
+		animate(stopAnimate);
+	}, false);
+	stopBtn.addEventListener('click',function() {
+		stopAnimate = true;
+	}, false);
+
+
+
+    
 
 // --------------------------------------------------star sky-----------------------------------//
 // ---------------------------------------------------------------------------------------------//
@@ -103,13 +142,12 @@ var context;
 var screenH;
 var screenW;
 var stars = [];
-var staticStars = [];
 var staticSMStars = [];
 var bigStaticStars = [];
 var fps = 60;
-var numStars = 300;
-var numSMStaticStars = 940;
-var numBigStaticStars = 50;
+var numStars = 400;
+var numSMStaticStars = 1240;
+var numBigStaticStars = 200;
 
 $('document').ready(function() {
   
@@ -141,7 +179,7 @@ $('document').ready(function() {
   }
 
 
-  // Create big static stars
+ //  // Create big static stars
 	
   for (let i = 0; i < numBigStaticStars; i++) {
 		let x = Math.round(Math.random() * screenW);
@@ -153,7 +191,7 @@ $('document').ready(function() {
     bigStaticStars.push(bigStaticStar);
   }
   
-	// Create dynamic stars
+	// // Create dynamic stars
 	for (let i = 0; i < numStars; i++) {
 		let x = Math.round(Math.random() * screenW);
 		let y = Math.round(Math.random() * screenH);
@@ -166,11 +204,16 @@ $('document').ready(function() {
 		stars.push(star);
 	}
   
-  // console.log(stars);
-  // console.log(staticStars);
-  // console.log(staticSMStars);
+ //  // console.log(stars);
+ //  // console.log(staticStars);
+ //  // console.log(staticSMStars);
 	
-	animateInterval = setInterval(animateStars, 1000 / fps);
+	// animateInterval = setInterval(animateStars, 1000 / fps);
+
+	(function animateSky(){		
+		requestAnimationFrame ( animateSky );
+		animateStars();
+	})();
 });
 
 /**
@@ -179,10 +222,10 @@ $('document').ready(function() {
 function animateStars() {
 	context.clearRect(0, 0, screenW, screenH); //
     context.clearRect(0, 0, canvas.width, canvas.height);
-	$.each(stars, function() {
-		this.draw(context);
-	});
-  	$.each(staticStars, function() {
+	// $.each(stars, function() {
+	// 	this.draw(context);
+	// });
+  	$.each(bigStaticStars, function() {
 		this.drawStatic(context);
 	});
   	$.each(staticSMStars, function() {

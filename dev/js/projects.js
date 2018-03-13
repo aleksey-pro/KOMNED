@@ -19,7 +19,8 @@ function loadImage(img){
 	img.setAttribute('src', img.getAttribute('data-src'));			
 	msnry.layout();	
 	img.addEventListener('load', function(){
-		this.style.margin = 0;
+		this.style.margin = 0;		
+		this.parentNode.parentNode.style.zIndex = '1';
 	})					
 	recalculateHeight();	
 }
@@ -35,7 +36,7 @@ let lazyActiveImages = [].splice.call(lazyImagesCopy, 3);
 
 // Load first 3 images at once
 
-[].forEach.call(lazyImagesCopy, function(image) {
+[].forEach.call(lazyImagesCopy, function(image) {	
 	loadImage(image);
 });
 
@@ -195,3 +196,40 @@ const slider = new Slider(sources);
 	  slider.show(index);
 	};
 });
+
+
+//scroll adaptive arrow
+
+var arr = $('.arrow-up');
+
+arr.on('click', function(e) {
+e.preventDefault();
+$('html, body').animate({
+   scrollTop: 0
+}, 1000)
+});
+
+function hideScroll() {
+ $(window).on('scroll',function() {
+  if( $(this).scrollTop() < 500) {
+  arr.fadeOut();
+} else
+  arr.fadeIn();
+});
+}
+
+hideScroll();
+
+
+function hideArr() {
+if($(window).width() < 768) {
+  arr.hide();
+  $(window).off('scroll');
+}else {
+  hideScroll();
+}
+};
+
+hideArr();
+
+$(window).on('resize', hideArr);

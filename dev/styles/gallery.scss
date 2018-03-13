@@ -5,18 +5,21 @@
 	margin-bottom: 100px;
 	overflow: hidden;
 
-	&__container {
-	    padding-bottom: 2rem;
-	}
-
 	@include media-breakpoint-up(xxl) {
 		padding-top: calc(#{$navbar-height-w} + 140px);
 	}	
 }
 
+.gallery__container {
+    padding-bottom: 2rem;
+}
+
 .gallery-desc {
 	text-align: center;
 	font-size: 1.56rem;
+	&__item {
+		display: none;
+	}
 	&__title {
 		margin-bottom: 30px;
 	}
@@ -46,6 +49,7 @@
 	margin-right: 0;
 	flex-grow: 1;
 	overflow: hidden;
+	display: block;
 
 	&:hover img {
 		transform: scale(1.1);
@@ -68,24 +72,25 @@
 	margin-top: -60px;
 	background-color: rgba(#000000, 0.6);
 
+	text-align: center;
+	transition: all 0.3s ease-in; 
+
 	@include media-breakpoint-up(xl) {
 		height: 190px;
 		margin-top: -95px;
-	}		
-}
-
-.gallery-list__link {
-	font-size: 2.53rem;
-	font-family: 'liberation_sansregular', Arial;
-    text-align: center;
-    transition: all 0.3s ease-in; 
+	}
     &:hover, &:active {
     	color: $text-yel-color;
-    }
+    }		
+}
+
+.gallery-list__title {
+	font-size: 2.53rem;
+	font-family: 'liberation_sansregular', Arial;
 }
 
 .gallery-image__pic {
 	width: 100%;
-	transition: all 1s ease-in;	
+	transition: all 0.5s ease-in;
 }
 

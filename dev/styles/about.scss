@@ -1,5 +1,5 @@
 #about {
-	background: #001ceb url('../img/piter.png') bottom center no-repeat;
+	background: #001eff url('../img/piter.png') bottom center no-repeat;
 	background-size: contain;
     height: 100%;
     padding-top: calc(#{$navbar-height} + 40px);	
@@ -59,7 +59,11 @@
 	text-align: center;	
 	font-size: 1.82rem;
 
-	.description__par:first-child {
+	&__par {
+		display: none;
+	}
+
+	&__par:first-child {
 		margin-bottom: 30px;
 	    @include media-breakpoint-up(xxl) {
 			margin-bottom: 100px;
