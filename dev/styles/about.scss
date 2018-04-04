@@ -1,66 +1,142 @@
 #about {
-	background: #001eff url('../img/piter.png') bottom center no-repeat;
-	background-size: contain;
-    height: 100%;
-    padding-top: calc(#{$navbar-height} + 40px);	
-    overflow: hidden;
+	background: url('../img/about-new.jpg') 100% no-repeat;
+	background-size: cover;
+  height: 100%;
+  padding-top: calc(#{$navbar-height} + 40px);
+  overflow: hidden;
 
 	@include media-breakpoint-up(xxl) {
 		padding-top: calc(#{$navbar-height-w} + 40px);
 	}
 }
 
-.about__container {
-	margin-bottom: 70px;
-    @include media-breakpoint-up(sm) {
-		margin-bottom: 170px;
-	}
-    @include media-breakpoint-up(lg) {
-		margin-bottom: 270px;
-	}	
+// .about__container {
+// 	margin-bottom: 70px;
+//   @include media-breakpoint-up(sm) {
+// 		margin-bottom: 170px;
+// 	}
+//     @include media-breakpoint-up(lg) {
+// 		margin-bottom: 270px;
+// 	}
 
+// }
+
+.about-sub-bg {
+  height: 70px;
+  @include media-breakpoint-up(sm) {
+    height: 170px;
+  }
+    @include media-breakpoint-up(lg) {
+    height: 270px;
+  }
+  background: url('../img/piter.png') bottom center no-repeat;
+  background-size: cover;
 }
 
-.title {
+.title-main {
 	margin-bottom: 30px;
 	text-align: center;
     @include media-breakpoint-up(lg) {
 		margin-bottom: 100px;
 	}
 
-	&__main-name {
+	&__name {
 		font-size: 7.9rem;
 		margin-bottom: 0;
 		font-family: Georgia, serif;
 		font-weight: bold;
 		text-transform: uppercase;
+    text-shadow:
+      -0   -3px 0   #000000,
+       0   -3px 0   #000000,
+      -0    3px 0   #000000,
+       0    3px 0   #000000,
+      -3px -0   0   #000000,
+       3px -0   0   #000000,
+      -3px  0   0   #000000,
+       3px  0   0   #000000,
+      -1px -3px 0   #000000,
+       1px -3px 0   #000000,
+      -1px  3px 0   #000000,
+       1px  3px 0   #000000,
+      -3px -1px 0   #000000,
+       3px -1px 0   #000000,
+      -3px  1px 0   #000000,
+       3px  1px 0   #000000,
+      -2px -3px 0   #000000,
+       2px -3px 0   #000000,
+      -2px  3px 0   #000000,
+       2px  3px 0   #000000,
+      -3px -2px 0   #000000,
+       3px -2px 0   #000000,
+      -3px  2px 0   #000000,
+       3px  2px 0   #000000,
+      -3px -3px 0   #000000,
+       3px -3px 0   #000000,
+      -3px  3px 0   #000000,
+       3px  3px 0   #000000,
+      -3px -3px 0   #000000,
+       3px -3px 0   #000000,
+      -3px  3px 0   #000000,
+       3px  3px 0   #000000;
 	}
-	&__main-subname {
+	&__subname {
 		font-size: 3.8rem;
 		font-family: Georgia, serif;
 		font-style: italic;
+
+    text-shadow:
+      -0   -2px 0   #000000,
+       0   -2px 0   #000000,
+      -0    2px 0   #000000,
+       0    2px 0   #000000,
+      -2px -0   0   #000000,
+       2px -0   0   #000000,
+      -2px  0   0   #000000,
+       2px  0   0   #000000,
+      -1px -2px 0   #000000,
+       1px -2px 0   #000000,
+      -1px  2px 0   #000000,
+       1px  2px 0   #000000,
+      -2px -1px 0   #000000,
+       2px -1px 0   #000000,
+      -2px  1px 0   #000000,
+       2px  1px 0   #000000,
+      -2px -2px 0   #000000,
+       2px -2px 0   #000000,
+      -2px  2px 0   #000000,
+       2px  2px 0   #000000,
+      -2px -2px 0   #000000,
+       2px -2px 0   #000000,
+      -2px  2px 0   #000000,
+       2px  2px 0   #000000;
 	}
-	&__main-est {
-		font-size: 3.06rem;
+	&__est {
+		font-size: 4.06rem;
 		font-family: Georgia, serif;
 		span {
 			font-weight: bold;
-			font-family: 'Times New Roman';
-		}		
+			font-family: 'Verdana', 'Geneva', sans-serif;
+      // font-style: italic;
+		}
 	}
-	&__main-sub {
-		font-family: Georgia, sans-serif;
+	&__sub {
+		font-family: 'Rosa Marena';
 		font-style: italic;
-		font-size: 1.87rem;
+		font-size: 3.4rem; //1.87rem
 	}
 }
 
 .description {
-	text-align: center;	
-	font-size: 1.82rem;
+	text-align: center;
+	// font-size: 1.82rem;
 
 	&__par {
-		display: none;
+		display: block;
+		opacity: 0;
+		span {
+			font-weight: bold;
+		}
 	}
 
 	&__par:first-child {
@@ -76,7 +152,7 @@
 	position: relative;
 	@include box-shadow;
 	&-image {
-		width: 100%;	
+		width: 100%;
 	}
 }
 
@@ -88,16 +164,16 @@
 	height: 100px;
 	&__title {
 		text-align: center;
-		text-transform: uppercase;		
-		font-size: 1.2rem;	
-		transition: all 0.5s ease-in;		
+		text-transform: uppercase;
+		font-size: 1.2rem;
+		transition: all 0.5s ease-in;
 	}
 	&__title a {
 		display: block;
 		margin-top: 10px;
 	}
 	&__title:hover {
-		color: $text-yel-color;		
+		color: $text-yel-color;
 	}
 	&__title:hover img {
 		@include box-shadow;
@@ -116,5 +192,5 @@
 }
 
 area:hover {
-	cursor: pointer;	
+	cursor: pointer;
 }

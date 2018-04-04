@@ -1,12 +1,17 @@
+// #front {
+// 	position: relative;
+//   overflow: hidden;
+//   width: 100%;
+// 	background: #001eff;
+// 	background: -moz-linear-gradient(top, rgba(0,0,0,1) 10%, rgba(0,12,124,1) 65%, rgba(#001eff, 1) 100%);
+// 	background: -webkit-linear-gradient(top, rgba(0,0,0,1) 10%,rgba(0,12,124,1) 65%,rgba(#001eff, 1) 100%);
+// 	background: linear-gradient(to bottom, rgba(0,0,0,1) 10%,rgba(0,12,124,1) 65%,rgba(#001eff, 1) 100%);
+// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#0800f9',GradientType=0 );
+// }
+
 #front {
-	position: relative;
-  overflow: hidden;
-  width: 100%;
-	background: #001eff;
-	background: -moz-linear-gradient(top, rgba(0,0,0,1) 10%, rgba(0,12,124,1) 65%, rgba(#001eff, 1) 100%);
-	background: -webkit-linear-gradient(top, rgba(0,0,0,1) 10%,rgba(0,12,124,1) 65%,rgba(#001eff, 1) 100%);
-	background: linear-gradient(to bottom, rgba(0,0,0,1) 10%,rgba(0,12,124,1) 65%,rgba(#001eff, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#0800f9',GradientType=0 );
+  background: #001eff url('../img/front-new.jpg') 0 0 no-repeat;
+  background-size: cover;
 }
 
 #space {
@@ -34,7 +39,7 @@
 	}
 
   &:hover {
-    cursor: pointer;    
+    cursor: pointer;
   }
 
   &:hover > * {
@@ -55,57 +60,26 @@
   }
 }
 
-.control-play:hover {  
+.control-play:hover {
   cursor: pointer;
   & #play-arrow {
     fill: $text-yel-color;
   }
-  
+
 }
 
 .control-pause:hover {
   cursor: pointer;
-    & #Group {
+  & #Group {
     fill: $text-yel-color;
   }
 }
 
-// #hamburger-10.is-active {
-//   transform: rotate(45deg);
-// }
-
-// #hamburger-10:before {
-//   content: "";
-//   position: absolute;
-//   box-sizing: border-box;
-//   width: 60px;
-//   height: 60px;
-//   border: 2px solid transparent;
-//   top: calc(50% - 24px);
-//   left: calc(50% - 29px);
-//   border-radius: 100%;
-//   transition: all 0.3s ease-in-out;
-// }
-
-// #hamburger-10.is-active:before {
-//   border: 1px solid $text-yel-color;
-// }
-
-// #hamburger-10.is-active .menu-trigger__line {
-//   width: 20px;
-// }
-
-
-// #hamburger-10.is-active .menu-trigger__line:nth-child(2) {
-//   opacity: 0;
-// }
-
-
-// #hamburger-10.is-active .menu-trigger__line:nth-child(1) {
-//   transform: translateY(20px);  
-// }
-
-
-// #hamburger-10.is-active .menu-trigger__line:nth-child(3) {
-//   transform: translateY(-7px) rotate(90deg);
-// }
+.control-active {
+  & #play-arrow {
+    fill: $text-yel-color;
+  }
+  & #Group {
+    fill: $text-yel-color;
+  }
+}

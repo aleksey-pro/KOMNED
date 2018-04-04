@@ -12,9 +12,9 @@
 
 	&__caption {
 		position: absolute;
-		padding: 0 30px;
-	    top: calc(#{$navbar-height} + 4%);
-	    bottom: 5%;
+		padding: 0 20px;
+	    top: calc(#{$navbar-height} + 10%);
+	    bottom: 10%;
 	    left: 0;
 	    right: 0;
 		background-color: rgba(#000, 0.6);
@@ -28,7 +28,8 @@
 		}
 
 		@include media-breakpoint-up(xxl) {
-			top: calc(#{$navbar-height-w} + 4%);
+			top: calc(#{$navbar-height-w} + 15%);
+			bottom: 15%;
 		}
 	}
 
@@ -36,7 +37,7 @@
 	&__title {
 		text-align: center;
 		font-size: 3.64rem !important;
-		font-weight: bold;		
+		font-family: Georgia, serif;
 	}
 
 	&__contact a:hover {

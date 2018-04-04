@@ -8,12 +8,7 @@ html(lang="en")
     link(rel="shortcut icon" type="image/x-icon" href="./favicon.ico")
     script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU")
     link(rel="stylesheet" href="css/main.css")
-    //if lte IE 9
-     p.browsehappy
-      | Вы используете
-      strong устаревший
-      | браузер. Пожалуйста
-      a(href="http://browsehappy.com/") обновите его
+    <!-- [if lte IE 10]<p class="browsehappy"> Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его </a></p><![endif]-->
   body
     include components/navbar   
     include sections/front
@@ -23,7 +18,7 @@ html(lang="en")
     include sections/contacts
     include components/footer
 
-  script(src="js/jquery.min.js")
+  script(src="js/common.js")
   script(src="js/libs.js")
   script(src="js/logo.js") 
   script(src="js/mainpage.js")

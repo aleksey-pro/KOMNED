@@ -3,7 +3,7 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),	
 	concat = require('gulp-concat'),
 	minifyCSS = require('gulp-clean-css'),
-	uglify  = require('gulp-uglify'),
+	uglify  = require('gulp-uglify-es').default,
 	gulpif = require('gulp-if'),	
 	notify = require("gulp-notify"),
 	rename = require("gulp-rename"),	
@@ -18,8 +18,6 @@ var gulp = require('gulp'),
   autoFixTask = require('gulp-eslint-auto-fix'),
   gulpStylelint = require('gulp-stylelint'),
   htmlmin = require('gulp-html-minifier');
-  // path = require('path'),
-  // plumber = require("gulp-plumber"),
 
 
 var config = {
@@ -78,7 +76,7 @@ gulp.task('html', function() {
         message:  error.message
       }
      }))
-    .pipe(gulpif(argv.docsuction, htmlmin({collapseWhitespace: true, removeComments: true})))
+    .pipe(gulpif(argv.production, htmlmin({collapseWhitespace: true, removeComments: true})))
     .pipe(gulp.dest('docs/'))
     .pipe(browserSync.reload({stream: true}))
 });
@@ -94,41 +92,53 @@ gulp.task('style', function() {
         ]
       }).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 5 versions']}))
-    .pipe(gulpif(argv.docsuction, minifyCSS()))
-    .pipe(gulpif(argv.docsuction, rename({suffix: '.min'})))
+    .pipe(gulpif(argv.production, minifyCSS({specialComments : 0})))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('docs/css/'))
     .pipe(browserSync.reload({stream: true}))
 });
 
-
-gulp.task('scripts', function(){
+gulp.task('common-scripts', function(){
   return gulp.src([    
     './node_modules/jquery/dist/jquery.min.js',
-    './node_modules/imagesloaded/imagesloaded.pkgd.min.js',
-    './node_modules/masonry-layout/dist/masonry.pkgd.min.js',    
-    'dev/js/logo.js', 
-    'dev/js/mainpage.js', 
-    'dev/js/projects.js'
+    'dev/js/libs/domshim.js'
   ]) 
+  .pipe(concat('common.js'))
   .pipe(gulp.dest('docs/js')) 
   .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('vendorsJS', function(){
+gulp.task('libs', function(){
   return gulp.src([
-    './node_modules/three/build/three.min.js',  
-    './node_modules/image-map/image-map.min.js',     
-    'dev/js/libs/ColladaLoader.js',
+    './node_modules/three/build/three.min.js', 
+    './node_modules/image-map/image-map.min.js', 
+    'dev/js/libs/ColladaLoader.js',  
     'dev/js/libs/Detector.js',
     'dev/js/libs/OrbitControls.js',
-    'dev/js/libs/stats.min.js'
-  ]) 
-  .pipe(sourcemaps.init())
-  .pipe(concat('libs.js'))
-  .pipe(sourcemaps.write('.'))
+    'dev/js/libs/stats.min.js'  
+  ])   
+  .pipe(concat('libs.js'))  
   .pipe(gulp.dest('docs/js')); 
 });
+
+let JSsources = [    
+  './node_modules/imagesloaded/imagesloaded.pkgd.min.js',
+  './node_modules/masonry-layout/dist/masonry.pkgd.min.js',
+  'dev/js/logo.js', 
+  'dev/js/scrollupArrow.js', 
+  'dev/js/mainpage.js', 
+  'dev/js/projects.js'
+];
+
+gulp.task('scripts', function(){
+  return gulp.src(JSsources)
+  .pipe(sourcemaps.init())
+  .pipe(gulpif(argv.production, uglify()))
+  .pipe(gulp.dest('docs/js')) 
+  .pipe(sourcemaps.write('.'))
+  .pipe(browserSync.reload({stream: true}));
+});
+
 
 gulp.task('lint-css', function () {
   return gulp.src('dev/**/*.scss')
@@ -139,14 +149,14 @@ gulp.task('lint-css', function () {
     }));
 });
 
-autoFixTask('fix-js', ['dev/js/maipage.js', 'dev/js/projects.js']);
+autoFixTask('fix-js', ['dev/js/maipage.js', 'dev/js/projects.js', 'dev/js/logo.js']);
 
 gulp.task ('watch', function(){
 	gulp.watch('dev/templates/**/*.pug', ['html']);
 	gulp.watch('dev/styles/**/*.scss', ['style']);
-	gulp.watch('dev/js/*.js', ['scripts']);
+	gulp.watch('dev/js/*.js', ['scripts', 'fix-js']);
 });
 
-gulp.task ('default', ['html', 'vendorsJS', 'scripts', 'style', 'browserSync', 'watch', 'fix-js']);
-gulp.task ('build', ['html', 'vendorsJS', 'scripts', 'fonts', 'style']); // , 'sprite', 'images'
+gulp.task ('default', ['html', 'common-scripts', 'libs', 'scripts', 'style', 'browserSync', 'watch']);
+gulp.task ('build', ['html', 'common-scripts', 'libs', 'scripts', 'style']); // , 'sprite', 'images', 'fonts'
 gulp.task('del', function() {return del.sync('docs'); });

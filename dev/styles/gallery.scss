@@ -1,24 +1,24 @@
 @import 'slides';
 
 #gallery {
-	padding-top: calc(#{$navbar-height} + 100px);
+	padding-top: calc(#{$navbar-height} + 4rem);
 	margin-bottom: 100px;
 	overflow: hidden;
 
 	@include media-breakpoint-up(xxl) {
-		padding-top: calc(#{$navbar-height-w} + 140px);
-	}	
+		padding-top: calc(#{$navbar-height-w} + 4rem);
+	}
 }
 
-.gallery__container {
+.gallery-container {
     padding-bottom: 2rem;
 }
 
 .gallery-desc {
 	text-align: center;
-	font-size: 1.56rem;
+	// font-size: 1.56rem;
 	&__item {
-		display: none;
+		display: block;
 	}
 	&__title {
 		margin-bottom: 30px;
@@ -32,16 +32,17 @@
 }
 
 .gallery-list {
-	width: 100%;	
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+  background-color: #fff;
 
 	@include media-breakpoint-up(md) {
 		flex-wrap: nowrap;
 		max-height: 402px;
 		justify-content: space-between;
-	} 
+	}
 }
 
 .gallery-list__item {
@@ -54,7 +55,11 @@
 	&:hover img {
 		transform: scale(1.1);
 	}
-	
+
+	&:hover, &:active {
+    	color: $text-yel-color;
+    }
+
 	&:last-child {
 		margin-right: 0;
 	}
@@ -73,23 +78,20 @@
 	background-color: rgba(#000000, 0.6);
 
 	text-align: center;
-	transition: all 0.3s ease-in; 
+	transition: all 0.3s ease-in;
 
 	@include media-breakpoint-up(xl) {
 		height: 190px;
 		margin-top: -95px;
 	}
-    &:hover, &:active {
-    	color: $text-yel-color;
-    }		
 }
 
 .gallery-list__title {
 	font-size: 2.53rem;
-	font-family: 'liberation_sansregular', Arial;
+	font-family: 'Georgia', serif;
 }
 
-.gallery-image__pic {
+.gallery-list__pic {
 	width: 100%;
 	transition: all 0.5s ease-in;
 }

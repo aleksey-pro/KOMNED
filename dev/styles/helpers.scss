@@ -1,8 +1,8 @@
 // varaibles
 
 $text-main-color: #ffffff;
-$text-red-color: #d34500;
-$text-yel-color: #fad900;
+$text-red-color: #ef7b4c;
+$text-yel-color: #ffd800;
 $text-oran-color: #db8353;
 
 
@@ -24,14 +24,17 @@ $navbar-height-w: calc(#{$navbar-height} * 1.59);
 
 .text-orange {
   color: $text-oran-color;
+  font-weight: bold;
 }
 
 .text-red {
   color: $text-red-color;
+  font-weight: bold;
 }
 
 .text-yell {
   color: $text-yel-color; 
+  font-weight: bold;
 }
 
 .is-hidden {

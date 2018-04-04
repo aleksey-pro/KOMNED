@@ -21,8 +21,6 @@ body {
 
 .arrow-up { 
   position: fixed;
-  bottom: 2rem;
-  left: 0;
   text-align: center;
   z-index: 999;
   display: none;
@@ -40,11 +38,11 @@ body {
 
 @include media-breakpoint-up(xl) {
   .arrow-up {
-    left: 1rem;
+    left: 1rem !important;
   }
 }
 
-// ------------FLUID TYPOGRAPHY-------------
+// ------------ TYPOGRAPHY-------------
 
 :root {
   font-size: calc(1vw + 1vh - 1.3685vmin); // ~16px
@@ -52,8 +50,8 @@ body {
 
 body, p, h1, a {
   font-family: Arial, sans-serif;
-  line-height: 1.1;  
-  color: $text-main-color;  
+  line-height: 1.1; 
+  color: $text-main-color;   
 }
 
 a:hover, a:active {

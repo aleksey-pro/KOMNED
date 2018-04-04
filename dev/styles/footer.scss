@@ -5,14 +5,18 @@
 		font-size: 2.34rem;	
 		text-transform: uppercase;	
 		text-align: center;	
+		font-weight: normal!important;
 		@include media-breakpoint-up(sm) {
 			text-align: left;
 		}	
+		.text-orange {
+			font-weight: normal!important;
+		}
 	}
 
 	&__contacts {
 		text-align: center;
-		font-size: 1.56rem;
+		// font-size: 1.56rem;
 
 		p {
 			margin-bottom: 0.5rem;

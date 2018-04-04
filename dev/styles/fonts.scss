@@ -5,47 +5,70 @@
 
 @font-face {
     font-family: 'carlito-regular-webfont';
-    src: url('../fonts/carlito-regular-webfont.woff2') format('woff2'),
-         url('../fonts/carlito-regular-webfont.woff') format('woff');
-         src: url('../fonts/carlito-regular-webfont.ttf') format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    src: url('../fonts/carlitoregularwebfont.eot');
+    src: url('../fonts/carlitoregularwebfont.eot') format('embedded-opentype'),
+         url('../fonts/carlitoregularwebfont.woff2') format('woff2'),
+         url('../fonts/carlitoregularwebfont.woff') format('woff'),
+         url('../fonts/carlitoregularwebfont.ttf') format('truetype'),
+         url('../fonts/carlitoregularwebfont.svg#carlitoregularwebfont') format('svg');
 }
 
 @font-face {
     font-family: 'liberation_sansregular';
-    src: url('../fonts/liberationsans-regular-webfont.woff2') format('woff2'),
-         url('../fonts/liberationsans-regular-webfont.woff') format('woff');
-    src: url('../fonts/liberationsans-regular-webfont.ttf') format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    src: url('../fonts/liberationsansregularwebfont.eot');
+    src: url('../fonts/liberationsansregularwebfont.eot') format('embedded-opentype'),
+         url('../fonts/liberationsansregularwebfont.woff2') format('woff2'),
+         url('../fonts/liberationsansregularwebfont.woff') format('woff'),
+         url('../fonts/liberationsansregularwebfont.ttf') format('truetype'),
+         url('../fonts/liberationsansregularwebfont.svg#liberationsansregularwebfont') format('svg');
 }
 
 @font-face {
     font-family: 'liberation_serifbold';
-    src: url('../fonts/liberationserif-bold-webfont.woff2') format('woff2'),
-         url('../fonts/liberationserif-bold-webfont.woff') format('woff');
-    src: url('../fonts/liberationserif-bold-webfont.ttf') format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    src: url('../fonts/liberationserifboldwebfont.eot');
+    src: url('../fonts/liberationserifboldwebfont.eot') format('embedded-opentype'),
+         url('../fonts/liberationserifboldwebfont.woff2') format('woff2'),
+         url('../fonts/liberationserifboldwebfont.woff') format('woff'),
+         url('../fonts/liberationserifboldwebfont.ttf') format('truetype'),
+         url('../fonts/liberationserifboldwebfont.svg#liberationserifboldwebfont') format('svg');
 }
-
 
 @font-face {
     font-family: 'liberation_serifitalic';
-    src: url('../fonts/liberationserif-italic-webfont.woff2') format('woff2'),
-         url('../fonts/liberationserif-italic-webfont.woff') format('woff');
-    src: url('../fonts/liberationserif-italic-webfont.ttf') format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    src: url('../fonts/liberationserifitalicwebfont.eot');
+    src: url('../fonts/liberationserifitalicwebfont.eot') format('embedded-opentype'),
+         url('../fonts/liberationserifitalicwebfont.woff2') format('woff2'),
+         url('../fonts/liberationserifitalicwebfont.woff') format('woff'),
+         url('../fonts/liberationserifitalicwebfont.ttf') format('truetype'),
+         url('../fonts/liberationserifitalicwebfont.svg#liberationserifitalicwebfont') format('svg');
 }
-
 
 @font-face {
     font-family: 'liberation_serifregular';
-    src: url('../fonts/liberationserif-regular-webfont.woff2') format('woff2'),
-         url('../fonts/liberationserif-regular-webfont.woff') format('woff');
-    src: url('../fonts/liberationserif-regular-webfont.ttf') format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    src: url('../fonts/liberationserifregularwebfont.eot');
+    src: url('../fonts/liberationserifregularwebfont.eot') format('embedded-opentype'),
+         url('../fonts/liberationserifregularwebfont.woff2') format('woff2'),
+         url('../fonts/liberationserifregularwebfont.woff') format('woff'),
+         url('../fonts/liberationserifregularwebfont.ttf') format('truetype'),
+         url('../fonts/liberationserifregularwebfont.svg#liberationserifregularwebfont') format('svg');
+}
+
+@font-face {
+    font-family: 'Rosa Marena';
+    src: url('../fonts/8585.eot');
+    src: url('../fonts/8585.eot') format('embedded-opentype'),
+         url('../fonts/8585.woff2') format('woff2'),
+         url('../fonts/8585.woff') format('woff'),
+         url('../fonts/8585.ttf') format('truetype'),
+         url('../fonts/8585.svg#8585') format('svg');
+}
+
+@font-face {
+    font-family: '10732';
+    src: url('../fonts/10732.eot');
+    src: url('../fonts/10732.eot') format('embedded-opentype'),
+         url('../fonts/10732.woff2') format('woff2'),
+         url('../fonts/10732.woff') format('woff'),
+         url('../fonts/10732.ttf') format('truetype'),
+         url('../fonts/10732.svg#10732') format('svg');
 }

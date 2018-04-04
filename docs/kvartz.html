@@ -7,14 +7,7 @@
     <meta name="description" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <!--if lte IE 9
-    p.browsehappy
-     | Вы используете
-     strong устаревший
-     | браузер. Пожалуйста
-     a(href="http://browsehappy.com/") обновите его
-    -->
+    <link rel="stylesheet" href="css/main.css"><!-- [if lte IE 10]<p class="browsehappy"> Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его </a></p><![endif]-->
   </head>
   <body> 
     <section class="projectpage-section">
@@ -42,7 +35,7 @@
           <figure class="projectpage-heading__item"> 
             <picture><img class="projectpage-heading__img" src="img/kvartz/kvartz-main.jpg">
               <figcaption class="projectpage-heading__caption d-flex justify-content-around">
-                <div class="projectpage-heading__title text-yell">БИЗНЕС-ЦЕНТР «КВАРЦ»</div>
+                <div class="projectpage-heading__title text-yell">Бизнес-Центр «КВАРЦ»</div>
                 <div class="projectpage-heading__desc"><p>Расположенный в Красногвардейском районе Санкт-Петербурга, предлагает в аренду офисные помещения, склады.</p><p>Удобная транспортная доступность, парковка, контроль доступа, видеонаблюдение, современный высококачественный ремонт, конференц-зал, кафе.</p></div>
                 <div class="projectpage-heading__contact"><p>Cайт:  <a href="http://xn--80adx0a4a.xn--p1ai" target="blank">кварц.рф</a></p><p>Адрес: Санкт-Петербург, пр. Пискаревский, 63</p><p>Телефоны: +7 (812) 591-88-88, +7 (812) 927-92-26</p></div>
               </figcaption>
@@ -61,6 +54,8 @@
           <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/kvartz/12.jpg" alt="форум"></a></div>
           <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/kvartz/13.jpg" alt="форум"></a></div>
           <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/kvartz/14.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/kvartz/18.jpg" alt="форум"></a></div>
+          <div class="grid__item"><a class="grid__link" href="javascript: void(0)"><img class="grid__image" src="img/loader.svg" data-src="img/kvartz/19.jpg" alt="форум"></a></div>
         </div>
       </div>
       <div class="projectmap-title">на карте</div>
@@ -68,9 +63,9 @@
       <div class="slide-modal slide-modal__overlay is-hidden">
         <div class="slide-modal__table">
           <div class="slide-modal__cell">
-            <div class="slide-modal__left-arrow"><</div>
+            <div class="slide-modal__left-arrow">&lt;</div>
             <div class="slide-modal__image"></div>
-            <div class="slide-modal__right-arrow">>
+            <div class="slide-modal__right-arrow">&gt;
               <button class="slide-modal__close"><span>x</span></button>
             </div>
           </div>
@@ -92,8 +87,9 @@
     </footer><a class="arrow-up" href="javascript: void(0)"><img src="img/upArr.svg" alt="Наверх">
       <p>наверх</p></a>
   </body>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/imagesloaded.pkgd.min.js"> </script>
+  <script src="js/common.js"></script>
+  <script src="js/imagesloaded.pkgd.min.js"></script>
   <script src="js/masonry.pkgd.min.js"></script>
+  <script src="js/scrollupArrow.js"></script>
   <script src="js/projects.js"></script>
 </html>

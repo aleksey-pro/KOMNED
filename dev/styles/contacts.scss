@@ -5,13 +5,14 @@ section#contacts {
 	@include media-breakpoint-up(xxl) {
 		padding-top: calc(#{$navbar-height-w} + 100px);
 		padding-bottom: 20px;
-	}	
+	}
 }
 
 .contacts-data {
 	display: flex;
 	flex-direction: column;
-	font-size: 1.56rem;
+  line-height: 1.5;
+  font-size: 1.35rem;
 	font-family: 'liberation_sansregular', Arial;
 
 	& > * {
@@ -22,11 +23,11 @@ section#contacts {
 	&__logo {
 	    width: 72px;
 	    height: 74px;
-	    margin-left: auto;	    
-	    margin-right: auto;	    
+	    margin-left: auto;
+	    margin-right: auto;
 	}
-	p {
-		line-height: 1.1rem;
+	.text-yell {
+		font-weight: normal;
 	}
 }
 
@@ -37,7 +38,7 @@ section#contacts {
 		padding: 35px 25px 25px;
 		background: transparent url('../img/letter-bg.png') center top no-repeat;
 		background-size: contain;
-		
+
 		margin-right: 1rem;
 
 		@include media-breakpoint-up(md) {
@@ -50,18 +51,18 @@ section#contacts {
 	&__logo {
 		margin: 0 auto 10px;
 	}
-	&__input {	
-		margin-bottom: 20px;	
+	&__input {
+		margin-bottom: 20px;
 		padding: 15px 20px;
 		color: #001eff;
 		font-size: 1.56rem;
 		font-family: 'carlito-regular-webfont', Arial;
 
-		@include placeholder {			
+		@include placeholder {
 			color: inherit;
 			font-size: inherit;
 			font-family: inherit;
-			font-style: italic;	
+			font-style: italic;
 		}
 	}
 }

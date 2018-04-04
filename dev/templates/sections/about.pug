@@ -1,49 +1,49 @@
-section#about
+section#about.about
  .container-fluid.about__container
-  .title
-     p.text-center.title__main-name forum
-     p.text-center.title__main-subname group
-     p.text-center.title__main-est 
-      |С 
-      span 1998 
+  .title-main
+     p.text-center.title-main__name forum
+     p.text-center.title-main__subname group
+     p.text-center.title-main__est
+      |С
+      span &nbsp;1988&nbsp;
       | года на рынке!
-     p.text-center.title__main-sub Управляем собственной недвижимостью
+     p.text-center.title-main__sub Управляем собственной недвижимостью
   .description
      p.description__par
-      | Компания 
-      span «FORUM»
+      span Компания «FORUM»
       | — многопрофильный холдинг, более 30 лет ведущий свою деятельность на Северо- Западе РФ!
      p.description__par
-      span.text-yell Основная область интересов 
+      span.text-yell Основная область интересов
       | – коммерческая недвижимость, телекоммуникации, сельское хозяйство.
      p.description__par
-      span.text-red Основной актив 
-      | — команда единомышленников, многие из которых работают в компании более 20 лет!  
+      span.text-red Основной актив
+      | — команда единомышленников, многие из которых работают в компании более 20 лет!
+ .about-sub-bg
 picture.about__map
   source(srcset="../img/lake.jpg" media="max-width: 768px")
-  img.about__map-image(src="img/lake.jpg" alt="forum" usemap="#map")  
+  img.about__map-image(src="img/lake.jpg" alt="forum" usemap="#map")
   map(name='map')
     mixin area(href, coords, alt)
       area(target="_blank" shape="rect" coords=coords alt=alt href=href)
-    +area("http://xn--d1aboife.xn--p1ai/objects/pos-melnikovo/", "880,77,995,106", "База отдыха")
-    +area("http://xn--d1aboife.xn--p1ai/objects/ekaterinovka-2/", "898,97,1014,122", "Екатериновка")
-    +area("", "859,283,975,307", "Энгельса 109")
-    +area("http://бц-атолл.рф", "1006,313,1111,341", "б/ц Атолл")
-    +area("http://xn--d1aboife.xn--p1ai/objects/engelsa-pr-53-3/", "857,400,967,426", "Энгельса 53")
-    +area("", "868,457,976,484", "Энгельса 21")
-    +area("http://ландскрона.рф", "590,344,704,369", "Ландскрона")
-    +area("http://кварц.рф", "1092,499,1183,524", "б/ц Кварц")    +
-    +area("http://xn--d1aboife.xn--p1ai/objects/shamsheva-ul-17-2/", "795,642,897,661", "Шамшева 17")
-    +area("http://xn--d1aboife.xn--p1ai/objects/smolnyj-pr-6-2/", "1002,719,1116,747", "Смольный 6")
-    +area("http://xn--d1aboife.xn--p1ai/objects/bolsheohtinskij-pr-1-3/", "1035,677,1192,702", "Большеохтинский 1")
-    +area("http://xn--d1aboife.xn--p1ai/objects/millionnaya-ul-25/", "854,717,974,743", "Миллионная 25")
-    +area("", "978,805,1093,832", "Тележная 17")
-    +area("http://xn--d1aboife.xn--p1ai/objects/spasskij-per-5/", "840,787,940,811", "Спасский пер 3")
-    +area("http://xn--d1aboife.xn--p1ai/objects/ispolkomskaya-ul-8-2/", "970,770,1100,795", "Исполкомская 8")
-    +area("http://xn--47-glcqe5aecpy.xn--p1ai/", "1375,507,1491,531", "Горизонт")
-    +area("http://xn--d1aboife.xn--p1ai/objects/nikolskij-per-7-2/", "812,829,923,855", "Никольский 7")
-    +area("http://бцфорум.рф", "785,899,883,925", "б/ц Форум")
-    +area("http://xn--d1aboife.xn--p1ai/objects/moskovskoe-shosse-79-2/", "428,151,479,163", "Московское ш, 79")
+    +area("http://xn--d1aboife.xn--p1ai/objects/pos-melnikovo/", "716,33,831,60", "База отдыха")
+    +area("http://xn--d1aboife.xn--p1ai/objects/ekaterinovka-2/", "882,382,998,409", "Екатериновка")
+    +area("javascript: void(0)", "839,568,957,595", "Энгельса 109")
+    +area("http://бц-атолл.рф", "1004,615,1110,644", "б/ц Атолл")
+    +area("http://xn--d1aboife.xn--p1ai/objects/engelsa-pr-53-3/", "838,687,950,715", "Энгельса 53")
+    +area("javascript: void(0)", "853,744,961,774", "Энгельса 21")
+    +area("http://ландскрона.рф", "572,630,686,657", "Ландскрона")
+    +area("http://кварц.рф", "1075,787,1166,814", "б/ц Кварц")    +
+    +area("http://xn--d1aboife.xn--p1ai/objects/shamsheva-ul-17-2/", "780,923,880,952", "Шамшева 17")
+    +area("http://xn--d1aboife.xn--p1ai/objects/smolnyj-pr-6-2/", "985,990,1098,1015", "Смольный 6")
+    +area("http://xn--d1aboife.xn--p1ai/objects/bolsheohtinskij-pr-1-3/", "1017,952,1176,985", "Большеохтинский 1")
+    +area("http://xn--d1aboife.xn--p1ai/objects/millionnaya-ul-25/", "837,997,956,1022", "Миллионная 25")
+    +area("javascript: void(0)", "961,1072,1078,1101", "Тележная 17")
+    +area("http://xn--d1aboife.xn--p1ai/objects/spasskij-per-5/", "825,1056,922,1080", "Спасский пер 3")
+    +area("http://xn--d1aboife.xn--p1ai/objects/ispolkomskaya-ul-8-2/", "953,1040,1081,1064", "Исполкомская 8")
+    +area("http://xn--47-glcqe5aecpy.xn--p1ai/", "1360,795,1475,821", "Горизонт")
+    +area("http://xn--d1aboife.xn--p1ai/objects/nikolskij-per-7-2/", "798,1099,907,1125", "Никольский 7")
+    +area("http://бцфорум.рф", "767,1168,868,1193", "б/ц Форум")
+    +area("http://xn--d1aboife.xn--p1ai/objects/moskovskoe-shosse-79-2/", "1351,1248,1529,1286", "Московское ш, 79")
 
   .map-btn
     .map-btn__title на яндекс картах

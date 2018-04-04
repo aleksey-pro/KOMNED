@@ -1,7 +1,19 @@
+/**
+ * Полифилл использования Array.prototype.forEach в IE
+ */
+
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function(fn, scope) {
+        for(var i = 0, len = this.length; i < len; ++i) {
+            fn.call(scope, this[i], i, this);
+        }
+    }
+}
 
 /**
- * Функция генерации объекта с координатами секций
- * @param {Object} obj [объект координат секций страницы]
+ * Функция создания объекта с координатами секций
+ * @param {Object} obj [пустой объект координат секций страницы]
+ * @return {Object} [заполненный объект координат секций страницы]
  */
 
 function createDimensionsMap(obj) {
@@ -15,14 +27,51 @@ function createDimensionsMap(obj) {
    * @param {number} height
    */
   function storeDimensions(sekcia, top, bottom, height) {
-    obj[sekcia] = {top: top, bottom: bottom, height: height};
+    obj[sekcia] = {top: top, bottom: bottom};
   }
 
   sections.forEach(function(elem){
     let gbr = elem.getBoundingClientRect();
-    return storeDimensions(elem.id, gbr.top, gbr.bottom, gbr.height);
+    return storeDimensions(elem.id, gbr.top, gbr.bottom);
   })
-};
+}
+
+/**
+ * Функция чтения объекта с координатами секций
+ * @return {Object} [объект с координатами секций]
+ */
+
+function getDms() {
+
+  /**
+   * Объект хранения координат секций
+   * @type {Object}
+   */
+  let sectionsDms = {};
+
+  /**
+   * Копия объекта хранения координат для localstorage кеширования
+   * @type {Object}
+   */
+  let cachedDms = {};
+
+  /**
+   * Если в хранилище уже есть объект координат - берем его от туда.
+   * Иначе создаем новый объект координат, сохраняем в хранилище
+   * и возвращаем для использования на главной странице, записывая 
+   * в копию объекта хранения координат. 
+   */
+
+  if (localStorage.getItem("dms")) {
+    cachedDms = JSON.parse(localStorage.getItem("dms"));
+  } else {
+    createDimensionsMap(sectionsDms);
+    localStorage.setItem("dms", JSON.stringify(sectionsDms)); 
+    cachedDms = JSON.parse(localStorage.getItem("dms"));   
+  }
+
+  return cachedDms;
+}
 
 /**
  * Функция выделения соответствующего пункта меню шапки при прокрутке документа и добавления хеша
@@ -35,15 +84,22 @@ function checkSection(obj) {
     if( (obj[section].top - 100) < wScroll && obj[section].bottom > wScroll) {     
       reqlink = $('.nav__link').filter('[href=".\/#' + section + '"]');
       reqlink.closest('.nav__item').addClass('nav__item--active').siblings().removeClass('nav__item--active');
+
+      /**@todo Смена хеша заставляет браузер дергатся при его смене. 
+      */
       if (navigator.userAgent.search(/Firefox/) > 0) {
         history.pushState(null, null, '#' + section);
       } else {
+        //https://toster.ru/q/116757
+        let thisSec = document.querySelector('#' + section);
+        let id = thisSec.getAttribute('id');
+        thisSec.removeAttribute(id);
         window.location.hash = section;
+        thisSec.setAttribute('id', id);
       }
     }
-  };  
+  }
 }
-
 
 /**
  * Функция прокрутки к секции 
@@ -55,31 +111,33 @@ function checkSection(obj) {
 function showSection(obj, section, isAnimate) {
   let direction = section.replace(/.\/#/, '');
     let reqSection, reqSectionPos;
-    for(let section in obj){      
-      if(section === direction) {
-        reqSectionPos = obj[section].top;
+    for(let sekcia in obj){      
+      if(sekcia === direction) {
+        reqSectionPos = obj[sekcia].top;
       }
     }
 
-  let position  = reqSectionPos;  
-
   if(isAnimate) {
-    $('body, html').animate({scrollTop: reqSectionPos}, 500);
+    $('body, html').animate({scrollTop: reqSectionPos}, 300);
   } else {
     $('body, html').animate({scrollTop: reqSectionPos});
   }
+  /**
+   * В случае неиспользования скролла 
+   */
+  animateTextInAbout(obj);
 }
 
 /**
  * Функция вызова прокрутки к секции при нажатии на кнопку
  */
 
-function toSection() {  
+function toSection(dmsObj) {  
 
   const navlink = $('.nav__link');
   navlink.on('click', function(e) {
     e.preventDefault();
-    showSection(cachedDms, $(this).attr('href'), false);
+    showSection(dmsObj, $(this).attr('href'), true);
   });   
 }
 
@@ -87,19 +145,19 @@ function toSection() {
  * Функция прокрутки в начало страницы по нажатию на логотип 
  */
 
-function toTop(){
+function toTop(dmsObj) {
   const logoLink = $('.navbar-toplik');
   logoLink.on('click', function(e) {
     e.preventDefault();
-    showSection(cachedDms, $(this).attr('href'), true);
+    showSection(dmsObj, $(this).attr('href'), true);
   });
-};
+}
 
 /**
  * Функция прокрутки к карте
  */
 
-function toMap(){
+function toMap() {
   $('.map-btn').on('click', function(e) {
     e.preventDefault();
     const dest = $('#map').offset().top - 100;
@@ -116,6 +174,9 @@ function toMap(){
  * @param {number} point
  */
 
+/**
+ * @todo вынести переменную из глобалной области но чтобы работало и при загрузке и скролле
+ */
 let triggered = false;
 
 function showMenu(obj, blockID, elem, point) {
@@ -140,7 +201,7 @@ function animateTextInAbout(obj) {
     const paragraphs = document.querySelectorAll('.description__par');
     [].forEach.call(paragraphs, function(par){
       let $par = $(par);
-      $par.fadeIn(5000);
+      $par.animate({opacity: 1}, 1000);
     });
   }
 }
@@ -157,7 +218,7 @@ function animateTextInGallery(obj) {
     const paragraphs = document.querySelectorAll('.gallery-desc__item');
     [].forEach.call(paragraphs, function(par){
       let $par = $(par);
-      $par.fadeIn(3000);
+      $par.animate({opacity: 1}, 5000);
     });
   }
 }
@@ -170,7 +231,7 @@ function animateTextInGallery(obj) {
  */
 
 function showTrigger(obj, blockID, elem) {
-  parseInt(obj[blockID].top) == 0  ? elem.classList.add('d-sm-inline-block') : elem.classList.remove('d-sm-inline-block');
+  parseInt(obj[blockID].top) == 0  ? elem.classList.add('d-inline-block') : elem.classList.remove('d-inline-block');
 }
 
 /**
@@ -178,10 +239,10 @@ function showTrigger(obj, blockID, elem) {
  * @param {Element} elem
  */
 
-function toggleClickTrigger(elem, nav){
+function toggleClickTrigger(elem, nav) {
 
   elem.addEventListener('click', function(e){
-    this.classList.remove('d-sm-inline-block');
+    this.classList.remove('d-inline-block');
     nav.css('display', 'block');
     triggered = true;
   }); 
@@ -218,13 +279,12 @@ function activateProjectBlocks() {
 }
 
 /**
- * Функция активации блоков партнеры при наведении
+ * Функция затемнения блоков с партнерами при движении курсора
  */
 
-function activatePartnerBlocks() {
-  const partnerContainer = $('.partners');
-  const partnerImages = $('.partners__img');
-
+function changePartnerOpacity(container) {
+  
+  const partnerImages = container.find('img');
   partnerImages.on('mousemove', function(){
     $(this).addClass('partners__img--active');
     $(this).removeClass('partners__img--darkened');
@@ -237,12 +297,12 @@ function activatePartnerBlocks() {
 }
 
 /**
- * Функция затемнения блоков с партнерами при движении курсора
+ * Функция дезактивации затемнения
  */
 
-function changePartnerOpacity() {
+function disablePartnerOpacity(container) {
 
-partnerContainer.on('mouseleave', function(evt){ 
+container.on('mouseleave', function(evt){ 
     let that = $(this);
     setTimeout(function(){    
       const images = that.find('.partners__img');
@@ -250,15 +310,15 @@ partnerContainer.on('mouseleave', function(evt){
         $(image).removeClass('partners__img--active');
         $(image).removeClass('partners__img--darkened');
       });
-    }, 1000);
+    }, 500);
   });  
 }
 
 /**
- * Функция инициализации яндекс карты
+ * Функция инициализации и настройки параметров карты
  */
 
-function initMap(){ 
+function initMap() { 
   let myMap, myPlacemark;
   myMap = new ymaps.Map("map", {
       center: [60.032975, 30.323807],
@@ -274,21 +334,21 @@ function initMap(){
   myMap.geoObjects.add(myPlacemark);
 }
 
-// on load
-
 /**
- * Объект хранения координат секций
- * @type {Object}
+ * Функция настройки отображения для IE (с учетом того, что анимация логотипа отключена)
  */
-let sectionsDms = {};
-/**
- * Копия объекта хранения координат для localstorage
- * @type {Object}
- */
-let cachedDms = {};
-const frontTrigger = document.querySelector('#hamburger-10');
-const navbar = $('.navbar');
 
+function IETune() {
+  if (navigator.userAgent.search(/Trident/) >= 0) {
+    $('#front').css('display', 'none');
+    $('.navbar').css('display', 'block');
+    const paragraphs = document.querySelectorAll('.description__par');
+    [].forEach.call(paragraphs, function(par){
+      $(par).css('opacity', 1);
+    });    
+    $('.contacts-form__logo').css('width', '83px');
+  }
+}
 
 /*********************************************************************/
 /**********************  При загрузке страницы **********************/
@@ -296,28 +356,22 @@ const navbar = $('.navbar');
 
 $(document).ready(function() {
 
-  /**
-   * Если в хранилище уже есть объект координат - берем его от туда.
-   * Иначе создаем новый объект координат, сохраняем в хранилище
-   * и возвращаем для использования на главной странице, записывая 
-   * в копию объекта хранения координат.
-   */
-  if (localStorage.getItem("dms")) {
-    cachedDms = JSON.parse(localStorage.getItem("dms"));
-  } else {
-    createDimensionsMap(sectionsDms);
-    localStorage.setItem("dms", JSON.stringify(sectionsDms)); 
-    cachedDms = JSON.parse(localStorage.getItem("dms"));   
-  }
-    
-  toSection();
+  const partnerContainer = $('.partners');
+  const navbar = $('.navbar');
+  const frontTrigger = document.querySelector('#hamburger-10');
+
+  let DMS = getDms();  
+  toSection(DMS);
   activateProjectBlocks();
-  activatePartnerBlocks();
+  changePartnerOpacity(partnerContainer);
+  disablePartnerOpacity(partnerContainer);
   showMobileTrigger();
-  toggleClickTrigger(frontTrigger, navbar);
-  toTop();
+  toggleClickTrigger(frontTrigger, navbar);  
+  toTop(DMS);
   toMap();
   ymaps.ready(initMap);
+  IETune();
+
 });
 
 /*********************************************************************/
@@ -352,17 +406,28 @@ function throttle(func, ms) {
   return wrapper;
 }
 
-$(window).scroll(function() { 
+window.addEventListener('scroll', function() { 
 
-  const frontSectionID = document.querySelector('#front').getAttribute('id');   
+  /**
+  * @todo
+  * затратно
+  */
+  let DMS = getDms(); 
+
   let dynamicSectionsDms = {};
+  const navbar = $('.navbar');
+  const frontSectionID = document.querySelector('#front').getAttribute('id');
+  const frontTrigger = document.querySelector('#hamburger-10');
 
   throttle(createDimensionsMap(dynamicSectionsDms), 100);
-  throttle(checkSection(cachedDms), 100);
-  throttle(showMenu(dynamicSectionsDms, frontSectionID, navbar, 200), 100);
+  throttle(checkSection(DMS), 100);
+  /**
+   * Показ меню при скролле, для IE функция отключается.
+   */
+  if (navigator.userAgent.search(/Trident/) < 0) {
+    throttle(showMenu(dynamicSectionsDms, frontSectionID, navbar, 200), 100);
+  }  
   throttle(showTrigger(dynamicSectionsDms, frontSectionID, frontTrigger), 100);
   throttle(animateTextInAbout(dynamicSectionsDms), 100);
-  throttle(animateTextInGallery(dynamicSectionsDms), 100);
   
 });
-

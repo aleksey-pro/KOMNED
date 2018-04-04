@@ -1,5 +1,5 @@
 section#gallery
- .container-fluid.gallery__container
+ .container-fluid.gallery-container
   .gallery-desc
    p.gallery-desc__title Наиболее крупными объектами в области коммерческой недвижимости являются:
    p.gallery-desc__list Офисные центры:
@@ -13,7 +13,7 @@ section#gallery
    mixin picture(source, name, link)  
     a(href=link)
       picture.gallery-list__item
-        img(src=source alt="forum").gallery-image__pic
+        img(src=source alt="forum").gallery-list__pic
         div.gallery-list__name.d-flex.align-items-center.justify-content-center    
           span.gallery-list__title!= name        
    +picture('img/gal-kvartz.jpg', 'Бизнес-Центр <br> «КВАРЦ»', './kvartz.html')
