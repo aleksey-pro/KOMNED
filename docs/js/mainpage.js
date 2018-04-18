@@ -58,16 +58,16 @@ function getDms() {
   /**
    * Если в хранилище уже есть объект координат - берем его от туда.
    * Иначе создаем новый объект координат, сохраняем в хранилище
-   * и возвращаем для использования на главной странице, записывая 
-   * в копию объекта хранения координат. 
+   * и возвращаем для использования на главной странице, записывая
+   * в копию объекта хранения координат.
    */
 
   if (localStorage.getItem("dms")) {
     cachedDms = JSON.parse(localStorage.getItem("dms"));
   } else {
     createDimensionsMap(sectionsDms);
-    localStorage.setItem("dms", JSON.stringify(sectionsDms)); 
-    cachedDms = JSON.parse(localStorage.getItem("dms"));   
+    localStorage.setItem("dms", JSON.stringify(sectionsDms));
+    cachedDms = JSON.parse(localStorage.getItem("dms"));
   }
 
   return cachedDms;
@@ -81,11 +81,11 @@ function getDms() {
 function checkSection(obj) {
     let wScroll = window.pageYOffset;
     for(let section in obj) {
-    if( (obj[section].top - 100) < wScroll && obj[section].bottom > wScroll) {     
+    if( (obj[section].top - 100) < wScroll && obj[section].bottom > wScroll) {
       reqlink = $('.nav__link').filter('[href=".\/#' + section + '"]');
       reqlink.closest('.nav__item').addClass('nav__item--active').siblings().removeClass('nav__item--active');
 
-      /**@todo Смена хеша заставляет браузер дергатся при его смене. 
+      /**@todo Смена хеша заставляет браузер дергатся при его смене.
       */
       if (navigator.userAgent.search(/Firefox/) > 0) {
         history.pushState(null, null, '#' + section);
@@ -102,7 +102,7 @@ function checkSection(obj) {
 }
 
 /**
- * Функция прокрутки к секции 
+ * Функция прокрутки к секции
  * @param {Object} obj [объект координат секций страницы]
  * @param {Element} section [id секции]
  * @param {boolean} isAnimate анимировать
@@ -111,7 +111,7 @@ function checkSection(obj) {
 function showSection(obj, section, isAnimate) {
   let direction = section.replace(/.\/#/, '');
     let reqSection, reqSectionPos;
-    for(let sekcia in obj){      
+    for(let sekcia in obj){
       if(sekcia === direction) {
         reqSectionPos = obj[sekcia].top;
       }
@@ -123,7 +123,7 @@ function showSection(obj, section, isAnimate) {
     $('body, html').animate({scrollTop: reqSectionPos});
   }
   /**
-   * В случае неиспользования скролла 
+   * В случае неиспользования скролла
    */
   animateTextInAbout(obj);
 }
@@ -132,17 +132,17 @@ function showSection(obj, section, isAnimate) {
  * Функция вызова прокрутки к секции при нажатии на кнопку
  */
 
-function toSection(dmsObj) {  
+function toSection(dmsObj) {
 
   const navlink = $('.nav__link');
   navlink.on('click', function(e) {
     e.preventDefault();
     showSection(dmsObj, $(this).attr('href'), true);
-  });   
+  });
 }
 
 /**
- * Функция прокрутки в начало страницы по нажатию на логотип 
+ * Функция прокрутки в начало страницы по нажатию на логотип
  */
 
 function toTop(dmsObj) {
@@ -245,12 +245,12 @@ function toggleClickTrigger(elem, nav) {
     this.classList.remove('d-inline-block');
     nav.css('display', 'block');
     triggered = true;
-  }); 
+  });
 }
 
 
 /**
- * Функция показа кнопки-гамбургера в мобильном меню 
+ * Функция показа кнопки-гамбургера в мобильном меню
  */
 
 function showMobileTrigger() {
@@ -271,11 +271,11 @@ function activateProjectBlocks() {
     const projectCaption = image.querySelector('.projects-gallery__caption');
       image.addEventListener('mouseenter', function(){
         projectCaption.classList.add('projects-gallery__caption--active');
-      }); 
+      });
       image.addEventListener('mouseleave', function(){
         projectCaption.classList.remove('projects-gallery__caption--active');
-      }); 
-  });  
+      });
+  });
 }
 
 /**
@@ -283,17 +283,17 @@ function activateProjectBlocks() {
  */
 
 function changePartnerOpacity(container) {
-  
+
   const partnerImages = container.find('img');
   partnerImages.on('mousemove', function(){
     $(this).addClass('partners__img--active');
     $(this).removeClass('partners__img--darkened');
     const otherImages = $(this).closest('PICTURE').siblings().find('.partners__img');
     otherImages.each(function(){
-      $(this).removeClass('partners__img--active');    
-      $(this).addClass('partners__img--darkened');       
+      $(this).removeClass('partners__img--active');
+      $(this).addClass('partners__img--darkened');
     })
-  });  
+  });
 }
 
 /**
@@ -302,35 +302,35 @@ function changePartnerOpacity(container) {
 
 function disablePartnerOpacity(container) {
 
-container.on('mouseleave', function(evt){ 
+container.on('mouseleave', function(evt){
     let that = $(this);
-    setTimeout(function(){    
+    setTimeout(function(){
       const images = that.find('.partners__img');
       images.each(function(i, image){
         $(image).removeClass('partners__img--active');
         $(image).removeClass('partners__img--darkened');
       });
     }, 500);
-  });  
+  });
 }
 
 /**
  * Функция инициализации и настройки параметров карты
  */
 
-function initMap() { 
+function initMap() {
   let myMap, myPlacemark;
   myMap = new ymaps.Map("map", {
       center: [60.032975, 30.323807],
       zoom: 15
-  }); 
+  });
   myMap.behaviors.disable('scrollZoom');
-  
+
   myPlacemark = new ymaps.Placemark([60.032524, 30.323270], {
       hintContent: 'Форум!',
       balloonContent: 'Энгельса 109'
   });
-  
+
   myMap.geoObjects.add(myPlacemark);
 }
 
@@ -345,14 +345,14 @@ function IETune() {
     const paragraphs = document.querySelectorAll('.description__par');
     [].forEach.call(paragraphs, function(par){
       $(par).css('opacity', 1);
-    });    
+    });
     $('.contacts-form__logo').css('width', '83px');
   }
 }
 
 /*********************************************************************/
 /**********************  При загрузке страницы **********************/
-/********************************************************************/ 
+/********************************************************************/
 
 $(document).ready(function() {
 
@@ -360,13 +360,13 @@ $(document).ready(function() {
   const navbar = $('.navbar');
   const frontTrigger = document.querySelector('#hamburger-10');
 
-  let DMS = getDms();  
+  let DMS = getDms();
   toSection(DMS);
   activateProjectBlocks();
   changePartnerOpacity(partnerContainer);
   disablePartnerOpacity(partnerContainer);
   showMobileTrigger();
-  toggleClickTrigger(frontTrigger, navbar);  
+  // toggleClickTrigger(frontTrigger, navbar);
   toTop(DMS);
   toMap();
   ymaps.ready(initMap);
@@ -376,8 +376,8 @@ $(document).ready(function() {
 
 /*********************************************************************/
 /**********************  При прокрутке страницы **********************/
-/********************************************************************/ 
- 
+/********************************************************************/
+
 /**
  * Функция-декоратор для проряжения прослушки скроллинга
  * @param {Function} func
@@ -389,14 +389,14 @@ function throttle(func, ms) {
     savedArgs,
     savedThis;
   function wrapper() {
-    if (isThrottled) { 
+    if (isThrottled) {
       savedArgs = arguments;
       savedThis = this;
       return;
     }
     func.apply(this, arguments);
     setTimeout(function() {
-      isThrottled = false; 
+      isThrottled = false;
       if (savedArgs) {
         wrapper.apply(savedThis, savedArgs);
         savedArgs = savedThis = null;
@@ -406,13 +406,13 @@ function throttle(func, ms) {
   return wrapper;
 }
 
-window.addEventListener('scroll', function() { 
+window.addEventListener('scroll', function() {
 
   /**
   * @todo
   * затратно
   */
-  let DMS = getDms(); 
+  let DMS = getDms();
 
   let dynamicSectionsDms = {};
   const navbar = $('.navbar');
@@ -424,10 +424,10 @@ window.addEventListener('scroll', function() {
   /**
    * Показ меню при скролле, для IE функция отключается.
    */
-  if (navigator.userAgent.search(/Trident/) < 0) {
-    throttle(showMenu(dynamicSectionsDms, frontSectionID, navbar, 200), 100);
-  }  
-  throttle(showTrigger(dynamicSectionsDms, frontSectionID, frontTrigger), 100);
+  // if (navigator.userAgent.search(/Trident/) < 0) {
+  //   throttle(showMenu(dynamicSectionsDms, frontSectionID, navbar, 200), 100);
+  // }
+  // throttle(showTrigger(dynamicSectionsDms, frontSectionID, frontTrigger), 100);
   throttle(animateTextInAbout(dynamicSectionsDms), 100);
-  
+
 });

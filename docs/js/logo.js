@@ -34,8 +34,8 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
         // console.log(material);
 
-        loader.load( 'https://raw.githubusercontent.com/davegahn/test2/master/F4.dae', function( collada ) {
-          logo = collada.scene;
+        // loader.load( 'https://raw.githubusercontent.com/davegahn/test2/master/F4.dae', function( collada ) {
+        //   logo = collada.scene;
             // collada.scene.traverse(function (node) {
             //   if (node instanceof THREE.Mesh) {
             //     node.material = material;
@@ -47,6 +47,26 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
             //     // node.material.flatShading = true;
             //   }
             // });
+        // });
+
+        loader.load( 'https://raw.githubusercontent.com/davegahn/test2/master/F4.dae', function( collada ) {
+          logo = collada.scene;
+          mesh = logo.children[0].children[2];
+
+          var children = [];
+          mesh.traverse(function(child){
+            if(child.geometry && child.geometry.attributes.uv){
+              if(child.geometry.attributes.uv.count != child.geometry.attributes.position.count){
+                children.push(child);
+              }
+            }
+          });
+
+          for(var i = 0; i < children.length; i++){
+            mesh.remove(children[i]);
+          }
+
+          console.log(children);
         });
 
 
@@ -92,7 +112,8 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
         // renderer
         renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        var containerSecWidth = $('#front').width();
+        renderer.setSize( containerSecWidth, window.innerHeight );
         renderer.domElement.style.position = "absolute";
         renderer.domElement.style.left = 0;
         container.appendChild( renderer.domElement );
@@ -211,20 +232,20 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
       // logo controls
 
-  let playBtn = document.querySelector('.control-play');
-  let stopBtn = document.querySelector('.control-pause');
+  // let playBtn = document.querySelector('.control-play');
+  // let stopBtn = document.querySelector('.control-pause');
 
-  playBtn.addEventListener('click', function(evt) {
-    stopBtn.classList.remove('control-active');
-    playBtn.classList.add('control-active');
-    stopAnimate = false;
-    animate(stopAnimate);
-  }, false);
-  stopBtn.addEventListener('click',function() {
-    playBtn.classList.remove('control-active');
-    stopBtn.classList.add('control-active');
-    stopAnimate = true;
-  }, false);
+  // playBtn.addEventListener('click', function(evt) {
+  //   stopBtn.classList.remove('control-active');
+  //   playBtn.classList.add('control-active');
+  //   stopAnimate = false;
+  //   animate(stopAnimate);
+  // }, false);
+  // stopBtn.addEventListener('click',function() {
+  //   playBtn.classList.remove('control-active');
+  //   stopBtn.classList.add('control-active');
+  //   stopAnimate = true;
+  // }, false);
 
   // const gl = $('canvas')[1].getContext('webgl');
   // var ext = gl.getExtension("OES_texture_float");

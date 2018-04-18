@@ -2960,7 +2960,6 @@ a:hover, a:active {
 
 .navbar {
   height: 68px;
-  display: none;
   position: fixed;
   z-index: 100;
   top: 0;

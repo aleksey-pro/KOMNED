@@ -1,19 +1,19 @@
 var gulp = require('gulp'),
 	browserSync  = require('browser-sync'),
-	imagemin = require('gulp-imagemin'),	
+	imagemin = require('gulp-imagemin'),
 	concat = require('gulp-concat'),
 	minifyCSS = require('gulp-clean-css'),
 	uglify  = require('gulp-uglify-es').default,
-	gulpif = require('gulp-if'),	
+	gulpif = require('gulp-if'),
 	notify = require("gulp-notify"),
-	rename = require("gulp-rename"),	
+	rename = require("gulp-rename"),
 	sourcemaps = require('gulp-sourcemaps'),
 	spritesmith = require('gulp.spritesmith'),
   pug = require('gulp-pug'),
   sass = require('gulp-sass'),
   del  = require('del'),
   autoprefixer = require('gulp-autoprefixer'),
-	argv = require('yargs').argv, 
+	argv = require('yargs').argv,
   eslint = require('gulp-eslint'),
   autoFixTask = require('gulp-eslint-auto-fix'),
   gulpStylelint = require('gulp-stylelint'),
@@ -26,7 +26,7 @@ var config = {
   },
   tunnel: false,
   host: 'localhost',
-  port: 3000,
+  port: 34567,
   logPrefix: "Webxieter docs.",
   browser: "chrome"
 };
@@ -99,7 +99,7 @@ gulp.task('style', function() {
 });
 
 gulp.task('common-scripts', function(){
-  return gulp.src([    
+  return gulp.src([
     './node_modules/jquery/dist/jquery.min.js',
     'dev/js/libs/domshim.js'
   ]) 
@@ -110,23 +110,23 @@ gulp.task('common-scripts', function(){
 
 gulp.task('libs', function(){
   return gulp.src([
-    './node_modules/three/build/three.min.js', 
-    './node_modules/image-map/image-map.min.js', 
-    'dev/js/libs/ColladaLoader.js',  
+    './node_modules/three/build/three.min.js',
+    './node_modules/image-map/image-map.min.js',
+    'dev/js/libs/ColladaLoader.js',
     'dev/js/libs/Detector.js',
     'dev/js/libs/OrbitControls.js',
-    'dev/js/libs/stats.min.js'  
-  ])   
-  .pipe(concat('libs.js'))  
+    'dev/js/libs/stats.min.js'
+  ])
+  .pipe(concat('libs.js'))
   .pipe(gulp.dest('docs/js')); 
 });
 
-let JSsources = [    
+let JSsources = [
   './node_modules/imagesloaded/imagesloaded.pkgd.min.js',
   './node_modules/masonry-layout/dist/masonry.pkgd.min.js',
-  'dev/js/logo.js', 
-  'dev/js/scrollupArrow.js', 
-  'dev/js/mainpage.js', 
+  'dev/js/logo.js',
+  'dev/js/scrollupArrow.js',
+  'dev/js/mainpage.js',
   'dev/js/projects.js'
 ];
 
