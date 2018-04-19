@@ -3,7 +3,7 @@
     "stylelint-scss"
   ],
   "rules": {
-  "max-nesting-depth": 3
-  },
-  "extends": "stylelint-config-standard"
+    "indentation": tab,
+    "max-nesting-depth": 3
+  }
 }
