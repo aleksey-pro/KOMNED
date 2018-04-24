@@ -1,9 +1,50 @@
 include ../components/header
 
 section.main
-  p index page
-  a.arrow-up up
-    img(src='images/arrow-up.svg')
+  .container
+    .row.action.action-wrapper.relative
+      .action-desc Помещение свободного назначения 174 кв.м. за 50 000 рублей в месяц
+      .action-chars
+        p
+          span.icon.icon-train
+          | Станции метро "Сенная", "Садовая"
+        p
+          span.icon.icon-bus
+          | Отличная транспортная доступность
+        p
+          span.icon.icon-infrastr
+          | Развитая инфраструктура
+      .action-bg
+      .action-image
+          img(src="../images/akcia.jpg", alt="комнед")
+      .action-title АКЦИЯ
+  .container
+    .row
+      h2.section-title объекты
+    .row.objects
+      -var types={office: "офис-склад", shop:"Офис/магазин", studio: "Офис/студия", salon: "Магазин-салон", station: "Участок", base: "База отдыха"};
+      mixin objectCard(href, src, addr, desc, type)
+        a.object-card(href=href)
+          .object-image
+            img(src=src, alt=addr)
+          .object-title=addr
+          .object-divider
+          .object-desc=desc
+          .object-type=type
+      +objectCard('#', 'images/Izobrazhenie-060-1-300x230.jpg', 'Тележная ул., 17-19', 'Ближайшие станции метро   «пл. Александра Невского», «пл. Восстания»', types.shop)
+      +objectCard('#', 'images/4-1-300x230.jpg', 'Балтийская ул., 51', 'Ближайшая станция метро  «Балтийская»', types.office)
+      +objectCard('#', 'images/Shamsheva_ul-300x230.jpg', 'Шамшева ул., 17', 'Ближайшая станция метро «Петроградская»', types.studio)
+    .row.more
+      button.btn.more-btn.btn-warning больше объектов
+
+
+
+
+
+
+
+
+
 
 
 include ../components/footer

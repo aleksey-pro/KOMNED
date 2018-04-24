@@ -1,0 +1,52 @@
+.slider-container {
+  width: 100%;
+}
+
+.owl-carousel {
+  display: flex;
+  flex-direction: column;
+}
+
+.owl-wrapper {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.owl-item img {
+  width: 200px;
+}
+
+// .slider-container {
+//   position: relative;
+//   padding: 0 100px;
+//   width: auto;
+// }
+
+// #owl-footer {
+//   position: relative;
+// }
+
+// .owl-carousel {
+//   display: none;
+//   position: relative;
+//   width: 100%;
+// }
+
+// .owl-carousel .owl-wrapper-outer {
+//   overflow: hidden;
+//   position: relative;
+//   width: 100%;
+// }
+
+
+
+
+.carousel-control-prev-icon {
+  background: url(../images/glyphicons-225-chevron-left.png) center no-repeat;
+}
+
+.carousel-control-next {
+  background: url(../images/glyphicons-224-chevron-right.png) center no-repeat;
+}

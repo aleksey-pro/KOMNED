@@ -1,3 +1,97 @@
-p {
-  color: gray;
+.action-wrapper {
+  height: 380px;
+  background-color: $bg-secondary;
+  margin-top: 2em;
+}
+
+.action {
+  color: $gray-800;
+  &-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 300px;
+    width: 100%;
+    background: $bg-secondary url(../images/akcia.jpg) top left no-repeat;
+    background-size: cover;
+    filter: opacity(0.4);
+    z-index: 1;
+  }
+  &-image img {
+    position: absolute;
+    left: 10%;
+    top: 40%;
+    width: 30vw;
+    z-index: 2;
+  }
+  &-title {
+    position: absolute;
+    left: -1em;
+    top: 3em;
+    color: rgba($white, 0.6);
+    font-size: 3em;
+    font-weight: 600;
+    transform: rotate(-90deg);
+    z-index: 2;
+  }
+  &-desc {
+    font-size: 1.5em;
+    width: 25vw;
+    margin: 5% 10%;
+  }
+  &-chars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 600;
+    &-icon {
+      margin-right: 1em;
+    }
+  }
+}
+
+.objects {
+  justify-content: space-between;
+  background-color: #ece9e9;
+}
+
+.object-card {
+  height: 480px;
+  width: 300px;
+  margin: 0 1em;
+  background-color: $primary;
+  color: $white;
+  font-size: 1.2em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    color: $white;
+  }
+
+  .object-title, .object-desc, .object-type {
+    padding: 1em;
+  }
+
+  .object-divider {
+    width: 70%;
+    margin-left: auto;
+    border: 1px solid $white;
+  }
+
+  .object-type {
+    border-top: 2px solid $white;
+    text-align: center;
+  }
+
+}
+
+.more {
+  font-size: 1.5em;
+  &-btn {
+    margin: 2em auto;
+    text-transform: uppercase;
+  }
 }

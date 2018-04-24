@@ -1,5 +1,51 @@
-footer.footer
-    p footer
+.container-fluid.footer
+	.row
+		h2.section-title наши партнеры
+	.row
+		include ./carousel
+	.row.bg-primary
+		.container.footer-container
+			.row
+				.col-4.contacts-company
+						.footer-logo
+							a(href="/" )
+								img(src="images/menu-logo.png" width="50" height="50" alt="")
+								span комнед
+								span.text-warning .рф
+						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi illo voluptates qui laudantium dicta in amet veniam suscipit ut et.
+
+				.col-4
+					h3.footer-title Меню
+					.footer-links
+						.links-column
+							a(href="#") главная
+							a(href="#") аренда
+							a(href="#") продажа
+						.links-column
+							a(href="#") новости
+							a(href="#") контакты
+							a(href="#") ссылка
+				.col-4.footer-adress
+					h3.footer-title Контакты
+					p
+						span.icon.icon-home
+						| Россия, Санкт-Петербург, Проспект Энгельса, 109
+					p
+						span.icon.icon-phone
+						| +7 (812) 591-87-00, +7 (911) 927-92-21
+					p
+						span.icon.icon-time
+						| Пн-Пт 9.00 До 18.00
+					p
+						span.icon.icon-mail
+						| pavel@forumestate.ru
+	.row.footer-bottom
+		.container
+			.row.bottom-container
+				.rights Группа компаний "Форум"
+				.submenu Все права защищены. 1988-2018
+
+
 
 
 script(src="js/common.js")

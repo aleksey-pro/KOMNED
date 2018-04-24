@@ -43,7 +43,7 @@ gulp.task('images', function () {
 });
 
 
-gulp.task('sprite', function() {
+gulp.task('sprite', function () {
   let spriteData =
     gulp.src('dev/images/sprite/*.png')
       .pipe(spritesmith({
@@ -58,7 +58,7 @@ gulp.task('sprite', function() {
 });
 
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
   return gulp.src('dev/fonts/**/*')
     .pipe(gulp.dest('build/fonts'))
 });
@@ -69,7 +69,7 @@ gulp.task('html', function () {
     .pipe(pug({
       pretty: true,
     }))
-    .on('error', notify.onError(function(error) {
+    .on('error', notify.onError(function (error) {
       return {
         title: 'Pug',
         message: error.message,
@@ -80,7 +80,7 @@ gulp.task('html', function () {
     .pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('style', function() {
+gulp.task('style', function () {
   return gulp.src('dev/styles/main.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -90,49 +90,52 @@ gulp.task('style', function() {
         ['node_modules'],
       ],
     }).on('error', sass.logError))
-    .pipe(autoprefixer({browsers: ['last 5 versions']}))
-    .pipe(gulpif(argv.production, minifyCSS({specialComments: 0})))
+    .pipe(autoprefixer({ browsers: ['last 5 versions'] }))
+    .pipe(gulpif(argv.production, minifyCSS({ specialComments: 0 })))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/css/'))
-    .pipe(browserSync.reload({stream: true}))
+    .pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('libs', function() {
-  return gulp.src([
-    './node_modules/jquery/dist/jquery.min.js',
-    'dev/js/libs/domshim.js',
-  ])
+const libsSrc = [
+  './node_modules/jquery/dist/jquery.min.js',
+  'dev/js/libs/domshim.js',
+  './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
+]
+
+gulp.task('libs', function () {
+  return gulp.src(libsSrc)
     .pipe(concat('common.js'))
     .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
   return gulp.src('dev/js/scripts.js')
     .pipe(sourcemaps.init())
     .pipe(gulpif(argv.production, uglify()))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 
-gulp.task('lint-css', function() {
+gulp.task('lint-css', function () {
   return gulp.src('dev/**/*.scss')
     .pipe(gulpStylelint({
-        reporters: [
-        {formatter: 'string', console: true}
+      reporters: [
+        { formatter: 'string', console: true }
       ]
     }));
 });
 
 autoFixTask('fix-js', ['dev/js /c ommon.js', 'dev/js/scripts.js']);
 
-gulp.task ('watch', function(){
-	gulp.watch('dev/templates/**/*.pug', ['html']);
-	gulp.watch('dev/styles/**/*.scss', ['style']);
-	gulp.watch('dev/js/*.js', ['scripts', 'fix-js']);
+gulp.task('watch', function () {
+  gulp.watch('dev/templates/**/*.pug', ['html']);
+  gulp.watch('dev/styles/**/*.scss', ['style']);
+  gulp.watch('dev/js/*.js', ['scripts', 'fix-js']);
 });
 
-gulp.task ('start', ['html', 'images', 'libs', 'scripts', 'style', 'browserSync', 'watch']);
-gulp.task ('build', ['html', 'images', 'libs', 'scripts', 'style']); // , 'sprite', 'images', 'fonts'
-gulp.task('del', function() {return del.sync('build'); });
+gulp.task('start', ['html', 'images', 'libs', 'scripts', 'style', 'browserSync', 'watch']);
+gulp.task('build', ['html', 'images', 'libs', 'scripts', 'style']); // , 'sprite', 'images', 'fonts'
+gulp.task('del', function () { return del.sync('build'); });

@@ -1,6 +1,6 @@
 // varaibles
 
-$text-main-color: #ffffff;
+$text-main-color: #bdb8b8;
 $text-red-color: #ef7b4c;
 $text-yel-color: #ffd800;
 $text-oran-color: #db8353;
@@ -10,7 +10,7 @@ $bg-color: #001eff;
 $dark-blue: #000a53;
 
 $navbar-height: 68px;
-$navbar-height-w: calc(#{$navbar-height} * 1.59); 
+$navbar-height-w: calc(#{$navbar-height} * 1.59);
 
 // mixins
 
@@ -33,7 +33,7 @@ $navbar-height-w: calc(#{$navbar-height} * 1.59);
 }
 
 .text-yell {
-  color: $text-yel-color; 
+  color: $text-yel-color;
   font-weight: bold;
 }
 
