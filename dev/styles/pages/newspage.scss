@@ -1,0 +1,28 @@
+.newsItem-image {
+	position: relative;
+	margin-top: 2em;
+	margin-bottom: 2em;
+
+	img {
+		width: 100%;
+	}
+
+	.newsItem-credentials {
+		position: absolute;
+		margin-top: 5%;
+		width: 100%;
+		height: 2em;
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		background-color: rgba($white, 0.5);
+		color: $text-second-color;
+		padding: 0 1em;
+	}
+}
+
+.newsItem-text {
+	color: $text-second-color;
+	padding: 1em;
+	background-color: #ece9e9;
+}

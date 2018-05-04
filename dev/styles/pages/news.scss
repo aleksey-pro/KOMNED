@@ -1,0 +1,31 @@
+.news-items {
+	display: flex;
+	flex-direction: column;
+}
+
+.news-item {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 2em;
+
+	.news-image img {
+		width: 100%;
+	}
+	.news-block {
+		padding: 1em;
+		position: absolute;
+		left: 0;
+		bottom: 10%;
+		width: 60%;
+		background-color: rgba(0, 123, 255, 0.45);
+		color: #fffcfc;
+	}
+	// .news-title {
+	// 	color: #2d2d2d;
+	// }
+	// .news-subtitle {
+	// }
+	.newsBtn {
+		margin: 3em 0 1em;
+	}
+}

@@ -1,5 +1,27 @@
 include ../components/header
 
-p contacts page
+section.contacts
+  .container
+    .row.section-title
+      h2 офис
+    .row.contacts-address
+      p
+        span.icon.icon-home
+        | Россия, Санкт-Петербург, Проспект Энгельса, 109
+      p
+        span.icon.icon-phone
+        | +7 (812) 591-87-00, +7 (911) 927-92-21
+      p
+        span.icon.icon-time
+        | Пн-Пт 9.00 До 18.00
+      p
+        span.icon.icon-mail
+        | pavel@forumestate.ru
+    .row.contacts-office
+      .row.contacts-map.col-12.col-md-6
+        #map.map
+      .row.contacts-image.col-12.col-md-6
+        img(src="images/office-img.png", alt="комнед")
+
 
 include ../components/footer

@@ -1,10 +1,11 @@
 // varaibles
 
-$text-main-color: #bdb8b8;
+// $text-main-color: #868686;
+$text-main-color: #ffffff;
+$text-second-color: #2d2d2d;
 $text-red-color: #ef7b4c;
 $text-yel-color: #ffd800;
 $text-oran-color: #db8353;
-
 
 $bg-color: #001eff;
 $dark-blue: #000a53;
@@ -15,68 +16,69 @@ $navbar-height-w: calc(#{$navbar-height} * 1.59);
 // mixins
 
 @mixin box-shadow {
-  box-shadow: 0px 0px 20px 7px #000000;
+	box-shadow: 0px 0px 20px 7px #000000;
 }
 
 @mixin inset-box-shadow {
-  box-shadow: inset 0px 0px 20px 7px #000000;
+	box-shadow: inset 0px 0px 20px 7px #000000;
 }
 
 .text-orange {
-  color: $text-oran-color;
-  font-weight: bold;
+	color: $text-oran-color;
+	font-weight: bold;
 }
 
 .text-red {
-  color: $text-red-color;
-  font-weight: bold;
+	color: $text-red-color;
+	font-weight: bold;
 }
 
 .text-yell {
-  color: $text-yel-color;
-  font-weight: bold;
+	color: $text-yel-color;
+	font-weight: bold;
 }
 
 .is-hidden {
-  display: none;
+	display: none;
 }
 
-
 @mixin cleanUlList() {
-    list-style-type: none;
-    -webkit-margin-before: 0;
-    -moz-margin-before: 0;
-    -webkit-margin-after: 0;
-    -moz-margin-after: 0;
-    -webkit-margin-start: 0;
-    -moz-margin-start: 0;
-    -webkit-margin-end: 0;
-    -moz-margin-end: 0;
-    -webkit-padding-start: 0;
-    -moz-padding-start: 0;
+	list-style-type: none;
+	-webkit-margin-before: 0;
+	-moz-margin-before: 0;
+	-webkit-margin-after: 0;
+	-moz-margin-after: 0;
+	-webkit-margin-start: 0;
+	-moz-margin-start: 0;
+	-webkit-margin-end: 0;
+	-moz-margin-end: 0;
+	-webkit-padding-start: 0;
+	-moz-padding-start: 0;
 
-    & li {
-	    margin         : 0;
-	    padding        : 0;
-	    border         : 0;
-	    vertical-align : baseline;
-    }
+	& li {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		vertical-align: baseline;
+	}
 }
 
 @mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
+	&::-webkit-input-placeholder {
+		@content;
+	}
 
-  &:-moz-placeholder { /* Firefox 18- */
-    @content;
-  }
+	&:-moz-placeholder {
+		/* Firefox 18- */
+		@content;
+	}
 
-  &::-moz-placeholder {  /* Firefox 19+ */
-    @content;
-  }
+	&::-moz-placeholder {
+		/* Firefox 19+ */
+		@content;
+	}
 
-  &:-ms-input-placeholder {
-    @content;
-  }
+	&:-ms-input-placeholder {
+		@content;
+	}
 }

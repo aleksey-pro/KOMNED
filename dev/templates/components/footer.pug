@@ -1,10 +1,13 @@
 .container-fluid.footer
-	.row
-		h2.section-title наши партнеры
+	.row.dots-block
+	.row.section-title
+		h2
+			span.icon-partner
+			| наши партнеры
 	.row
 		include ./carousel
 	.row.bg-primary
-		.container.footer-container
+		.footer-container
 			.row
 				.col-4.contacts-company
 						.footer-logo
@@ -12,18 +15,18 @@
 								img(src="images/menu-logo.png" width="50" height="50" alt="")
 								span комнед
 								span.text-warning .рф
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi illo voluptates qui laudantium dicta in amet veniam suscipit ut et.
+						p Компания «Форум» — многопрофильный холдинг, ведущий свою деятельность на Северо-западе РФ с 1988 года. Основная область интересов – коммерческая недвижимость, телекоммуникации, сельское хозяйство. Основной актив — команда единомышленников, многие из которых работают в компании более 20 лет.
 
 				.col-4
 					h3.footer-title Меню
 					.footer-links
 						.links-column
-							a(href="#") главная
-							a(href="#") аренда
-							a(href="#") продажа
+							a(href="index.html") главная
+							a(href="arenda.html") аренда
+							a(href="sale.html") продажа
 						.links-column
-							a(href="#") новости
-							a(href="#") контакты
+							a(href="news.html") новости
+							a(href="contacts.html") контакты
 							a(href="#") ссылка
 				.col-4.footer-adress
 					h3.footer-title Контакты
@@ -39,11 +42,10 @@
 					p
 						span.icon.icon-mail
 						| pavel@forumestate.ru
-	.row.footer-bottom
-		.container
-			.row.bottom-container
-				.rights Группа компаний "Форум"
-				.submenu Все права защищены. 1988-2018
+	.row.bottom-container
+		.rights Группа компаний "Форум"
+		a(href="#").icon-up
+		.submenu Все права защищены. 1988-2018
 
 
 

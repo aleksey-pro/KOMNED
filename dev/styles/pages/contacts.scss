@@ -1,0 +1,17 @@
+.contacts-address {
+	flex-direction: column;
+	background-color: $bg-secondary;
+	color: #868686;
+	padding: 1em;
+}
+
+.map {
+	border-top: 5px solid $primary;
+	width: 100%;
+	height: 500px;
+}
+
+.contacts-image img {
+	border-top: 5px solid $primary;
+	width: 100%;
+}

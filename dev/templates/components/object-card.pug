@@ -1,0 +1,8 @@
+mixin objectCard(href, src, addr, desc, type)
+  a.object-card(href='object.html')
+    .object-image
+      img(src=src, alt=addr)
+    .object-title=addr
+    .object-divider
+    .object-desc=desc
+    .object-type=type
