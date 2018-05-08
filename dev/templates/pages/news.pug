@@ -2,18 +2,22 @@ include ../components/header
 include ../components/object-card
 
 section.news
+  .fluid-container.dots-block
+    .container.title-wrapper
+      .row.section-title
+        h2
+          .icon-news
+          | новости
   .container
-    .row.section-title
-      h2 новости
-    .row.news-items
+    .row.articles
       mixin newsItem(src, title, desc)
-        .news-item
-          .news-image
+        .article.relative
+          .article-image
             img(src=src, alt=title)
-          .news-block
-            h3.news-title=title
-            .news-subtitle=desc
-            button.btn.newsBtn.btn-comned Подробнее
+          .excerpt
+            h3.excerpt-title=title
+            .excerpt-subtitle=desc
+            button(onclick="location.href = 'newspage.html'").btn.excerpt-btn.btn-comned Подробнее
       +newsItem('images/12-960x540.jpg', 'В Петербурге немного снизились ставки на аренду офисов.', 'Об этом сообщили специалисты компании Maris.')
       +newsItem('images/chem-zanimalsya-bank-rossii-v-2015-godu1-960x540.jpg', 'Банк России понизил ключевую ставку', 'Сегодня Совет директоров Банка России принял предсказуемое решение снизить ключевую ставку до 10% годовых.')
       +newsItem('images/tn_207483_1253961e18921-960x540.jpg', 'Ежегодный рост коммунальных тарифов ограничат уровнем инфляции', 'Рост тарифов жилищно-коммунального хозяйства в России ограничат уровнем инфляции, сообщает РИА «Новости» со ссылкой на заместителя председателя комитета Госдумы по жилищной политике и ЖКХ Александра Сидякина.')

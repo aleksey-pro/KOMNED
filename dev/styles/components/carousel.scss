@@ -1,21 +1,33 @@
 .slider-container {
-  width: 100%;
+	width: 100%;
 }
 
 .owl-carousel {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .owl-wrapper {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: relative;
+	z-index: 3;
+}
+
+.owl-line {
+	position: absolute;
+	z-index: 2;
+	top: 100px;
+	left: 0;
+	height: 5px;
+	width: 100%;
+	background-color: $c-primary;
 }
 
 .owl-item img {
-  width: 200px;
+	width: 200px;
 }
 
 // .slider-container {
@@ -40,13 +52,10 @@
 //   width: 100%;
 // }
 
-
-
-
 .carousel-control-prev-icon {
-  background: url(../images/glyphicons-225-chevron-left.png) center no-repeat;
+	background: url(../images/glyphicons-225-chevron-left.png) center no-repeat;
 }
 
 .carousel-control-next {
-  background: url(../images/glyphicons-224-chevron-right.png) center no-repeat;
+	background: url(../images/glyphicons-224-chevron-right.png) center no-repeat;
 }

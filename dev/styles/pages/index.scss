@@ -1,11 +1,17 @@
 .action-wrapper {
-	height: 380px;
+	height: 280px;
 	background-color: $bg-secondary;
 	margin-top: 2em;
+
+	@include media-breakpoint-up(lg) {
+		height: 380px;
+	}
 }
 
 .action {
 	color: $gray-800;
+	border-top: 6px solid $c-primary;
+
 	&-bg {
 		position: absolute;
 		left: 0;
@@ -14,48 +20,88 @@
 		width: 100%;
 		background: $bg-secondary url(../images/akcia.jpg) top left no-repeat;
 		background-size: cover;
-		filter: opacity(0.4);
+		filter: opacity(0.2);
 		z-index: 1;
 	}
 	&-image img {
 		position: absolute;
 		left: 10%;
-		top: 40%;
-		width: 30vw;
+		top: 50%;
+		width: 30%;
 		z-index: 2;
+		display: none;
+
+		@include media-breakpoint-up(md) {
+			display: block;
+			width: 50%;
+			left: 2%;
+			top: 60%;
+		}
+		@include media-breakpoint-up(lg) {
+			top: 50%;
+		}
 	}
 	&-title {
 		position: absolute;
 		left: -1em;
 		top: 3em;
-		color: rgba($white, 0.6);
+		color: rgba($c-white, 0.6);
 		font-size: 3em;
 		font-weight: 600;
 		transform: rotate(-90deg);
-		z-index: 2;
+		z-index: -1;
+
+		@include media-breakpoint-up(xl) {
+			left: 85%;
+			z-index: 3;
+		}
 	}
 	&-desc {
-		font-size: 1.5em;
-		width: 25vw;
-		margin: 5% 10%;
+		font-size: 1em;
+		margin: 5%;
+		@include media-breakpoint-up(sm) {
+			width: 50%;
+			font-size: 1.5em;
+		}
+		@include media-breakpoint-up(md) {
+			width: 45%;
+			z-index: 2;
+		}
 	}
-	&-chars {
+	&-features {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-end;
 		font-weight: 600;
+		margin-left: auto;
+		margin-right: 1em;
+
 		&-icon {
 			margin-right: 1em;
+		}
+		@include media-breakpoint-up(sm) {
+			width: 40%;
+			justify-content: center;
+			margin: 0;
+		}
+
+		@include media-breakpoint-up(md) {
+			width: 35%;
 		}
 	}
 }
 
-
-
 .more {
 	font-size: 1.5em;
+
 	&-btn {
-		margin: 2em auto;
+		margin: 1em auto;
 		text-transform: uppercase;
+
+		@extend %btn-shadow;
+
+		@include media-breakpoint-up(md) {
+			margin: 2em auto;
+		}
 	}
 }

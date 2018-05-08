@@ -4,48 +4,49 @@
 		h2
 			span.icon-partner
 			| наши партнеры
-	.row
-		include ./carousel
+	//- .row
+	//- 	include ./carousel
 	.row.bg-primary
 		.footer-container
-			.row
-				.col-4.contacts-company
+			.row.info-wrapper
+				.col-12.col-lg-4.info-company
 						.footer-logo
 							a(href="/" )
-								img(src="images/menu-logo.png" width="50" height="50" alt="")
-								span комнед
-								span.text-warning .рф
+								img(src="images/menu-logo.png" width="50" height="50" alt="").footer-logo__img
+								span.footer-logo__title комнед
+								span.footer-logo__title.text-warning .рф
 						p Компания «Форум» — многопрофильный холдинг, ведущий свою деятельность на Северо-западе РФ с 1988 года. Основная область интересов – коммерческая недвижимость, телекоммуникации, сельское хозяйство. Основной актив — команда единомышленников, многие из которых работают в компании более 20 лет.
 
-				.col-4
-					h3.footer-title Меню
-					.footer-links
-						.links-column
-							a(href="index.html") главная
-							a(href="arenda.html") аренда
-							a(href="sale.html") продажа
-						.links-column
-							a(href="news.html") новости
-							a(href="contacts.html") контакты
-							a(href="#") ссылка
-				.col-4.footer-adress
-					h3.footer-title Контакты
-					p
-						span.icon.icon-home
-						| Россия, Санкт-Петербург, Проспект Энгельса, 109
-					p
-						span.icon.icon-phone
-						| +7 (812) 591-87-00, +7 (911) 927-92-21
-					p
-						span.icon.icon-time
-						| Пн-Пт 9.00 До 18.00
-					p
-						span.icon.icon-mail
-						| pavel@forumestate.ru
+				.col-12.col-lg-8
+					.row
+						.col-12.col-lg-6
+							h3.footer-nav__title Меню
+							.footer-nav__links
+								.footer-nav__column
+									a(href="index.html") главная
+									a(href="arenda.html") аренда
+									a(href="sale.html") продажа
+								.footer-nav__column
+									a(href="news.html") новости
+									a(href="contacts.html") контакты
+						.col-12.col-lg-6.info-contacts
+							h3.info-contacts__title Контакты
+							p
+								span.icon-home
+								| Россия, Санкт-Петербург, Проспект Энгельса, 109
+							p
+								span.icon-phone
+								| +7 (812) 591-87-00, +7 (911) 927-92-21
+							p
+								span.icon-time
+								| Пн-Пт 9.00 До 18.00
+							p
+								span.icon-mail
+								| pavel@forumestate.ru
 	.row.bottom-container
 		.rights Группа компаний "Форум"
-		a(href="#").icon-up
-		.submenu Все права защищены. 1988-2018
+		a(href="#" title="Наверх").icon-up
+		.submenu &copy; Все права защищены. 1988-2018
 
 
 

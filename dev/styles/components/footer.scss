@@ -5,54 +5,117 @@
 }
 
 .footer-container {
-	padding: 4em;
-	color: darken($text-main-color, 15%);
+	padding: 1em;
+	color: darken($c-white, 15%);
+
+	@include media-breakpoint-up(sm) {
+		padding: 2em;
+	}
+}
+
+.info-wrapper {
+	@extend %box-shadow;
+	padding: 0.2em;
+
+	@include media-breakpoint-up(sm) {
+		padding: 2em;
+	}
 }
 
 .footer-logo {
-	img {
+	&__img {
 		margin-right: 1em;
 	}
-	span {
+	&__title {
 		font-size: 1.5em;
-		color: $white;
+		color: $text-main-color;
 	}
 }
 
-.footer-title {
-	color: $white;
-	margin-bottom: 1em;
+.footer-nav__title,
+.info-contacts__title {
+	font-size: 1.2rem;
+	color: $text-main-color;
+	margin-bottom: 0.3em;
+	@include media-breakpoint-up(md) {
+		font-size: 1.75rem;
+		margin-bottom: 1em;
+	}
 }
 
-.contacts-company {
+.info-company {
 	display: flex;
 	flex-direction: column;
-	padding-right: 5em;
+	padding-right: 1em;
+
 	p {
+		font-size: 0.8em;
 		margin-top: 2em;
+
+		@include media-breakpoint-up(sm) {
+			padding-right: 0;
+			font-size: 1em;
+		}
+	}
+
+	@include media-breakpoint-up(xl) {
+		padding-right: 5em;
 	}
 }
 
-.footer-links {
-	display: flex;
-	text-transform: uppercase;
-	.links-column {
+.footer-nav {
+	&__column {
 		display: flex;
 		flex-basis: 150px;
 		flex-direction: column;
 		a {
-			margin: 1em 0;
+			margin: 0;
 			color: inherit;
+
+			@include media-breakpoint-up(sm) {
+				margin: 1em 0;
+			}
 		}
+	}
+	&__links {
+		display: flex;
+		text-transform: uppercase;
+	}
+}
+
+.info-contacts {
+	margin-top: 1em;
+	p {
+		font-size: 0.8em;
+
+		@include media-breakpoint-up(sm) {
+			padding-right: 1em;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		margin-top: 0;
 	}
 }
 
 .bottom-container {
 	height: 50px;
-	background-color: darken($blue, 20%);
-	padding: 0 4em;
+	background-color: darken($c-primary, 10%);
+	padding: 0 1em;
+	font-size: 0.7em;
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	.icon-up {
+		margin-top: 1em;
+	}
+
+	@include media-breakpoint-up(md) {
+		font-size: 1em;
+		.icon-up {
+			margin-top: 0;
+		}
+	}
 }

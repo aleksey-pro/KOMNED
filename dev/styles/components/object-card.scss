@@ -1,26 +1,31 @@
 .objects {
-	justify-content: space-between;
-	// background-color: #fafafa;
+	justify-content: space-around;
 	background: url(../images/bg_dots.png) center repeat;
+
+	@extend %box-shadow;
+
+	@include media-breakpoint-up(lg) {
+		justify-content: space-between;
+	}
 }
 
 .object-card {
-	height: 500px;
+	height: 450px;
 	width: 300px;
 	margin-bottom: 1em;
 	background-color: $primary;
-	font-size: 1.2em;
+	font-size: 0.8em;
+	overflow: hidden;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 
-	&:hover {
-		color: $white;
-	}
+	transition: all 0.5s ease-in-out;
 
 	.object-image {
 		padding-top: 20px;
+		// transition: transform 0.5s ease-in-out;
 	}
 
 	.object-title,
@@ -39,4 +44,17 @@
 		border-top: 2px solid $white;
 		text-align: center;
 	}
+
+	@include media-breakpoint-up(md) {
+		height: 600px;
+		font-size: 1.2em;
+	}
+}
+
+.object-card:hover {
+	-webkit-box-shadow: 0px 0px 6px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px 0px 6px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px 0px 6px 5px rgba(50, 50, 50, 0.75);
+	color: $white;
+	transform: scale(0.97);
 }

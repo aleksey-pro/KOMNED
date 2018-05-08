@@ -3,6 +3,7 @@
 @import "node_modules/swiper/dist/css/swiper";
 
 @import "fonts";
+@import "icons";
 
 @import "helpers";
 
@@ -10,8 +11,7 @@
 @import "components/slider";
 @import "components/carousel";
 
-// $bg-secondary: #ece9e9;
-$bg-secondary: #fafafa;
+// ------------------------------------Common styles ------------------------------- //
 
 .browsehappy {
 	position: fixed;
@@ -22,20 +22,20 @@ $bg-secondary: #fafafa;
 	text-align: center;
 }
 
-.relative {
-	position: relative;
-}
+// Section title
 
 .section-title {
-	margin: 2em -15px;
+	margin: 1em -15px;
 	text-transform: uppercase;
-	background-color: rgba($primary, 0.2);
+	background-color: rgba($c-primary, 0.42);
 	position: relative;
-	height: 150px;
+	height: 100px;
+
 	& > * {
+		font-size: 1.5em;
 		margin: 0 auto;
-		line-height: 150px;
-		color: $primary;
+		line-height: 100px;
+		color: darken($c-primary, 30%);
 		font-weight: bold;
 	}
 	&:after {
@@ -50,68 +50,41 @@ $bg-secondary: #fafafa;
 		background-size: cover;
 		height: inherit;
 	}
+
+	@include media-breakpoint-up(md) {
+		height: 150px;
+		margin: 2em -15px;
+		& > * {
+			font-size: 2rem;
+			line-height: 150px;
+		}
+	}
 }
 
 .dots-block {
-	background: $white url("../images/bg_dots.png") center repeat;
+	background: $c-white url("../images/bg_dots.png") center repeat;
 }
 
 .title-wrapper {
-	background-color: $white;
+	background-color: $c-white;
 }
 
-// buttons
-
-.btn-comned {
-	color: $white;
-	border: 2px solid transparent;
-	background-color: transparent !important;
-	border-color: #ffc107;
-	border-radius: unset !important;
-	&:hover {
-		color: $white !important;
-		background-color: transparent !important;
-		border-color: #d39e00;
-	}
-}
-
-.arrow-up {
-	position: fixed;
-	text-align: center;
-	z-index: 999;
-	display: none;
-
-	img {
-		width: 6.33rem;
-	}
-
-	p {
-		color: $text-oran-color;
-		text-transform: uppercase;
-	}
-}
-
-@include media-breakpoint-up(xl) {
-	.arrow-up {
-		left: 1rem !important;
-	}
-}
-
-// ------------ TYPOGRAPHY-------------
-
-html,
-body {
-	position: relative;
-	height: 100%;
-}
+// ------------------------------------TYPOGRAPHY ------------------------------- //
 
 body,
 h1,
 h2,
 a {
 	font-family: "Montserrat", sans-serif;
-	line-height: 1.1;
 	color: $text-main-color;
+}
+
+p {
+	font-size: 0.7em;
+
+	@include media-breakpoint-up(sm) {
+		font-size: 1em;
+	}
 }
 
 a:hover,
@@ -120,68 +93,7 @@ a:active {
 	text-decoration: none;
 }
 
-//icons ===========
-.icon {
-	display: inline-block;
-	margin-right: 1em;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 20px;
-	height: 20px;
-}
-
-.icon-partner {
-	display: inline-block;
-	margin-right: 1em;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 40px;
-	height: 40px;
-	background-image: url("../images/people.png");
-}
-
-.icon-up {
-	display: inline-block;
-	margin-right: 1em;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 20px;
-	height: 20px;
-	background-image: url("../images/arrow-up.png");
-}
-
-.icon-train {
-	background-image: url("../images/glyphicons-15-train.png");
-}
-
-.icon-bus {
-	background-image: url("../images/glyphicons-32-bus.png");
-}
-
-.icon-infrastr {
-	background-image: url("../images/glyphicons-90-building.png");
-}
-
-.icon-home {
-	background-image: url("../images/glyphicons-21-home.png");
-}
-
-.icon-phone {
-	background-image: url("../images/glyphicons-442-phone-alt.png");
-}
-
-.icon-time {
-	background-image: url("../images/glyphicons-55-clock.png");
-}
-
-.icon-mail {
-	background-image: url("../images/glyphicons-11-envelope.png");
-}
-
-//includes ==========
+// ------------------------------------includes ------------------------------- //
 
 // header
 @import "components/header";
@@ -204,7 +116,7 @@ a:active {
 // contacts page
 @import "pages/contacts";
 
-// arenda page
+// object page
 @import "pages/object";
 
 // footer

@@ -3,27 +3,49 @@
 	padding: 0;
 }
 
-.navbar-brand {
-	position: absolute;
-	left: 0;
-	top: -15px;
+.navbar-logo {
+	background-color: rgba($c-white, 0.7);
+	padding: 0.2em;
 
-	background-color: rgba($white, 0.7);
-	padding: 0.7em;
+	img {
+		width: 50px;
+	}
+
+	@include media-breakpoint-up(sm) {
+		padding: 0.7em;
+		margin-top: 30px;
+		img {
+			width: 80px;
+		}
+	}
+
+	@extend %box-shadow;
+}
+
+.navbar-nav {
+	background-color: rgba(0, 0, 0, 0.6);
+
+	@include media-breakpoint-up(lg) {
+		background-color: unset;
+	}
 }
 
 .navbar-nav .nav-link {
-	color: $white;
+	color: $text-main-color;
 	font-weight: 500;
 	transition: all 0.3s ease-in-out;
+	text-align: center;
+	height: 5em;
+	line-height: 5em;
+	border-top: 1px solid $c-white;
 
 	&:hover {
-		color: $warning;
+		color: $c-warning;
 	}
 }
 
 .navbar-nav .active .nav-link {
-	color: $warning;
+	color: $c-warning;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -34,40 +56,81 @@
 .header-phone {
 	position: absolute;
 	right: 0;
-	top: calc(100% + 25px);
-	font-size: 1.5em;
+	top: 100%;
+	font-size: 1em;
 	font-weight: 500;
 	margin-right: 15px;
 
-	color: $warning;
+	color: $c-warning;
+
+	@include media-breakpoint-up(sm) {
+		font-size: 1.5em;
+		top: calc(100% - 25px);
+	}
+
+	text-shadow: -0 -1px 0 #6c757d, 0 -1px 0 #6c757d, -0 1px 0 #6c757d,
+		0 1px 0 #6c757d, -1px -0 0 #6c757d, 1px -0 0 #6c757d, -1px 0 0 #6c757d,
+		1px 0 0 #6c757d, -1px -1px 0 #6c757d, 1px -1px 0 #6c757d, -1px 1px 0 #6c757d,
+		1px 1px 0 #6c757d, -1px -1px 0 #6c757d, 1px -1px 0 #6c757d, -1px 1px 0 #6c757d,
+		1px 1px 0 #6c757d;
 }
 
 .header-poster {
-	height: 350px;
-	background: $primary url(../images/header-bg.jpg) center no-repeat;
+	height: 250px;
+	background: $c-primary url(../images/header-bg.jpg) center no-repeat;
 	background-size: cover;
 
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
 	padding-bottom: 0.5em;
+
+	@extend %box-shadow;
+
+	@include media-breakpoint-up(md) {
+		height: 450px;
+	}
 }
 
-.header-info {
+.header-subject {
 	text-transform: uppercase;
 	text-align: center;
 	font-weight: 600;
 	&__title {
-		background-color: rgba(#000, 0.3);
-		font-size: 3.5em;
+		background-color: rgba(0, 123, 255, 0.58);
+		font-size: 1.5em;
 		padding: 0.2em 1em;
-		color: $white;
+		color: c-white;
+
+		@include media-breakpoint-up(md) {
+			font-size: 3.5em;
+			padding: 0.2em 3em;
+		}
+		@include media-breakpoint-up(xl) {
+			padding: 0.2em 5em;
+		}
 	}
 	&__desc {
-		margin-top: 0.4em;
-		font-size: 2.5em;
-		color: $gray-600;
-		width: 70vw;
+		margin: 0.4em auto 0;
+		font-size: 0.8em;
+		color: $gray-700;
 		font-family: "Open Sans", sans-serif;
+
+		@include media-breakpoint-up(md) {
+			font-size: 1.5em;
+		}
+
+		@include media-breakpoint-up(lg) {
+			font-size: 2em;
+		}
+
+		@include media-breakpoint-up(xl) {
+			margin: 0.1em auto 0;
+			width: 95%;
+			font-size: 2.4em;
+		}
+		@media all and (min-width: 1800px) {
+			width: 70%;
+		}
 	}
 }

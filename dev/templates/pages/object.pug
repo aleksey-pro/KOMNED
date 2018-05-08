@@ -1,15 +1,19 @@
 include ../components/header
 include ../components/object-card
 section.object
+  .fluid-container.dots-block
+    .container.title-wrapper
+      .row.section-title
+        h2 Шамшева, 17
   .container
     .row
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/80.jpg" alt="" class="swiper-image" /><span>Шамшева, 17</span></div>
-          <div class="swiper-slide"><img src="images/7.jpg" alt="" class="swiper-image" /><span>Шамшева, 17</span></div>
-          <div class="swiper-slide"><img src="images/slider_71.jpg" alt="" class="swiper-image" /><span>Шамшева, 17</span></div>
-          <div class="swiper-slide"><img src="images/slider9.jpg" alt="" class="swiper-image" /><span>Шамшева, 17</span></div>
-          <div class="swiper-slide"><img src="images/slider12.jpg" alt="" class="swiper-image" /><span>Шамшева, 17</span></div>
+          <div class="swiper-slide"><img src="images/80.jpg" alt="" class="swiper-image" /></div>
+          <div class="swiper-slide"><img src="images/7.jpg" alt="" class="swiper-image" /></div>
+          <div class="swiper-slide"><img src="images/slider_71.jpg" alt="" class="swiper-image" /></div>
+          <div class="swiper-slide"><img src="images/slider9.jpg" alt="" class="swiper-image" /></div>
+          <div class="swiper-slide"><img src="images/slider12.jpg" alt="" class="swiper-image" /></div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -18,8 +22,10 @@ section.object
         <div class="swiper-button-prev"></div>
       </div>
     .row.object-description
+      .desc-title описание
       p Местоположение объекта позволяет добраться за 5 минут до центра города. Оживленный район включает в себя развитую инфраструктуру – близость со ст.м.Петроградская, Чкаловская, Спортивная.
       h4.object-place Петроградский район
+      .desc-title характеристики
       ul.object-specs
         li.object-spec общая площадь — 92 кв.м;
         li.object-spec высота потолков — 3,35 м;
@@ -28,6 +34,13 @@ section.object
         li.object-spec вход в помещение через парадную;
         li.object-spec 4-й этаж, окна выходят на улицу Шамшева;
         li.object-spec все коммуникации;подходит под апартаменты, офис, салон красоты, медицинскую клинику, редакцию.
+      .desc-title аренда
+      p Стоимость аренды — 70 000 рублей за все помещения в месяц.
+      .desc-title продажа
+      p
+
+    .row
+      #map.map
 
 
 include ../components/footer

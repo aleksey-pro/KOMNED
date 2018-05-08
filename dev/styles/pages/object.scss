@@ -1,3 +1,19 @@
-.object-description p {
-	margin: 4em 0;
+.object-description {
+	margin-top: 3em;
+	margin-bottom: 3em;
+	padding: 0 2em;
+	background-color: $bg-secondary;
+	color: $c-grey;
+	h3 {
+		margin: 2em 0;
+	}
+}
+
+.desc-title {
+	width: 100%;
+	border-bottom: 1px solid $c-grey;
+	color: darken($c-warning, 20%);
+	font-weight: 600;
+	margin: 3em 0 1em;
+	text-transform: uppercase;
 }

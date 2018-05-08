@@ -7,6 +7,8 @@ function initMap() {
 		zoom: 15
 	});
 
+	myMap.behaviors.disable("scrollZoom");
+
 	let myPlacemark = new ymaps.Placemark([60.032524, 30.32327], {
 		hintContent: "Форум!",
 		balloonContent: "Энгельса 109"
@@ -41,6 +43,9 @@ function initSwiper() {
 
 $(document).ready(function() {
 	console.log("ready");
-	// $(document).find("#map") ? ymaps.ready(initMap) : null;
+	let loc = window.location.toString();
+	loc.includes("contacts") || loc.includes("object")
+		? ymaps.ready(initMap)
+		: null;
 	initSwiper();
 });

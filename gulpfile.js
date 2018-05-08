@@ -40,18 +40,36 @@ gulp.task("images", function() {
 		.pipe(gulp.dest("build/images"));
 });
 
-gulp.task("sprite", function() {
-	let spriteData = gulp.src("dev/images/sprite/*.png").pipe(
-		spritesmith({
-			imgName: "sprite.png",
-			cssName: "sprite.scss",
-			cssFormat: "css"
-			// ,
-			// imgPath: '../img/'
-		})
+gulp.task("svg-sprite", function() {
+	return (
+		gulp
+			.src("dev/images/icons/*.svg")
+			.pipe(
+				svgmin({
+					js2svg: {
+						pretty: true
+					}
+				})
+			)
+			// .pipe(cheerio({
+			//run: function ($) {
+			// $('[fill]').removeAttr('fill');
+			// $('[stroke]').removeAttr('stroke');
+			// $('[style]').removeAttr('style');
+			//},
+			// parserOptions: { xmlMode: true }
+			// }))
+			.pipe(
+				svgSprite({
+					mode: {
+						symbol: {
+							sprite: "../SVG.svg"
+						}
+					}
+				})
+			)
+			.pipe(gulp.dest("prod/icons/"))
 	);
-	spriteData.img.pipe(gulp.dest("build/images"));
-	spriteData.css.pipe(gulp.dest("dev/styles/"));
 });
 
 gulp.task("fonts", function() {
