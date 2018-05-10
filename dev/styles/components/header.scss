@@ -1,6 +1,14 @@
 .navbar-custom {
-	height: 60px;
 	padding: 0;
+	background-color: $c-primary;
+
+	button {
+		outline: none;
+	}
+
+	@include media-breakpoint-up(md) {
+		height: 60px;
+	}
 }
 
 .navbar-logo {
@@ -25,7 +33,7 @@
 .navbar-nav {
 	background-color: rgba(0, 0, 0, 0.6);
 
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-up(md) {
 		background-color: unset;
 	}
 }

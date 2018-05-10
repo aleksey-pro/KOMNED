@@ -7,6 +7,7 @@
 .footer-container {
 	padding: 1em;
 	color: darken($c-white, 15%);
+	background-color: $c-primary;
 
 	@include media-breakpoint-up(sm) {
 		padding: 2em;
