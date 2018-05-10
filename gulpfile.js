@@ -16,6 +16,9 @@ var gulp = require("gulp"),
 	eslint = require("gulp-eslint"),
 	autoFixTask = require("gulp-eslint-auto-fix"),
 	// gulpStylelint = require('gulp-stylelint'),
+	svgSprite = require("gulp-svg-sprite"),
+	cheerio = require("gulp-cheerio"),
+	svgmin = require("gulp-svgmin"),
 	htmlmin = require("gulp-html-minifier");
 
 var config = {
@@ -35,41 +38,41 @@ gulp.task("browserSync", function() {
 
 gulp.task("images", function() {
 	return gulp
-		.src("dev/images/**/*.*")
+		.src("dev/images/*.*")
 		.pipe(imagemin(imagemin.jpegtran({ progressive: true }), { verbose: true }))
 		.pipe(gulp.dest("build/images"));
 });
 
 gulp.task("svg-sprite", function() {
-	return (
-		gulp
-			.src("dev/images/icons/*.svg")
-			.pipe(
-				svgmin({
-					js2svg: {
-						pretty: true
+	return gulp
+		.src("dev/images/icons/*.svg")
+		.pipe(
+			svgmin({
+				js2svg: {
+					pretty: true
+				}
+			})
+		)
+		.pipe(
+			cheerio({
+				run: function($) {
+					$("[fill]").removeAttr("fill");
+					$("[stroke]").removeAttr("stroke");
+					$("[style]").removeAttr("style");
+				},
+				parserOptions: { xmlMode: true }
+			})
+		)
+		.pipe(
+			svgSprite({
+				mode: {
+					symbol: {
+						sprite: "../SVG.svg"
 					}
-				})
-			)
-			// .pipe(cheerio({
-			//run: function ($) {
-			// $('[fill]').removeAttr('fill');
-			// $('[stroke]').removeAttr('stroke');
-			// $('[style]').removeAttr('style');
-			//},
-			// parserOptions: { xmlMode: true }
-			// }))
-			.pipe(
-				svgSprite({
-					mode: {
-						symbol: {
-							sprite: "../SVG.svg"
-						}
-					}
-				})
-			)
-			.pipe(gulp.dest("prod/icons/"))
-	);
+				}
+			})
+		)
+		.pipe(gulp.dest("build/images/"));
 });
 
 gulp.task("fonts", function() {
@@ -122,10 +125,11 @@ gulp.task("style", function() {
 
 const libsSrc = [
 	"./node_modules/jquery/dist/jquery.min.js",
-	"dev/js/libs/domshim.js",
+	"./node_modules/svg4everybody/dist/svg4everybody.min.js",
 	"./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-	"dev/js/libs/scrollupArrow.js",
-	"./node_modules/swiper/dist/js/swiper.min.js"
+	"./node_modules/swiper/dist/js/swiper.min.js",
+	"dev/js/libs/svg-to-storage.js",
+	"dev/js/libs/domshim.js"
 ];
 
 gulp.task("libs", function() {
@@ -164,6 +168,7 @@ gulp.task("watch", function() {
 gulp.task("start", [
 	"html",
 	"images",
+	"svg-sprite",
 	"libs",
 	"scripts",
 	"style",

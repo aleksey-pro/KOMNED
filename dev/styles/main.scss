@@ -3,8 +3,6 @@
 @import "node_modules/swiper/dist/css/swiper";
 
 @import "fonts";
-@import "icons";
-
 @import "helpers";
 
 @import "components/object-card";
@@ -20,6 +18,70 @@
 	height: 100px;
 	font-size: 5em;
 	text-align: center;
+}
+
+// icons
+
+body > svg {
+	display: none;
+}
+
+%icon {
+	display: inline-block;
+	margin-right: 1em;
+	width: 20px;
+	height: 20px;
+	vertical-align: baseline;
+}
+
+.icon-action {
+	@extend %icon;
+}
+
+.icon-footer {
+	@extend %icon;
+	fill: darken($c-white, 15%);
+	vertical-align: middle;
+}
+
+.icon-contacts {
+	@extend %icon;
+	fill: $c-grey;
+}
+
+.icon-title {
+	@extend %icon;
+	display: inline-block;
+	margin-right: 0.2em;
+	width: 40px;
+	height: 30px;
+	fill: darken($c-primary, 30%);
+}
+
+.icon-carousel {
+	@extend %icon;
+	width: 40px;
+	height: 100px;
+}
+
+%nav-icon {
+	display: inline-block;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 40px;
+	height: 100px;
+}
+
+.icon-right {
+	@extend %nav-icon;
+	background-image: url("../images/arrow.png");
+	transform: rotate(180deg);
+}
+
+.icon-left {
+	@extend %nav-icon;
+	background-image: url("../images/arrow.png");
 }
 
 // Section title

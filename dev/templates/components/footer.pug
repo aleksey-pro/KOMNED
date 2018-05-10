@@ -2,10 +2,11 @@
 	.row.dots-block
 	.row.section-title
 		h2
-			span.icon-partner
+			svg.icon-title
+				use(xlink:href='images/SVG.svg#014-people')
 			| наши партнеры
-	//- .row
-	//- 	include ./carousel
+	.row
+		include ./carousel
 	.row.bg-primary
 		.footer-container
 			.row.info-wrapper
@@ -32,20 +33,26 @@
 						.col-12.col-lg-6.info-contacts
 							h3.info-contacts__title Контакты
 							p
-								span.icon-home
+								svg.icon-footer
+									use(xlink:href='images/SVG.svg#008-web')
 								| Россия, Санкт-Петербург, Проспект Энгельса, 109
 							p
-								span.icon-phone
+								svg.icon-footer
+									use(xlink:href='images/SVG.svg#007-technology')
 								| +7 (812) 591-87-00, +7 (911) 927-92-21
 							p
-								span.icon-time
+								svg.icon-footer
+									use(xlink:href='images/SVG.svg#006-clock')
 								| Пн-Пт 9.00 До 18.00
 							p
-								span.icon-mail
+								svg.icon-footer
+									use(xlink:href='images/SVG.svg#005-web-1')
 								| pavel@forumestate.ru
 	.row.bottom-container
 		.rights Группа компаний "Форум"
-		a(href="#" title="Наверх").icon-up
+		a(href="#" title="Наверх")
+			svg.icon-footer
+				use(xlink:href='images/SVG.svg#012-up-arrow')
 		.submenu &copy; Все права защищены. 1988-2018
 
 
