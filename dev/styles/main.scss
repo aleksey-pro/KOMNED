@@ -64,26 +64,6 @@ body > svg {
 	height: 100px;
 }
 
-%nav-icon {
-	display: inline-block;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 40px;
-	height: 100px;
-}
-
-.icon-right {
-	@extend %nav-icon;
-	background-image: url("../images/arrow.png");
-	transform: rotate(180deg);
-}
-
-.icon-left {
-	@extend %nav-icon;
-	background-image: url("../images/arrow.png");
-}
-
 // Section title
 
 .section-title {
@@ -93,13 +73,6 @@ body > svg {
 	position: relative;
 	height: 100px;
 
-	& > * {
-		font-size: 1.5em;
-		margin: 0 auto;
-		line-height: 100px;
-		color: darken($c-primary, 30%);
-		font-weight: bold;
-	}
 	&:after {
 		display: block;
 		top: 0;
@@ -113,6 +86,14 @@ body > svg {
 		height: inherit;
 	}
 
+	& > * {
+		font-size: 1.5em;
+		margin: 0 auto;
+		line-height: 100px;
+		color: darken($c-primary, 30%);
+		font-weight: bold;
+	}
+
 	@include media-breakpoint-up(md) {
 		height: 150px;
 		margin: 2em -15px;
@@ -124,7 +105,7 @@ body > svg {
 }
 
 .dots-block {
-	background: $c-white url("../images/bg_dots.png") center repeat;
+	background: $white url("../images/worn_dots.png") center repeat;
 }
 
 .title-wrapper {

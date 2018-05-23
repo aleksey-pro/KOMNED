@@ -2,6 +2,7 @@ mixin objectCard(href, src, addr, desc, type)
   a.object-card(href='object.html' title="Перейти")
     .object-image
       img(src=src, alt=addr)
+      .object-sale
     .object-title=addr
     .object-divider
     .object-desc=desc

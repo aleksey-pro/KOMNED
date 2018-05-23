@@ -19,8 +19,9 @@ section.main
             use(xlink:href='images/SVG.svg#002-construction')
           | Развитая инфраструктура
       .action-bg
+        img(src='../images/akcia_bg.jpg' alt='комнед.рф')
       .action-image
-          img(src="../images/akcia.jpg", alt="комнед")
+          img(src="../images/akcia.jpg", alt="комнед.рф")
       .action-title АКЦИЯ
   .fluid-container.dots-block
     .container.title-wrapper
@@ -31,7 +32,13 @@ section.main
           | объекты
   .container
     .row.objects
-      -var types={office: "офис-склад", shop:"Офис/магазин", studio: "Офис/студия", salon: "Магазин-салон", station: "Участок", base: "База отдыха"};
+      -var types={office: "Офис-склад", shop:"Офис/магазин", studio: "Офис/студия", salon: "Магазин-салон", station: "Участок", base: "База отдыха"};
+
+      +objectCard('#', 'images/Izobrazhenie-060-1-300x230.jpg', 'Тележная ул., 17-19', 'Ближайшие станции метро   «пл. Александра Невского», «пл. Восстания»', types.shop)
+      +objectCard('#', 'images/4-1-300x230.jpg', 'Балтийская ул., 51', 'Ближайшая станция метро  «Балтийская»', types.office)
+      +objectCard('#', 'images/Shamsheva_ul-300x230.jpg', 'Шамшева ул., 17', 'Ближайшая станция метро «Петроградская»', types.studio)
+    .row.objects.d-none
+      -var types={office: "Офис-склад", shop:"Офис/магазин", studio: "Офис/студия", salon: "Магазин-салон", station: "Участок", base: "База отдыха"};
 
       +objectCard('#', 'images/Izobrazhenie-060-1-300x230.jpg', 'Тележная ул., 17-19', 'Ближайшие станции метро   «пл. Александра Невского», «пл. Восстания»', types.shop)
       +objectCard('#', 'images/4-1-300x230.jpg', 'Балтийская ул., 51', 'Ближайшая станция метро  «Балтийская»', types.office)

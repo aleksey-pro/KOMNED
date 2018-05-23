@@ -1,62 +1,34 @@
-.slider-container {
+@include media-breakpoint-up(md) {
+	.swiper-row {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.swiper-button-next {
+		right: -35px;
+	}
+
+	.swiper-button-prev {
+		left: -45px;
+	}
+}
+
+#slider-footer {
 	width: 100%;
-}
+	margin-bottom: 2em;
+	padding: 0 4em 1em 4em;
+	position: unset !important;
 
-.owl-carousel {
-	display: flex;
-	flex-direction: column;
-}
-
-.owl-wrapper {
-	height: 200px;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	position: relative;
-	z-index: 3;
-	overflow: hidden;
-}
-
-.owl-line {
-	position: absolute;
-	z-index: 2;
-	top: 100px;
-	left: 0;
-	height: 5px;
-	width: 100%;
-	background-color: $c-primary;
-}
-
-.owl-item img {
-	width: 200px;
-}
-
-// .slider-container {
-//   position: relative;
-//   padding: 0 100px;
-//   width: auto;
-// }
-
-// #owl-footer {
-//   position: relative;
-// }
-
-// .owl-carousel {
-//   display: none;
-//   position: relative;
-//   width: 100%;
-// }
-
-// .owl-carousel .owl-wrapper-outer {
-//   overflow: hidden;
-//   position: relative;
-//   width: 100%;
-// }
-
-.carousel-control-prev-icon {
-	background: url(../images/glyphicons-225-chevron-left.png) center no-repeat;
-}
-
-.carousel-control-next {
-	background: url(../images/glyphicons-224-chevron-right.png) center no-repeat;
+	.swiper-slide {
+		width: 60%;
+		@include media-breakpoint-up(lg) {
+			width: 30%;
+		}
+		@media all and (min-width: 1800px) {
+			width: 20%;
+		}
+	}
+	img {
+		width: 100%;
+	}
 }

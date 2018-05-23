@@ -18,11 +18,10 @@ function initMap() {
 }
 
 /**
- * Вызов слайдера
+ * Слайдер для страницы объекта
  */
 function initSwiper() {
-	console.log("init");
-	var swiper = new Swiper(".swiper-container", {
+	const swiper = new Swiper("#slider-object", {
 		slidesPerView: 1,
 		spaceBetween: 30,
 		loop: true,
@@ -41,11 +40,56 @@ function initSwiper() {
 	});
 }
 
+/**
+ * Слайдер для футера
+ */
+function initFooterSwiper() {
+	let spase;
+	window.matchMedia("(min-width: 1200px)").matches
+		? (spase = 100)
+		: (spase = 30);
+
+	const swiper = new Swiper("#slider-footer", {
+		slidesPerView: "auto",
+		loop: true,
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev"
+		},
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false
+		},
+		spaceBetween: spase,
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true
+		}
+	});
+}
+
+/**
+ * Открытие по кнопке Больше объектов
+ * @btn Node кнопка нажатия
+ * @el Node элемент раскрытия
+ */
+function showObjects(btn, el) {
+	btn.click(function() {
+		el
+			.eq(1)
+			.removeClass("d-none")
+			.slideDown(600);
+	});
+}
+
 $(document).ready(function() {
-	console.log("ready");
 	let loc = window.location.toString();
 	loc.includes("contacts") || loc.includes("object")
 		? ymaps.ready(initMap)
 		: null;
+	initFooterSwiper();
 	initSwiper();
+	let btn = $(".more-btn");
+	let el = $(".objects");
+	showObjects(btn, el);
 });

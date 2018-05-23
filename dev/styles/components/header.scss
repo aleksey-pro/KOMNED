@@ -85,13 +85,19 @@
 
 .header-poster {
 	height: 250px;
-	background: $c-primary url(../images/header-bg.jpg) center no-repeat;
-	background-size: cover;
+	position: relative;
+	overflow: hidden;
 
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
 	padding-bottom: 0.5em;
+
+	img {
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+	}
 
 	@extend %box-shadow;
 

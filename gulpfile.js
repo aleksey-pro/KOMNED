@@ -80,47 +80,51 @@ gulp.task("fonts", function() {
 });
 
 gulp.task("html", function() {
-	return gulp
-		.src("dev/templates/pages/*.pug")
-		.pipe(
-			pug({
-				pretty: true
-			})
-		)
-		.on(
-			"error",
-			notify.onError(function(error) {
-				return {
-					title: "Pug",
-					message: error.message
-				};
-			})
-		)
-		.pipe(
-			gulpif(
-				argv.production,
-				htmlmin({ collapseWhitespace: true, removeComments: true })
+	return (
+		gulp
+			.src("dev/templates/pages/*.pug")
+			.pipe(
+				pug({
+					pretty: true
+				})
 			)
-		)
-		.pipe(gulp.dest("build/"))
-		.pipe(browserSync.reload({ stream: true }));
+			.on(
+				"error",
+				notify.onError(function(error) {
+					return {
+						title: "Pug",
+						message: error.message
+					};
+				})
+			)
+			// .pipe(
+			// 	gulpif(
+			// 		argv.production,
+			// 		htmlmin({ collapseWhitespace: true, removeComments: true })
+			// 	)
+			// )
+			.pipe(gulp.dest("build/"))
+			.pipe(browserSync.reload({ stream: true }))
+	);
 });
 
 gulp.task("style", function() {
-	return gulp
-		.src("dev/styles/main.scss")
-		.pipe(sourcemaps.init())
-		.pipe(
-			sass({
-				outputStyle: "expanded", // compressed
-				includePaths: ["dev/style/**/*.scss", ["node_modules"]]
-			}).on("error", sass.logError)
-		)
-		.pipe(autoprefixer({ browsers: ["last 5 versions"] }))
-		.pipe(gulpif(argv.production, minifyCSS({ specialComments: 0 })))
-		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest("build/css/"))
-		.pipe(browserSync.reload({ stream: true }));
+	return (
+		gulp
+			.src("dev/styles/main.scss")
+			.pipe(sourcemaps.init())
+			.pipe(
+				sass({
+					outputStyle: "expanded", // compressed
+					includePaths: ["dev/style/**/*.scss", ["node_modules"]]
+				}).on("error", sass.logError)
+			)
+			.pipe(autoprefixer({ browsers: ["last 5 versions"] }))
+			// .pipe(gulpif(argv.production, minifyCSS({ specialComments: 0 })))
+			.pipe(sourcemaps.write("."))
+			.pipe(gulp.dest("build/css/"))
+			.pipe(browserSync.reload({ stream: true }))
+	);
 });
 
 const libsSrc = [
@@ -175,7 +179,14 @@ gulp.task("start", [
 	"browserSync",
 	"watch"
 ]);
-gulp.task("build", ["html", "images", "libs", "scripts", "style"]); // , 'sprite', 'images', 'fonts'
+gulp.task("build", [
+	"html",
+	"images",
+	"svg-sprite",
+	"libs",
+	"scripts",
+	"style"
+]); // , 'sprite', 'images', 'fonts'
 gulp.task("del", function() {
 	return del.sync("build");
 });

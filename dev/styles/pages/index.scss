@@ -11,17 +11,20 @@
 .action {
 	color: $gray-800;
 	border-top: 6px solid $c-primary;
+	overflow: hidden;
 
 	&-bg {
 		position: absolute;
-		left: 0;
-		top: 0;
 		height: 300px;
-		width: 100%;
-		background: $bg-secondary url(../images/akcia.jpg) top left no-repeat;
-		background-size: cover;
 		filter: opacity(0.2);
-		z-index: 1;
+		overflow: hidden;
+
+		img {
+			height: 100%;
+			@include media-breakpoint-up(md) {
+				width: 100%;
+			}
+		}
 	}
 	&-image img {
 		position: absolute;

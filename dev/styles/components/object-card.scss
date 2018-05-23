@@ -1,16 +1,13 @@
 .objects {
 	justify-content: space-around;
-	background: url(../images/bg_dots.png) center repeat;
+	overflow: hidden;
+	position: relative;
+	background: #fff url(../images/worn_dots.png) center repeat;
 
 	@extend %box-shadow;
-
-	@include media-breakpoint-up(lg) {
-		justify-content: space-between;
-	}
 }
 
 .object-card {
-	height: 450px;
 	width: 300px;
 	margin-bottom: 1em;
 	background-color: $primary;
@@ -25,7 +22,14 @@
 
 	.object-image {
 		padding-top: 20px;
-		// transition: transform 0.5s ease-in-out;
+		position: relative;
+	}
+
+	.object-sale {
+		position: absolute;
+		left: 0.5em;
+		top: 0;
+		font-size: 14px;
 	}
 
 	.object-title,
@@ -46,7 +50,6 @@
 	}
 
 	@include media-breakpoint-up(md) {
-		height: 600px;
 		font-size: 1.2em;
 	}
 }
