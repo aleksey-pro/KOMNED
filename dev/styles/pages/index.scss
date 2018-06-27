@@ -18,6 +18,11 @@
 		height: 300px;
 		filter: opacity(0.2);
 		overflow: hidden;
+		transition: 1s;
+
+		&:hover {
+			transform: scale(1.1);
+		}
 
 		img {
 			height: 100%;

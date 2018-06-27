@@ -79,9 +79,13 @@ function showObjects(btn, el) {
 			.eq(1)
 			.removeClass("d-none")
 			.slideDown(600);
+			$(this).hide();
 	});
 }
 
+/**
+ * При готовности страницы
+ */
 $(document).ready(function() {
 	let loc = window.location.toString();
 	loc.includes("contacts") || loc.includes("object")
